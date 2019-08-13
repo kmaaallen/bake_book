@@ -13,3 +13,26 @@ coll= conn[DBS_NAME][COLLECTION_NAME]
 documents = coll.find()
 for doc in documents:
     print(doc)
+    
+    OUTPUT IN TERMINAL:
+    Mongo is connected
+{'_id': ObjectId('5d4e8cd91c9d440000cdb438'), 
+'recipe_title': 'Easy Christmas Biscuits', 
+'sub_title': 'A quick and easy festive treat!', 
+'ingredients': ['200g plain flour', '115g caster sugar', '1 tbsp ground ginger', '1 egg', '100g butter', 'Icing sugar for decorating'],
+'method': ['Pre-heat the oven to 180°C.', 'Place the flour, sugar and ginger into a large bowl and rub in the butter with your fingertips.',
+'Add the beaten egg, then gently knead to form a dough.', 'Wrap dough in film, then chill for 1 hour.', 'Roll dough to a thickness of 5mm and cut shapes.',
+'Bake for 8 minutes or until lightly golden brown.', 'Allow to cool, then decorate with icing.'], 
+'difficulty': 1, 
+'rating': 5, 
+'recipe_source': 
+'Magazine'}
+{'_id': ObjectId('5d4e8e761c9d440000cdb439'), 
+'recipe_title': 'Chocolate Chip Cookies',
+'sub_title': 'Delicious and nutritious (for the soul)',
+'ingredients': ['125g butter', '1/2 cup white sugar', '1/2 cup brown sugar', '1/2 tsp vanilla essence', '1 egg', '1 3/4 cup self-raising flour', '300g chocolate chips'],
+'method': ['Cream together butter, sugar and vanilla essence.', 'Add beaten egg gradually.', 'Mix in sifted flour.', 'Add chocolate chips and mix well.', 
+'Shape teaspoons of the mixture into small balls and placed on lightly greased oven tray. Allow room for spreading.', 'Bake for 10 to 12 minutes at 180°C.'],
+'difficulty': 1,
+'rating': 5, 
+'recipe_source': 'Sam Bradley'}
