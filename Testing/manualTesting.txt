@@ -35,4 +35,11 @@ for doc in documents:
 'Shape teaspoons of the mixture into small balls and placed on lightly greased oven tray. Allow room for spreading.', 'Bake for 10 to 12 minutes at 180°C.'],
 'difficulty': 1,
 'rating': 5, 
-'recipe_source': 'Sam Bradley'}
+GIT ADD 'recipe_source': 'Sam Bradley'}
+
+Tested proof of concept using simple hello world function
+@app.route('/')
+def hello():
+    return 'Hello World'
+
+output: displayed Hello World in preview.
