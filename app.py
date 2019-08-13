@@ -1,18 +1,22 @@
-from flask import Flask, render_template, redirect, request, url_for
-from bson.objectid import ObjectId
-import pymongo
 import os
+from flask import Flask, render_template, redirect, request, url_for
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+
+
 
 app = Flask(__name__)
 
-MONGODB_URI = os.getenv('MONGO_URI', 'mongodb://localhost')
-DBS_NAME = "bakingBookRecipes"
-COLLECTION_NAME = 'bakingBookRecipes'
+app.config["DBS_NAME"] = "bakingBookRecipes"
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+
+
+mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/show_recipes')
 def show_recipes():
-    return render_template("recipes.html", bakingBookRecipes=mongodb.bakingBookRecipes.find())
+    return render_template("recipes.html", bakingBookRecipes=mongo.db.bakingBookRecipes.find())
 
 
 if __name__=='__main__':
