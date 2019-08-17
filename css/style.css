@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap');
 
-.nav-wrapper{
+nav.nav-wrapper{
     background-color: #9b111e;
+}
+
+nav.brand-logo{
     padding-left: 20px;
     font-family: 'Homemade Apple', cursive;
 }
