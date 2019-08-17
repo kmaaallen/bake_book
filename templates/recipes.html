@@ -4,9 +4,9 @@
         
     </head>
     <body>
-        {% for recipe in bakingBookRecipes %}
-        {{bakingBookRecipes.recipe_title}}
-        {{bakingBookRecipes.sub_title}}
+        {% for recipe in recipes %}
+        {{recipe.recipe_title}}
+        {{recipe.sub_title}}
         {% endfor %}
     </body>
 </html>

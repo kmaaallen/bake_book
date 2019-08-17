@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-app.config["DBS_NAME"] = "bakingBookRecipes"
+app.config["DB_NAME"] = "bakingBookRecipes"
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 
@@ -16,7 +16,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/show_recipes')
 def show_recipes():
-    return render_template("recipes.html", bakingBookRecipes=mongo.db.bakingBookRecipes.find())
+    return render_template("recipes.html", recipes = mongo.db.bakingBookRecipes.find())
 
 
 if __name__=='__main__':
