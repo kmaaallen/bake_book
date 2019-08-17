@@ -1,27 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        
-    </head>
-    <body>
-        
- {% for recipe in recipes %}
-  <div class="row">
+{% extends 'base.html' %} {% block content %} {% for recipe in recipes %}
+<div class="row">
     <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img src="images/sample-1.jpg">
-          <span class="card-title">{{recipe.recipe_title}}</span>
+        <div class="card">
+            <div class="card-image">
+                <img src="images/placeholder.png">
+                <span class="card-title">{{recipe.recipe_title}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{recipe.sub_title}}</p>
+            </div>
+            <div class="card-action">
+                <a href="#">View Recipe</a>
+            </div>
         </div>
-        <div class="card-content">
-          <p>{{recipe.sub_title}}</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
     </div>
-  </div>
-        {% endfor %}
-    </body>
-</html>
+</div>
+{% endfor %} {% endblock %}
