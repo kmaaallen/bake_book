@@ -11,7 +11,7 @@ app.config["MONGO_DBNAME"] = 'bakingBookRecipes'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 
-mongo = pymongo(app)
+mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/show_recipes')
