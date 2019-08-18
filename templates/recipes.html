@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %} 
-{% for recipe in recipes %}
+
 <div class="row">
+    {% for recipe in recipes %}
     <div class="col s12 m4 l3">
         
         <div class="card">
@@ -16,6 +17,7 @@
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
+
  {% endblock %}
