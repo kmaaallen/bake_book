@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %} 
+{% for recipe in recipes %}
 <div class="row">
-    {% for recipe in recipes %}
     <div class="col s12 m4 l3">
         
         <div class="card">
@@ -15,7 +15,7 @@
                 <a href="#">View Recipe</a>
             </div>
         </div>
-        {% endfor %}
     </div>
 </div>
+{% endfor %}
  {% endblock %}
