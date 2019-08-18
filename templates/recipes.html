@@ -1,9 +1,10 @@
-{% extends 'base.html' %} {% block content %} {% for recipe in recipes %}
+{% extends 'base.html' %} {% block content %} 
 <div class="row">
     <div class="col s12 m7">
         <div class="card">
+            {% for recipe in recipes %}
             <div class="card-image">
-                <img src="../images/placeholder.png"/>
+                <img>{{url_for('images', filename='/placeholder.png')}}</img>
             </div>
             <div class="card-content">
                 <h3>{{recipe.recipe_title}}</h3>
