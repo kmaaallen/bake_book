@@ -4,7 +4,7 @@
         <div class="card">
             {% for recipe in recipes %}
             <div class="card-image">
-                <img href={{url_for('images', filename='/placeholder.png')}}></img>
+                <img href="{{url_for('images', filename='/placeholder.png')}}"></img>
             </div>
             <div class="card-content">
                 <h3>{{recipe.recipe_title}}</h3>
