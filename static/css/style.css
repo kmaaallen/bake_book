@@ -8,3 +8,7 @@
     padding-left: 20px;
     font-family: 'Courgette';
 }
+
+.card-content{
+    min-height: 300px;
+}
