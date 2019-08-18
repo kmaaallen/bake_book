@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% block content %} 
 <div class="row">
+    {% for recipe in recipes %}
     <div class="col s12 m4 l3">
-        {% for recipe in recipes %}
+        
         <div class="card">
             <div class="card-image">
                 <img src="/images/placeholder.png"></img>
