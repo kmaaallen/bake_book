@@ -13,7 +13,7 @@
                 <p>{{recipe.sub_title}}</p>
             </div>
             <div class="card-action">
-                <a href="https://bake-book-milestone.herokuapp.com/recipe_card">View Recipe</a>
+                <a href="{{url_for('recipe_card', recipe_id=recipe._id)}}">View Recipe</a>
             </div>
         </div>
     </div>
