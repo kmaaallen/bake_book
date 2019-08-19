@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
-
+/* recipes.html styling */
 .nav-wrapper{
     background-color: #9b111e;
 }
@@ -11,4 +11,14 @@ a.brand-logo{
 
 .card-content{
     min-height: 300px;
+}
+
+/* recipe card template styling */
+
+.recipe-image{
+    padding-top: 100px;
+}
+
+.star{
+    color:yellow;
 }

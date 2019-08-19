@@ -10,11 +10,13 @@
             <p>Takes : {{recipe.takes}}</p>
         </div>
         <div class="col s12 m6">
-            <img src="/static/images/placeholder.png"></img>
+            <img class="recipe-image" src="/static/images/placeholder.png"></img>
             <div class="rating">
-                {% for i in range (0, recipe.rating) %}
-                <p>Rating:<i class="material-icons">star</i></p>
+                <p>Rating:
+                 {% for i in range (0, recipe.rating) %}
+                <i class="material-icons star">star</i>
                 {% endfor %}
+                </p>
             </div>
         </div>
     </div>
