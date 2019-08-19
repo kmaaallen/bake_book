@@ -1,0 +1,40 @@
+{% extends base.html %} {% block content %}
+
+<div class="recipe-container">
+    {% for recipe in recipes %}
+    <div class="row">
+        <div class="col s12 m6">
+            <h3>{{recipe.recipe_title}}</h3>
+            <p>{{recipe.sub_title}}</p>
+            <p class="makes">{{recipe.makes}}</p>
+            <p class="makes">{{recipe.takes}}</p>
+        </div>
+        <div class="col s12 m6">
+            <img src="images/placeholder.png"></img>
+            <div class="rating">
+                <p>Rating: {{recipe.rating}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="ingredients">
+                <ul>
+                    {% for i in range(0, len) %}
+                    <li>{{recipe.ingredients[i]}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="method">
+                <ol>
+                    {% for i in range(0, len) %}
+                    <li>{{recipe.method[i]}}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+        <div class="col s12 m6"></div>
+    </div>
+</div>
+
+{% endblock %}
