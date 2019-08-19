@@ -20,14 +20,14 @@
         <div class="col s12 m6">
             <div class="ingredients">
                 <ul>
-                    {% for i in range(0, len) %}
+                    {% for i in range(0, len({{recipe.ingredients}}) %}
                     <li>{{recipe.ingredients[i]}}</li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="method">
                 <ol>
-                    {% for i in range(0, len) %}
+                    {% for i in range(0, len({{recipe.method}})) %}
                     <li>{{recipe.method[i]}}</li>
                     {% endfor %}
                 </ol>
