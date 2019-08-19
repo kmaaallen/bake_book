@@ -18,7 +18,7 @@ def show_recipes():
     
 @app.route('/recipe_card')
 def recipe_card():
-    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(post_id)}))
+    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'recipe_title': recipes.recipe_title}))
 
 
 if __name__=='__main__':
