@@ -6,12 +6,15 @@
         <div class="col s12 m6">
             <h3>{{recipe.recipe_title}}</h3>
             <p>{{recipe.sub_title}}</p>
-            <p class="makes">Makes : {{recipe.makes}} Takes : {{recipe.takes}}</p>
+            <p class="makes">Makes : {recipe.makes}</p>
+            <p>Takes : {{recipe.takes}}</p>
         </div>
         <div class="col s12 m6">
-            <img src="images/placeholder.png"></img>
+            <img src="/static/images/placeholder.png"></img>
             <div class="rating">
-                <p>Rating: {{recipe.rating}}</p>
+                {% for i in range (0, recipe.rating) %}
+                <p>Rating:<i class="material-icons">star</i></p>
+                {% endfor %}
             </div>
         </div>
     </div>
