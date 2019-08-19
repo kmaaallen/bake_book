@@ -13,7 +13,7 @@
             <img class="recipe-image" src="/static/images/placeholder.png"></img>
             <div class="rating">
                 <p>Rating:
-                 {% for i in range (0, recipe.rating) %}
+                 {% for i in range (0, {{recipe.rating}}) %}
                 <i class="material-icons star">star</i>
                 {% endfor %}
                 </p>
