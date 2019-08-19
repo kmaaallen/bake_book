@@ -20,16 +20,16 @@
             <div class="ingredients">
                 <p>Ingredients:</p>
                 <ul>
-                    {% for i in range(0, len(recipe.ingredients)) %}
-                    <li>{{recipe.ingredients[i]}}</li>
+                    {% for ingredient in recipe.ingredients %}
+                    <li>{{ingredient}}</li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="method">
                 <p>Method:</p>
                 <ol>
-                    {% for i in range(0, 4) %}
-                    <li>{{recipe.method[i]}}</li>
+                    {% for step in recipe.method %}
+                    <li>{{step}}</li>
                     {% endfor %}
                 </ol>
             </div>
