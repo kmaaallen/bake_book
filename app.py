@@ -16,9 +16,9 @@ mongo = PyMongo(app)
 def show_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
     
-@app.route('/recipe_card')
-def recipe_card():
-    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'recipe_title': recipes.recipe_title}))
+@app.route('/recipe_card/<recipe_id>')
+def recipe_card(recipe_id):
+    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 
 if __name__=='__main__':
