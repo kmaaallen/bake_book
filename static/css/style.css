@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Courgette|Roboto&display=swap');
 /* recipes.html styling */
 .nav-wrapper{
     background-color: #9b111e;
@@ -13,7 +13,7 @@ a.brand-logo{
     min-height: 300px;
 }
 
-/* recipe card template styling */
+/* recipecard template styling */
 
 .recipe-image{
     padding-top: 100px;
@@ -22,3 +22,13 @@ a.brand-logo{
 .star{
     color: gold;
 }
+
+.recipe-container{
+    padding-left:20px;
+    font-family: 'Roboto';
+}
+
+h5{
+    text-decoration: underline;
+}
+
