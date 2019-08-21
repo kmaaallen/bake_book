@@ -32,7 +32,7 @@ h5{
     text-decoration: underline;
 }
 
-.save-btn{
+.btn.save-btn{
     background-color:#9b111e;
     width: 20px;
 }
