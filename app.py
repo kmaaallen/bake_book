@@ -21,7 +21,7 @@ def recipe_card(recipe_id):
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 def save_recipe(recipe_id, user_id):
     mongo.db.user.saved_recipes.insert_one({ObjectId(recipe_id)})
-    return return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
     
 
 if __name__=='__main__':
