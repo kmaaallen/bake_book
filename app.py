@@ -16,10 +16,13 @@ mongo = PyMongo(app)
 def show_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
     
-@app.route('/recipe_card/<recipe_id>')
+@app.route('/recipe_card/<recipe_id><user_id>', methods=['POST'])
 def recipe_card(recipe_id):
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
-
+def save_recipe(recipe_id, user_id):
+    mongo.db.user.saved_recipes.insert_one({ObjectId(recipe_id)})
+    return return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+    
 
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
