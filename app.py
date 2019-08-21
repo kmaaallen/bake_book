@@ -23,7 +23,7 @@ def recipe_card(recipe_id):
 @app.route('/recipe_card/<recipe_id>', methods=['POST'])
 def save_recipe(recipe_id, user_id):
     user = mongo.db.user.find_one({'_id': ObjectId('5d567ffe1c9d44000015f495')})
-    user.update({ '$push': { 'saved_recipes': 'test' }})
+    user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 if __name__=='__main__':
