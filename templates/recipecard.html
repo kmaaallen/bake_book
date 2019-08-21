@@ -26,7 +26,8 @@
                 </p>
             </div>
             <div>
-                <a class="waves-effect waves-light btn save-btn" action ="{{ url_for('recipe_card/<recipe_id>', recipe_id=recipes._id)}}" method="POST" ><i class="material-icons left">add</i>Save Recipe</a>
+                <a class="waves-effect waves-light btn save-btn" action ="{{ url_for('recipe_card', recipe_id=recipes._id)}}" method="POST" ><i class="material-icons left">add</i>Save Recipe</a>
+           <!-- This button and functionality is still not working 21/08-->
             </div>
         </div>
     </div>
