@@ -8,15 +8,16 @@
             <p>{{recipes.sub_title}}</p>
             <p class="makes">Makes : {{recipes.makes}}</p>
             <p>Takes : {{recipes.takes}}</p>
+            <div class="ingredients">
+                <p>Ingredients:</p>
+                <ul>
+                    {% for ingredient in recipes.ingredients %}
+                    <li>{{ingredient}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-        <div class="ingredients">
-            <p>Ingredients:</p>
-            <ul>
-                {% for ingredient in recipes.ingredients %}
-                <li>{{ingredient}}</li>
-                {% endfor %}
-            </ul>
-        </div>
+
         <div class="col s12 m6">
             <img class="recipe-image" src="/static/images/placeholder.png"></img>
             <div class="rating">
