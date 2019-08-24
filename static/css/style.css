@@ -64,4 +64,5 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 .btn-floating {
     width: 20px;
     height: 20px;
+    line-height: 20px;
 }
