@@ -37,14 +37,14 @@ def submit_recipe():
     if request.method == 'POST':
        new_recipe = recipes.insert_one(
            {
-               "recipe_title" : form[recipe_title],
-               "sub_title" : form[sub_title],
-               "makes": form[makes],
-               "takes": form[takes],
-               "ingredients":flat_form[ingredients],
-               "method":flat_form[method],
-               "rating":"",
-               "tags": flat_form[tags],
+               "recipe_title" : form["recipe_title"],
+               "sub_title" : form["sub_title"],
+               "makes": form["makes"],
+               "takes": form["takes"],
+               "ingredients":flat_form["ingredients"],
+               "method":flat_form["method"],
+               "rating":0,
+               "tags": flat_form["tags"],
                "created_by": "current user"
            }
            )
