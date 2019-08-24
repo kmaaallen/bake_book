@@ -41,7 +41,7 @@ def submit_recipe():
                "sub_title" : form_normal["sub_title"],
                "makes": form_normal["makes"],
                "takes": form_normal["takes"],
-               "ingredients":flat_form[x.strip() for x in request.form["ingredients"].split("\r\n") if x != ''],
+               "ingredients":flat_form["ingredients"],
                "method":flat_form["method"],
                "rating":0,
                "tags": flat_form["tags"],
