@@ -45,3 +45,6 @@ h5{
     max-width: 80%;
 }
 
+input[type=text]:not(.browser-default):focus:not([readonly]){
+    border-bottom-color: #9b111e;
+}
