@@ -4,6 +4,7 @@
 <h1>Submit a recipe</h1>
 <h3>Fill in the details below to submit a recipe</h3>
 <form action="{{ url_for('submit_recipe') }}" method="post">
+    {{ form.csrf_token }}
     {{ form.recipe_title(placeholder="Recipe Title") }}
     {{ form.sub_title(placeholder="Recipe Sub-title") }}
     {{ form.makes(placeholder = "How many/much does this recipe make?") }}
