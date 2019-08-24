@@ -50,13 +50,6 @@ def submit_recipe():
            )
     return render_template('submitrecipe.html', form=form)
 
-#@app.route('/insert_recipe', methods=['POST'])
-#def insert_recipe():
- #   recipes = mongo.db.recipes
-  #  recipes.created_by.update_one('current user') #Need to make this dynamic so sets to currently logged in user
-   # recipes.insert_one(request.form.to_dict())
-    #return redirect(url_for('/'))
-
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
 
