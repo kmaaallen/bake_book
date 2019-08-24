@@ -35,7 +35,7 @@ def submit_recipe():
     if request.method == 'POST':
         ingredients = [x.strip() for x in request.form["ingredients"].split("\n") if x != '']
         for ingredient in ingredients:
-            recipes.update_one({$push}: {ingredient})
+            recipes.update_one({'$push'}: {'ingredients': ingredient})
         recipes.insert_one(request.form.to_dict())
     return render_template('submitrecipe.html', form=form)
 
