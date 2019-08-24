@@ -9,6 +9,6 @@ class AddRecipeForm(Form):
     takes = TextField("How long does this recipe take to make?")
     ingredients = TextAreaField("Ingredients:")
     method = TextAreaField("Method:")
-    tags = TextAreafIELD("Tags:")
+    tags = TextAreaField("Tags:")
     submit = SubmitField("Send")
  
