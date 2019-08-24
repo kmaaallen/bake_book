@@ -14,8 +14,8 @@
         {{ form.ingredients.label }} 
         <div id="ingredients">
         {{ form.ingredients }}
-        <a id="add-btn" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a>
         </div>
+        <a id="add-btn" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a>
         {{ form.method.label }} 
         {{ form.method (placeholder = "Please list your method steps, separated by a comma") }} 
         {{ form.tags.label }} 
@@ -28,7 +28,7 @@
 <script type="text/javascript" src="">
     $(document).ready(function() {
         $("#add-btn").click(function(){
-            $("#ingredients").append('<input id="ingredients" name="ingredients" type="text" value="">')
+            $("#ingredients").append('<input id="ingredients" name="ingredients" type="text" value="">');
         });
     });
 </script>
