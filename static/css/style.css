@@ -49,7 +49,10 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
     border-bottom: 1px solid #9b111e;
     -webkit-box-shadow: 0 1px 0 0 #9b111e;
     box-shadow: 0 1px 0 0 #9b111e;
-    color:#9b111e;
+}
+
+.label{
+    color: #9b111e;
 }
 
 
