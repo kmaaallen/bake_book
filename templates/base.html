@@ -22,12 +22,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript">
-        function addIngredient(){
-            console.log('addIngredientcalled');
+       // function addIngredient(){
+            //console.log('addIngredientcalled');
            // var ing = document.createElement("div");
             //ing.innerHTML = '<input id="ingredients" name="ingredients" type="text" value="">'; 
-            document.getElementById("ingredients").innerHTML('<input id="ingredients" name="ingredients" type="text" value="">');
-    }
+          //  document.getElementById("ingredients").innerHTML('<input id="ingredients" name="ingredients" type="text" value="">');
+   
+   $(document).ready(function() {
+        $("#addNewIngredient").click(function() {
+        console.log('addIngredientcalled');
+        var newInput = $("<input required type='text' value=''></input>")
+        .attr("id", "ingredients")
+        .attr("name", "ingredients");
+         $("#ingredients").append(newInput);
+});
+});
 </script>
 </body>
 
