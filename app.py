@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
+from flask_wtf import Form
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -32,7 +33,7 @@ def submit_recipe():
     #if request.method == 'POST':
       #  if form.validate_on_submit():
          #   new_recipe =
-    return render_template('submitrecipe.html',form=form)
+    return render_template('submitrecipe.html', form=form)
 
 #@app.route('/insert_recipe', methods=['POST'])
 #def insert_recipe():
