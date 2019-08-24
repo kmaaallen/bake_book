@@ -12,9 +12,9 @@
         {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
         {{ form.takes.label }} {{ form.takes(placeholder = "How long does this recipe take to make?") }}
         {{ form.ingredients.label }} 
-        <div id="ingredients">
+        <wrapper id="ingredients">
         {{ form.ingredients }}
-        </div>
+        </wrapper>
         <a id="add-btn" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a>
         {{ form.method.label }} 
         {{ form.method (placeholder = "Please list your method steps, separated by a comma") }} 
@@ -28,9 +28,13 @@
 <script type="text/javascript" src="">
     $(document).ready(function() {
         $("add-btn").click(function(){
-            $("ingredients").append('<input id="ingredients" name="ingredients" type="text" value="">');
+             var ing = document.createElement("div");
+             ing.innerHTML = '<input id="ingredients" name="ingredients" type="text" value="">'; 
+             document.wrapper.appendChild(ing);
         });
     });
+    
+            
 </script>
 
 {% endblock %}
