@@ -32,11 +32,22 @@ def save_recipe(recipe_id, user_id):
 def submit_recipe():
     form = AddRecipeForm(request.form)
     recipes = mongo.db.recipes
+    form = request.form.to_dict()
+    flat_form = request.form.to_dict(flat=false)
     if request.method == 'POST':
-        ingredients = [x.strip() for x in request.form["ingredients"].split("\n") if x != '']
-        for ingredient in ingredients:
-            recipes.update_one({'$push'}: {'ingredients': ingredient})
-        recipes.insert_one(request.form.to_dict())
+       new_recipe = recipes.insert_one(
+           {
+               "recipe_title" : form[recipe_title],
+               "sub_title" : form[sub_title],
+               "makes": form[makes],
+               "takes": form[takes],
+               "ingredients":flat_form[ingredients],
+               "method":flat_form[method],
+               "rating":"",
+               "tags": flat_form[tags],
+               "created_by": "current user"
+           }
+           )
     return render_template('submitrecipe.html', form=form)
 
 #@app.route('/insert_recipe', methods=['POST'])
