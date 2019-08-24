@@ -11,23 +11,18 @@
         {{ form.makes.label }}
         {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
         {{ form.takes.label }} {{ form.takes(placeholder = "How long does this recipe take to make?") }}
-        {{ form.ingredients.label }} 
+        {{ form.ingredients.label }} <a class="btn-floating btn-small waves-effect waves-light red" id="addNewIngredient"><i class="material-icons">add</i></a>
         <div id="ingredients">
         {{ form.ingredients }}
         </div>
-        <a class="btn-floating btn-small waves-effect waves-light red" id="addNewIngredient"><i class="material-icons">add</i></a>
-        </br>
-        {{ form.method.label }} 
+        {{ form.method.label }}  <a class="btn-floating btn-small waves-effect waves-light red" id="addNewStep"><i class="material-icons">add</i></a>
         <div id="method">
         {{ form.method }} 
         </div>
-        <a class="btn-floating btn-small waves-effect waves-light red" id="addNewStep"><i class="material-icons">add</i></a>
-        </br>
         {{ form.tags.label }}  <a class="btn-floating btn-small waves-effect waves-light red" id="addNewTag"><i class="material-icons">add</i></a>
          <div id="tags">
         {{ form.tags}}
         </div>
-        </br>
         <button class="btn btn-sm save-btn" type="submit">Submit Recipe</button>
     </form>
 </div>

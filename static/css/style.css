@@ -55,4 +55,13 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
     color: #9b111e;
 }
 
+/*styling for submit recipe*/
+.btn-floating i {
+    font-size: 1rem;
+    line-height: 20px;
+}
 
+.btn-floating {
+    width: 20px;
+    height: 20px;
+}
