@@ -11,14 +11,14 @@
         {{ form.makes.label }}
         {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
         {{ form.takes.label }} {{ form.takes(placeholder = "How long does this recipe take to make?") }}
-        <div id="wrapper">
         {{ form.ingredients.label }} 
-        {{ form.ingredients (placeholder = "Please list your ingredients separated by a comma") }}
-        <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
+        <wrapper>
+        {{ form.ingredients }}
+        <a id="add-btn" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </wrapper>
         {{ form.method.label }} {{ form.method (placeholder = "Please list your method steps, separated by a comma") }} {{ form.tags.label }} {{ form.tags
         (placeholder = "Please list this recipes's tags, separated by a comma") }}
-        <button id="add-btn" class="btn btn-sm save-btn" type="submit">Submit Recipe</button>
+        <button class="btn btn-sm save-btn" type="submit">Submit Recipe</button>
     </form>
 </div>
 {% endblock %}
