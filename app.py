@@ -28,7 +28,7 @@ def save_recipe(recipe_id, user_id):
 
 @app.route('/submit_recipe', methods = ["GET", "POST"])
 def submit_recipe():
-    form = addRecipeForm(request.form)
+    form = AddRecipeForm(request.form)
     #if request.method == 'POST':
       #  if form.validate_on_submit():
          #   new_recipe =
