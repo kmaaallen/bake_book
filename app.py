@@ -33,7 +33,7 @@ def submit_recipe():
     form = AddRecipeForm(request.form)
     recipes = mongo.db.recipes
     if request.method == 'POST':
-        ingredients = [x.strip() for x in request.form["ingredients"].split(\n) if x != '']
+        ingredients = [x.strip() for x in request.form["ingredients"].split("\n") if x != '']
         for ingredient in ingredients:
             recipes.update_one({$push}: {ingredient})
         recipes.insert_one(request.form.to_dict())
