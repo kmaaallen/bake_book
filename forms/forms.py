@@ -7,7 +7,7 @@ class AddRecipeForm(Form):
     sub_title = TextField("Recipe Sub-title", validators=[DataRequired()])
     makes = TextField("Makes")
     takes = TextField("Takes")
-    ingredients = TextAreaField("Ingredients:")
+    ingredients = TextField("Ingredients:")
     method = TextAreaField("Method:")
     tags = TextAreaField("Tags:")
     submit = SubmitField("Send")
