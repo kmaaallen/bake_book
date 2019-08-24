@@ -5,20 +5,27 @@
 <h4>Fill in the details below to submit a recipe</h4>
 <form action="{{ url_for('submit_recipe') }}" method="post">
     {{ form.csrf_token }}
-    {{ form.recipe_title.label }}
+    
     {{ form.recipe_title }}
-    {{ form.sub_title.label }}
+    {{ form.recipe_title.label }}
+    
     {{ form.sub_title }}
-    {{ form.makes.label }}
+    {{ form.sub_title.label }}
+    
     {{ form.makes(placeholder = "How many/much does this recipe make?") }}
-    {{ form.takes.label }}
+    {{ form.makes.label }}
+    
     {{ form.takes(placeholder = "How long does this recipe take to make?") }}
-    {{ form.ingredients.label }}
+    {{ form.takes.label }}
+    
     {{ form.ingredients (placeholder = "Please list your ingredients separated by a comma") }}
-    {{ form.method.label }}
+    {{ form.ingredients.label }}
+   
     {{ form.method (placeholder = "Please list your method steps, separated by a comma") }}
-    {{ form.tags.label }}
+     {{ form.method.label }}
+    
     {{ form.tags (placeholder = "Please list this recipes's tags, separated by a comma") }}
+    {{ form.tags.label }}
     <button class="btn btn-sm save-btn" type="submit">Submit Recipe</button>
   </form>
 </div>
