@@ -36,3 +36,12 @@ h5{
     background-color:#9b111e;
 }
 
+/* styling for forms */
+
+.form-style{
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Roboto';
+    max-width: 80%;
+}
+

@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-<h1>Submit a recipe</h1>
-<h3>Fill in the details below to submit a recipe</h3>
-<form action="{{ url_for('submit_recipe') }}" method="post">
+<h3>Submit a recipe</h3>
+<h4>Fill in the details below to submit a recipe</h4>
+<form action="{{ url_for('submit_recipe') }}" method="post" class="form-style">
     {{ form.csrf_token }}
+    {{ form.recipe_title.label }}
     {{ form.recipe_title(placeholder="Recipe Title") }}
+    {{ form.sub_title.label }}
     {{ form.sub_title(placeholder="Recipe Sub-title") }}
+    {{ form.makes.label }}
     {{ form.makes(placeholder = "How many/much does this recipe make?") }}
+    {{ form.takes.label }}
     {{ form.takes(placeholder = "How long does this recipe take?") }}
+    {{ form.ingredients.label }}
     {{ form.ingredients (placeholder = "Please list your ingredients separated by a comma") }}
+    {{ form.method.label }}
     {{ form.method (placeholder = "Please list your method steps, separated by a comma") }}
+    {{ form.tags.label }}
     {{ form.tags (placeholder = "Please list this recipes's tags, separated by a comma") }}
     <button class="btn btn-sm btn-success" type="submit">Submit Recipe</button>
   </form>
