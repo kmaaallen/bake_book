@@ -65,4 +65,5 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
     width: 20px; 
     height: 20px;
     line-height: 20px;
+    background-color:#ffab40;
 }
