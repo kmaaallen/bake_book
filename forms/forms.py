@@ -8,7 +8,7 @@ class AddRecipeForm(Form):
     makes = TextField("Makes")
     takes = TextField("Takes")
     ingredients = TextField("Ingredients:")
-    method = TextAreaField("Method:")
-    tags = TextAreaField("Tags:")
+    method = TextField("Method:")
+    tags = TextField("Tags:")
     submit = SubmitField("Send")
  
