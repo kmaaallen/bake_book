@@ -33,8 +33,8 @@
                 var newInput = $("<input required type='text' value=''></input>")
                     .attr("class", "ingredients")
                     .attr("name", "ingredients");
-                var delBtn = $("<a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
-                $("#ingredients").append('<div>').append(newInput).append(delBtn);
+                var delBtn = $("<a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a>")
+                $("#ingredients").append('<div>').innerHTML(newInput+delBtn);
             });
     
             $("#addNewStep").click(function() {
