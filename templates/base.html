@@ -34,7 +34,8 @@
                     .attr("class", "ingredients")
                     .attr("name", "ingredients");
                 var delBtn = $("<a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a>")
-                $("#ingredients").append('<div>').innerHTML(newInput+delBtn);
+                $("#ingredients").append('<div class="ingredient-div>');
+                $(".ingredient-div").append(newInput).append(delBtn);
             });
     
             $("#addNewStep").click(function() {
