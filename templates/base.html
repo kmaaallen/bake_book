@@ -35,16 +35,12 @@
             });
     
             $("#addNewStep").click(function() {
-                var newInput = $("<div><input required type='text' value=''></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
-                    .attr("class", "method")
-                    .attr("name", "method");
+                var newInput = $("<div><input required type='text' value='' class='method' name='method'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#method").append(newInput);
             });
     
             $("#addNewTag").click(function() {
-                var newInput = $("<div><input required type='text' value=''></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
-                    .attr("class", "tags")
-                    .attr("name", "tags");
+                var newInput = $("<div><input required type='text' value='' class='tags' name='tags'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#tags").append(newInput);
             });
         });
