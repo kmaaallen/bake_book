@@ -26,27 +26,29 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#addNewIngredient").click(function() {
-                var newInput = $("<input required type='text' value=''></input>")
+                var newInput = $("<div><input required type='text' value=''></input><a class='btn-floating btn-small waves-effect waves-light' class='extraInput'><i class='material-icons'>delete</i></a></div>")
                     .attr("id", "ingredients")
                     .attr("name", "ingredients");
                 $("#ingredients").append(newInput);
             });
-        });
-         $(document).ready(function() {
+        
             $("#addNewStep").click(function() {
                 var newInput = $("<input required type='text' value=''></input>")
                     .attr("id", "method")
                     .attr("name", "method");
                 $("#method").append(newInput);
             });
-        });
-         $(document).ready(function() {
+      
             $("#addNewTag").click(function() {
                 var newInput = $("<input required type='text' value=''></input>")
                     .attr("id", "tags")
                     .attr("name", "tags");
                 $("#tags").append(newInput);
             });
+            
+            $(".extraInput").click(function(){
+                $(this).parent('div').remove();
+            })
         });
     </script>
 </body>
