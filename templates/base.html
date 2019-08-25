@@ -26,7 +26,9 @@
     <script type="text/javascript">
         function removeInput(e) {
             console.log('removeInput function called');
-            e.parentElement.removeChild(e.parentElement);
+            console.log('parentNode is' + e.parentNode)
+            console.log('parent Element is' + e.parentElement)
+            //e.parentElement.removeChild(e.parentElement);
         }
         
         $(document).ready(function() {
