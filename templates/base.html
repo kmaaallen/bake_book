@@ -26,7 +26,7 @@
     <script type="text/javascript">
         function removeInput() {
             console.log('removeInput function called');
-            $(this).parents('div:first').remove();
+            $(this).closest('div').remove();
         }
         
         $(document).ready(function() {
