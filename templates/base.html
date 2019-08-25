@@ -47,8 +47,9 @@
             });
             
             $(".extraInput").click(function(){
-                $(this).parent('div').remove();
-            })
+                console.log('reached extra input function');
+                $(this).closest('div').remove();
+            });
         });
     </script>
 </body>
