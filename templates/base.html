@@ -46,7 +46,7 @@
                 $("#tags").append(newInput);
             });
             
-            document.querySelector(".extraInput").click(function(){
+            $(document).querySelector(".extraInput").click(function(){
                 console.log('reached extra input function');
                 $(this).parents('div:first').remove();
             });
