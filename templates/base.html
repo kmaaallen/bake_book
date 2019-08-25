@@ -24,6 +24,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript">
+        function removeInput() {
+            console.log('removeInput function called');
+            $(this).parents('div:first').remove();
+        }
+        
         $(document).ready(function() {
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value=''></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput()'><i class='material-icons'>delete</i></a></div>")
@@ -31,26 +36,20 @@
                     .attr("name", "ingredients");
                 $("#ingredients").append(newInput);
             });
-        
+    
             $("#addNewStep").click(function() {
                 var newInput = $("<input required type='text' value=''></input>")
                     .attr("id", "method")
                     .attr("name", "method");
                 $("#method").append(newInput);
             });
-      
+    
             $("#addNewTag").click(function() {
                 var newInput = $("<input required type='text' value=''></input>")
                     .attr("id", "tags")
                     .attr("name", "tags");
                 $("#tags").append(newInput);
             });
-            
-            function removeInput(){
-                console.log('removeInput function called');
-               $(this).parents('div:first').remove(); 
-            }
-            
         });
     </script>
 </body>
