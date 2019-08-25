@@ -26,7 +26,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#addNewIngredient").click(function() {
-                var newInput = $("<div><input required type='text' value=''></input><a class='btn-floating btn-small waves-effect waves-light extraInput' ><i class='material-icons'>delete</i></a></div>")
+                var newInput = $("<div><input required type='text' value=''></input><a class='btn-floating btn-small waves-effect waves-light extraInput'><i class='material-icons'>delete</i></a></div>")
                     .attr("id", "ingredients")
                     .attr("name", "ingredients");
                 $("#ingredients").append(newInput);
@@ -46,10 +46,10 @@
                 $("#tags").append(newInput);
             });
             
-            $(document).querySelector(".extraInput").click(function(){
+            $(".extraInput").on('click', (function(event){
                 console.log('reached extra input function');
                 $(this).parents('div:first').remove();
-            });
+                }));
         });
     </script>
 </body>
