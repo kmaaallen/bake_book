@@ -46,9 +46,9 @@
                 $("#tags").append(newInput);
             });
             
-            $(".extraInput").click(function(){
+            document.querySelector(".extraInput").click(function(){
                 console.log('reached extra input function');
-                $(this).closest('div').remove();
+                $(this).parents('div:first').remove();
             });
         });
     </script>
