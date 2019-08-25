@@ -30,21 +30,22 @@
         
         $(document).ready(function() {
             $("#addNewIngredient").click(function() {
-                var newInput = $("<input required type='text' value=''><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></input>")
+                var newInput = $("<input required type='text' value=''></input>")
                     .attr("class", "ingredients")
                     .attr("name", "ingredients");
-                $("#ingredients").append(newInput);
+                var delBtn = $("<a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
+                $("#ingredients").append('<div>').append(newInput).append(delBtn);
             });
     
             $("#addNewStep").click(function() {
-                var newInput = $("<input required type='text' value=''><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></input>")
+                var newInput = $("<div><input required type='text' value=''></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                     .attr("class", "method")
                     .attr("name", "method");
                 $("#method").append(newInput);
             });
     
             $("#addNewTag").click(function() {
-                var newInput = $("<input required type='text' value=''><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></input>")
+                var newInput = $("<div><input required type='text' value=''></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                     .attr("class", "tags")
                     .attr("name", "tags");
                 $("#tags").append(newInput);
