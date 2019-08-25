@@ -2,7 +2,7 @@
 <div class='form-container'>
     <h3>Submit a recipe</h3>
     <h4>Fill in the details below to submit a recipe</h4>
-    <form action="{{ url_for('submit_recipe') }}" method="post">
+    <form action="{{ url_for('submit_recipe') }}" method="post" onsubmit="return false;">
         {{ form.csrf_token }}
         {{ form.recipe_title.label }}
         {{ form.recipe_title }} 
