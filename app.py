@@ -29,7 +29,8 @@ def save_recipe(recipe_id, user_id):
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/submit_recipe', methods = ["GET", "POST"])
-def submit_recipe():
+def submit_recipe
+    new_recipe = None
     form = AddRecipeForm(request.form)
     recipes = mongo.db.recipes
     form_normal = request.form.to_dict()
@@ -48,7 +49,7 @@ def submit_recipe():
                "created_by": "current user"
            }
            )
-        return redirect(url_for('/recipe_card/<recipe_id>', recipe_id = new_recipe.inserted_id))
+    return redirect(url_for('/recipe_card/<recipe_id>', recipe_id = new_recipe.inserted_id))
 
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
