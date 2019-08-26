@@ -12,11 +12,11 @@ class AddRecipeForm(Form):
     tags = TextField("Tags:")
     submit = SubmitField("Send")
     
-class loginForm(Form):
+class LoginForm(Form):
     username = StringField("Username", validators=[DataRequired()])
     password = StringField("Password", validators=[DataRequired()])
     
-class signupForm(Form):
+class SignupForm(Form):
     username = StringField("Username", validators=[DataRequired()])
     password = StringField("Password", validators=[DataRequired()])
  

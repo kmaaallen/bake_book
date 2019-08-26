@@ -16,12 +16,12 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = loginForm(request.form)
+    form = LoginForm(request.form)
     return render_template('login.html', form = form)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def sign_up():
-    form= signupForm(request.form)
+    form= SignupForm(request.form)
     return render_template('signup.html', form = form)
 
 @app.route('/show_recipes')
