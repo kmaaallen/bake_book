@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -14,6 +14,10 @@ app.secret_key = os.getenv("SECRET")
 mongo = PyMongo(app)
 
 @app.route('/')
+@app.route('/show_recipes')
+def show_recipes():
+    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm(request.form)
@@ -23,10 +27,6 @@ def login():
 def sign_up():
     form= SignupForm(request.form)
     return render_template('signup.html', form = form)
-
-@app.route('/show_recipes')
-def show_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
     
 @app.route('/recipe_card/<recipe_id>')
 def recipe_card(recipe_id):
