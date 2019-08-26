@@ -50,7 +50,7 @@ def submit_recipe():
          }
            )
         return redirect(url_for('recipe_card', recipe_id = new_recipe.inserted_id))
-    return render_template('submitrecipe.html');
+    return render_template('submitrecipe.html', form=form);
     
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
