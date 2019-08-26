@@ -22,10 +22,10 @@ def show_recipes():
 @app.route('/login', methods=['GET','POST'])
 def login():
     form = LoginForm(request.form)
-    if request.method == 'POST':
+    if request.method == "POST":
         users = mongo.db.users
         login_username = users.find_one({'user' : request.form['username']})
-        if login_username is None:
+        if login_username is not None:
             return 'login_username is not none'
             #if bcrypt.hashpw(request.form['password'].encode('utf-8')).decode() == login_username['password']: 
               #  session['username'] = request.form['username']
@@ -69,7 +69,7 @@ def submit_recipe():
     recipes = mongo.db.recipes
     form_normal = request.form.to_dict()
     flat_form = request.form.to_dict(flat=False)
-    if(request.method == "POST"):
+    if request.method == "POST":
         new_recipe = recipes.insert_one(
          {
          "recipe_title" : form_normal["recipe_title"],
