@@ -21,11 +21,8 @@ def show_recipes():
 
 @app.route('/login', methods=['GET','POST'])
 def login():
-    if request.method == 'GET':
-        form = LoginForm(request.form)
-        return render_template('login.html', form = form)
-    
-    else:
+    form = LoginForm(request.form)
+    if request.method == 'POST':
         users = mongo.db.users
         login_username = users.find_one({'user' : request.form['username']})
     
