@@ -27,11 +27,13 @@ def login():
         login_username = users.find_one({'user' : request.form['username']})
     
         if login_username:
-             if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')) == login_username['password'].encode('utf-8'):
+             if bcrypt.hashpw(request.form['password'].decode('utf-8'), login_username['password'].decode('utf-8')) == login_username['password'].decode('utf-8'):
                  session['username'] = request.form['username']
                  return redirect('show_recipes')
+        else:
+            return render_template('login.html', form = form) + 'Invalid username / password combination'
         
-    return render_template('login.html', form = form) + 'Invalid username / password combination'
+    return render_template('login.html', form = form) 
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
