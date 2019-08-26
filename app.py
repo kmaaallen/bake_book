@@ -34,8 +34,7 @@ def login():
                 session['username'] = request.form['username']
                 return redirect('show_recipes')
         else:
-            print(request.form['password'].encode('utf-8') + login_username['password'])
-            #return render_template('login.html', form = form) + 'Invalid username / password combination'
+            return render_template('login.html', form = form) + 'Invalid username / password combination'
         
     return render_template('login.html', form = form) 
 
@@ -48,7 +47,7 @@ def sign_up():
         
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-            users.insert_one({'name': request.form['username'], 'password' : hashpass.decode()})
+            users.insert_one({'name': request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
             return redirect (url_for('show_recipes'))
         
