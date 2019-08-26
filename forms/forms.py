@@ -11,4 +11,12 @@ class AddRecipeForm(Form):
     method = TextField("Method:")
     tags = TextField("Tags:")
     submit = SubmitField("Send")
+    
+class loginForm(Form):
+    username = StringField("Username", validators=[DataRequired()])
+    password = StringField("Password", validators=[DataRequired()])
+    
+class signupForm(Form):
+    username = StringField("Username", validators=[DataRequired()])
+    password = StringField("Password", validators=[DataRequired()])
  

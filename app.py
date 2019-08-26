@@ -14,6 +14,16 @@ app.secret_key = os.getenv("SECRET")
 mongo = PyMongo(app)
 
 @app.route('/')
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = loginForm(request.form)
+    return render_template('login.html', form = form)
+
+@app.route('/signup', methods=['GET', 'POST'])
+def sign_up():
+    form= signupForm(request.form)
+    return render_template('signup.html', form = form)
+
 @app.route('/show_recipes')
 def show_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
