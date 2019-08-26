@@ -28,13 +28,13 @@ def login():
     
         if login_username:
             if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')) == login_username['password'].encode('utf-8'):
-                print(bcrypt.hashpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')) + login_username['password'].encode('utf-8'))
            # new_pw = bcrypt.hashpw(request.form['password'].encode('utf-8'))
             #db_pw = login_username['password'].decode()
            # if new_pw.decode() == login_username['password']:
                 session['username'] = request.form['username']
                 return redirect('show_recipes')
         else:
+             print(bcrypt.hashpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')) + login_username['password'].encode('utf-8'))
             return render_template('login.html', form = form) + 'Invalid username / password combination'
         
     return render_template('login.html', form = form) 
