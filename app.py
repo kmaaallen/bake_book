@@ -28,7 +28,7 @@ def save_recipe(recipe_id, user_id):
     user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
-@app.route('/submit_recipe', methods=['POST'])
+@app.route('/submit_recipe', methods=['GET','POST'])
 def submit_recipe():
     new_recipe = None
     form = AddRecipeForm(request.form)
