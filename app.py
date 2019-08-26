@@ -34,7 +34,6 @@ def login():
                 session['username'] = request.form['username']
                 return redirect('show_recipes')
         else:
-             print(bcrypt.hashpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')) + login_username['password'].encode('utf-8'))
             return render_template('login.html', form = form) + 'Invalid username / password combination'
         
     return render_template('login.html', form = form) 
