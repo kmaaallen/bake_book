@@ -35,7 +35,7 @@ def submit_recipe():
     recipes = mongo.db.recipes
     form_normal = request.form.to_dict()
     flat_form = request.form.to_dict(flat=False)
-    if(method == "POST"):
+    if(request.method == "POST"):
         new_recipe = recipes.insert_one(
          {
          "recipe_title" : form_normal["recipe_title"],
