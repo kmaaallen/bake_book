@@ -27,9 +27,9 @@ def login():
         login_username = users.find_one({'user' : request.form['username']})
     
         if login_username:
-            if bcrypt.hashpw(request.form['password'].encode('utf-8')).decode() == login_username['password']: 
-                session['username'] = request.form['username']
-                return redirect(url_for('show_recipes'))
+            #if bcrypt.hashpw(request.form['password'].encode('utf-8')).decode() == login_username['password']: 
+              #  session['username'] = request.form['username']
+            return redirect(url_for('show_recipes'))
         else:
             return render_template('login.html', form = form) + 'Invalid username / password combination'
         
