@@ -35,19 +35,18 @@ def submit_recipe():
     recipes = mongo.db.recipes
     form_normal = request.form.to_dict()
     flat_form = request.form.to_dict(flat=False)
-    if request.method == 'POST':
-       new_recipe = recipes.insert_one(
-           {
-               "recipe_title" : form_normal["recipe_title"],
-               "sub_title" : form_normal["sub_title"],
-               "makes": form_normal["makes"],
-               "takes": form_normal["takes"],
-               "ingredients":flat_form["ingredients"],
-               "method":flat_form["method"],
-               "rating":0,
-               "tags": flat_form["tags"],
-               "created_by": "current user"
-           }
+    new_recipe = recipes.insert_one(
+        {
+        "recipe_title" : form_normal["recipe_title"],
+        "sub_title" : form_normal["sub_title"],
+        "makes": form_normal["makes"],
+        "takes": form_normal["takes"],
+        "ingredients":flat_form["ingredients"],
+        "method":flat_form["method"],
+        "rating":0,
+        "tags": flat_form["tags"],
+        "created_by": "current user"
+         }
            )
     return redirect(url_for('recipe_card', recipe_id=ObjectId(new_recipe.inserted_id)))
     
