@@ -19,9 +19,13 @@ mongo = PyMongo(app)
 def show_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET','POST'])
 def login():
-    form = LoginForm(request.form)
+    if request.method == 'GET':
+        form = LoginForm(request.form)
+        return render_template('login.html', form = form)
+    
+    else:
     users = mongo.db.users
     login_username = users.find_one({'user' : request.form['username']})
     
