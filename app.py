@@ -49,7 +49,7 @@ def submit_recipe():
                "created_by": "current user"
            }
            )
-    return redirect(url_for('/recipe_card/<recipe_id>', recipe_id = new_recipe.inserted_id))
+    return redirect(url_for('/recipe_card/<recipe_id>', recipe_id = new_recipe.recipe_id))
 
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
