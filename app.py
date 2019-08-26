@@ -27,7 +27,7 @@ def login():
         login_username = users.find_one({'user' : request.form['username']})
     
         if login_username:
-            if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')): 
+            if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_username['password']): 
            # new_pw = bcrypt.hashpw(request.form['password'].encode('utf-8'))
             #db_pw = login_username['password'].decode()
            # if new_pw.decode() == login_username['password']:
