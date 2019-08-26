@@ -27,9 +27,9 @@ def login():
         login_username = users.find_one({'user' : request.form['username']})
     
         if login_username:
-            var new_pw = bcrypt.hashpw(request.form['password'].encode('utf-8'))
-            var db_pw = login_username['password'].decode()
-             if new_pw.decode() == db_pw:
+            new_pw = bcrypt.hashpw(request.form['password'].encode('utf-8'))
+            #db_pw = login_username['password'].decode()
+             if new_pw.decode() == login_username['password']:
                  session['username'] = request.form['username']
                  return redirect('show_recipes')
         else:
