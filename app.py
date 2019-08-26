@@ -1,4 +1,5 @@
 import os
+import bcrypt
 from flask import Flask, render_template, redirect, request, url_for, session
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
