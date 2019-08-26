@@ -49,8 +49,8 @@ def submit_recipe():
                "created_by": "current user"
            }
            )
-    new_recipe_id = mongo.db.recipes.insert_one(data)
-    return redirect(url_for('recipe_card', recipe_id=new_recipe_id.inserted_id))
+   # new_recipe_id = mongo.db.recipes.insert_one(data)
+    return redirect(url_for('recipe_card', recipe_id=new_recipe._id))
     
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
