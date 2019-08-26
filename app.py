@@ -48,7 +48,7 @@ def submit_recipe():
                "created_by": "current user"
            }
            )
-    return render_template('submitrecipe.html', form=form)
+    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
