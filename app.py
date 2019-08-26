@@ -30,7 +30,8 @@ def login():
               #  session['username'] = request.form['username']
             return redirect(url_for('show_recipes'))
         else:
-            return render_template('login.html', form = form) + 'Invalid username / password combination'
+            print(login_username + request.form['username'])
+            #return render_template('login.html', form = form) + 'Invalid username / password combination'
         
     return render_template('login.html', form = form) 
 
