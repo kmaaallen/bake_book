@@ -28,7 +28,7 @@ def save_recipe(recipe_id, user_id):
     user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
-@app.route('/submit_recipe/<recipe_id>', methods = ["GET", "POST"])
+@app.route('/submit_recipe', methods = ["GET", "POST"])
 def submit_recipe():
     form = AddRecipeForm(request.form)
     recipes = mongo.db.recipes
@@ -48,7 +48,7 @@ def submit_recipe():
                "created_by": "current user"
            }
            )
-    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+          return redirect(url_for('/recipe_card/<recipe_id>', recipe_id = new_recipe.inserted_id))
 
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
