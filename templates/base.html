@@ -15,11 +15,11 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="https://bake-book-milestone.herokuapp.com/">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
                 {% if session %}
+                <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
                 <li>{{ session['username'] }}</li>
                 {% else %}
-                <li><a href="{{url_for('login')}}">Login</a></li>
+                <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
                 {% endif %}
             </ul>
         </div>

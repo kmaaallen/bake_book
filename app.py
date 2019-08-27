@@ -76,27 +76,29 @@ def save_recipe(recipe_id, user_id):
 @app.route('/submit_recipe', methods=['GET','POST'])
 #@login_required
 def submit_recipe():
-    new_recipe = None
-    form = AddRecipeForm(request.form)
-    recipes = mongo.db.recipes
-    form_normal = request.form.to_dict()
-    flat_form = request.form.to_dict(flat=False)
-    if request.method == "POST":
-        new_recipe = recipes.insert_one(
-         {
-         "recipe_title" : form_normal["recipe_title"],
-         "sub_title" : form_normal["sub_title"],
-         "makes": form_normal["makes"],
-         "takes": form_normal["takes"],
-         "ingredients":flat_form["ingredients"],
-         "method":flat_form["method"],
-         "rating":0,
-         "tags": flat_form["tags"],
-         "created_by": "current user"
-         }
-           )
-        return redirect(url_for('recipe_card', recipe_id = new_recipe.inserted_id))
-    return render_template('submitrecipe.html', form=form);
+    if 'logged_in' in session:
+        new_recipe = None
+        form = AddRecipeForm(request.form)
+        recipes = mongo.db.recipes
+        form_normal = request.form.to_dict()
+        flat_form = request.form.to_dict(flat=False)
+        if request.method == "POST":
+            new_recipe = recipes.insert_one(
+             {
+             "recipe_title" : form_normal["recipe_title"],
+             "sub_title" : form_normal["sub_title"],
+             "makes": form_normal["makes"],
+             "takes": form_normal["takes"],
+             "ingredients":flat_form["ingredients"],
+             "method":flat_form["method"],
+             "rating":0,
+             "tags": flat_form["tags"],
+             "created_by": "current user"
+             }
+               )
+            return redirect(url_for('recipe_card', recipe_id = new_recipe.inserted_id))
+        return render_template('submitrecipe.html', form=form);
+    return redirect(url_for('login'))
     
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
