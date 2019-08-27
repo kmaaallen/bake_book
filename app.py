@@ -26,10 +26,9 @@ def login():
         users = mongo.db.users
         login_username = users.find_one({'user' : request.form['username']})
         if login_username is not None:
-            return 'login_username is not none'
-            #if bcrypt.hashpw(request.form['password'].encode('utf-8')).decode() == login_username['password']: 
-              #  session['username'] = request.form['username']
-            #return redirect(url_for('show_recipes'))
+            if bcrypt.checkpw(request.form['password'].encode('utf-8')).decode() == login_username['password']: 
+                session['username'] = request.form['username']
+                return redirect(url_for('show_recipes'))
     
         return render_template('login.html', form = form) + 'Invalid username / password combination'
         
