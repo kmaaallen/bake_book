@@ -17,7 +17,7 @@
                     <li><a href="#">About</a></li>
                     {% if session %}
                     <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
-                    <li><a class='dropdown-trigger btn' data-target='dropdown1'>{{ session['username'] }}<i class="large material-icons">person</i></a></li>
+                    <li><a class='dropdown-trigger' data-target='dropdown1'>{{ session['username'] }}<i class="large material-icons">person</i></a></li>
                     <ul id='dropdown1' class='dropdown-content'>
                         <li><a href="{{url_for('logout')}}">Logout</a></li>
                         <li><a href="#!">My Recipes</a></li>
@@ -38,6 +38,8 @@
         }
 
         $(document).ready(function() {
+            $('.dropdown-trigger').dropdown();
+            
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='ingredients' name='ingredients'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#ingredients").append(newInput);
