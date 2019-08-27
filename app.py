@@ -1,5 +1,6 @@
 import os
 import bcrypt
+from flask_login import current_user, login_user, logout_user, login_required, LoginManager, login_manager
 from flask import Flask, render_template, redirect, request, url_for, session
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
@@ -11,6 +12,10 @@ app.config["MONGO_DBNAME"] = 'bakingBookRecipes'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv("SECRET")
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@login_manager.user_loader
 
 mongo = PyMongo(app)
 
@@ -28,6 +33,7 @@ def login():
         if login_username is not None:
             if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')): 
                 session['username'] = request.form['username']
+                login_user(user)
                 return redirect(url_for('show_recipes'))
     
         return render_template('login.html', form = form) + 'Invalid username / password combination'
@@ -56,12 +62,14 @@ def recipe_card(recipe_id):
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/recipe_card/<recipe_id>', methods=['POST'])
+@login_required
 def save_recipe(recipe_id, user_id):
     user = mongo.db.user.find_one({'_id': ObjectId('5d567ffe1c9d44000015f495')})
     user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/submit_recipe', methods=['GET','POST'])
+@login_required
 def submit_recipe():
     new_recipe = None
     form = AddRecipeForm(request.form)
