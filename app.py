@@ -1,6 +1,6 @@
 import os
 import bcrypt
-from flask_login import current_user, login_user, logout_user, login_required, LoginManager, login_manager
+#from flask_login import current_user, login_user, logout_user, login_required, LoginManager, login_manager
 from flask import Flask, render_template, redirect, request, url_for, session
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
@@ -12,12 +12,12 @@ app.config["MONGO_DBNAME"] = 'bakingBookRecipes'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv("SECRET")
 
-login_manager = LoginManager()
-login_manager.init_app(app)
+#login_manager = LoginManager()
+#login_manager.init_app(app)
 
-@login_manager.user_loader
-def load_user(_id):
-    return User.get(_id)
+#@login_manager.user_loader
+#def load_user(_id):
+ #   return User.get(_id)
 
 mongo = PyMongo(app)
 
