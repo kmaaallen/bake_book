@@ -19,6 +19,7 @@
                 <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
                 <li>{{ session['username'] }}</li>
                 {% else %}
+                <i class="large material-icons">person</i>
                 <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
                 {% endif %}
             </ul>
