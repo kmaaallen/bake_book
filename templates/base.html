@@ -8,24 +8,27 @@
 </head>
 
 <body>
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="https://bake-book-milestone.herokuapp.com/" class="brand-logo">BakeBook</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="https://bake-book-milestone.herokuapp.com/">Home</a></li>
-                <li><a href="#">About</a></li>
-                {% if session %}
-                <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
-                <li>{{ session['username'] }}</li>
-                {% else %}
-                <i class="large material-icons">person</i>
-                <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-</div>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="https://bake-book-milestone.herokuapp.com/" class="brand-logo">BakeBook</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="https://bake-book-milestone.herokuapp.com/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    {% if session %}
+                    <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
+                    <li><a class='dropdown-trigger btn' data-target='dropdown1'>{{ session['username'] }}<i class="large material-icons">person</i></a></li>
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="{{url_for('logout')}}">Logout</a></li>
+                        <li><a href="#!">My Recipes</a></li>
+                    </ul>
+                    {% else %}
+                    <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </div>
     {% block content %} {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -33,18 +36,18 @@
         function removeInput(e) {
             e.parentElement.remove(e.parentElement);
         }
-        
+
         $(document).ready(function() {
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='ingredients' name='ingredients'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#ingredients").append(newInput);
             });
-    
+
             $("#addNewStep").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='method' name='method'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#method").append(newInput);
             });
-    
+
             $("#addNewTag").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='tags' name='tags'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#tags").append(newInput);

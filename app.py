@@ -44,6 +44,11 @@ def login():
         return render_template('login.html', form = form) + 'Invalid username / password combination'
         
     return render_template('login.html', form = form) 
+    
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('show_recipes'))
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
@@ -67,14 +72,12 @@ def recipe_card(recipe_id):
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/recipe_card/<recipe_id>', methods=['POST'])
-#@login_required
 def save_recipe(recipe_id, user_id):
     user = mongo.db.user.find_one({'_id': ObjectId('5d567ffe1c9d44000015f495')})
     user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/submit_recipe', methods=['GET','POST'])
-#@login_required
 def submit_recipe():
     if 'logged_in' in session:
         new_recipe = None
