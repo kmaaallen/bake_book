@@ -67,14 +67,14 @@ def recipe_card(recipe_id):
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/recipe_card/<recipe_id>', methods=['POST'])
-@login_required
+#@login_required
 def save_recipe(recipe_id, user_id):
     user = mongo.db.user.find_one({'_id': ObjectId('5d567ffe1c9d44000015f495')})
     user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/submit_recipe', methods=['GET','POST'])
-@login_required
+#@login_required
 def submit_recipe():
     new_recipe = None
     form = AddRecipeForm(request.form)
