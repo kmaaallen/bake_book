@@ -16,8 +16,8 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 @login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
+def load_user(_id):
+    return User.get(_id)
 
 mongo = PyMongo(app)
 
@@ -28,6 +28,9 @@ def show_recipes():
 
 @app.route('/login', methods=['GET','POST'])
 def login():
+    if 'logged_in' in session:
+        return redirect(url_for('show_recipes'))
+        
     form = LoginForm(request.form)
     if request.method == "POST":
         users = mongo.db.users
@@ -35,7 +38,7 @@ def login():
         if login_username is not None:
             if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')): 
                 session['username'] = request.form['username']
-                login_user(users.user)
+                session['logged_in'] = True
                 return redirect(url_for('show_recipes'))
     
         return render_template('login.html', form = form) + 'Invalid username / password combination'
