@@ -35,7 +35,7 @@ def login():
         if login_username is not None:
             if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')): 
                 session['username'] = request.form['username']
-                login_user(user)
+                login_user(users.user)
                 return redirect(url_for('show_recipes'))
     
         return render_template('login.html', form = form) + 'Invalid username / password combination'
