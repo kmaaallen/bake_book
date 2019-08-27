@@ -26,7 +26,7 @@ def login():
         users = mongo.db.users
         login_username = users.find_one({'user' : request.form['username']})
         if login_username is not None:
-            if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_username['password']): 
+            if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_username['password'].encode('utf-8')): 
                 session['username'] = request.form['username']
                 return redirect(url_for('show_recipes'))
     
