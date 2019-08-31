@@ -38,14 +38,12 @@
         }
 
         $(document).ready(function() {
-            $(".dropdown-trigger").click(function() {
-                if ($("#dropdown1").hasClass("visible")) {
-                    $("#dropdown1").removeClass("visible");
-                    $("#dropdown1").addClass("invisible");
+            $(".nav-dropdown").click(function() {
+                if ($(".nav-dropdown-content").hasClass("nav-dropdown-visible")) {
+                    $(".nav-dropdown-content").removeClass("nav-dropdown-visible");
                 }
                 else {
-                    $("#dropdown1").removeClass("invisible");
-                    $("#dropdown1").addClass("visible");
+                    $(".nav-dropdown-content").addClass("nav-dropdown-visible");
                 }
             });
 
