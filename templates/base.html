@@ -37,9 +37,14 @@
             e.parentElement.remove(e.parentElement);
         }
 
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(elems, options);
+        });
+
+
         $(document).ready(function() {
-            $(".dropdown-trigger").dropdown();
-            
+
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='ingredients' name='ingredients'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#ingredients").append(newInput);
