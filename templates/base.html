@@ -21,7 +21,7 @@
                         <li><a href="{{url_for('logout')}}">Logout</a></li>
                         <li><a href="#!">My Recipes</a></li>
                     </ul>
-                    <li><i class="large material-icons">person</i><a class='dropdown-trigger' data-target='dropdown1'>{{ session['username'] }}</a></li>
+                    <li><a class='dropdown-trigger' data-target='dropdown1'>{{ session['username'] }}</a></li>
                     {% else %}
                     <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
                     {% endif %}
