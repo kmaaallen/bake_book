@@ -84,7 +84,7 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
   z-index: 1;
-  transform:translateY(65px);
+  transform:translateY(64px);
 }
 
 .nav-dropdown-visible {
