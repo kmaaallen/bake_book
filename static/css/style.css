@@ -70,19 +70,22 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 }
 
 /*Styling for nav menu dropdown*/
-.visible{
-    background-color: #ffab40;
-    margin: 0;
-    display: block;
-    min-width: 100px;
-    max-height: 650px;
-    overflow-y: auto;
-    opacity: 1;
-    position: relative;
-    z-index: 999;
+
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.invisible{
-    display:none;
-    opacity:0;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

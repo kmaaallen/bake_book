@@ -17,11 +17,11 @@
                     <li><a href="#">About</a></li>
                     {% if session %}
                     <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
-                    <ul id='dropdown1' class='invisible'>
+                    <ul id='dropdown1' class='dropdown-content'>
                         <li><a href="{{url_for('logout')}}">Logout</a></li>
                         <li><a href="#!">My Recipes</a></li>
                     </ul>
-                    <li><a class='dropdown-trigger'>{{ session['username'] }}</a></li>
+                    <li><a class='dropdown'>{{ session['username'] }}</a></li>
                     {% else %}
                     <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
                     {% endif %}
