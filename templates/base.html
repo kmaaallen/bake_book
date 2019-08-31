@@ -17,11 +17,11 @@
                     <li><a href="#">About</a></li>
                     {% if session %}
                     <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
-                    <ul id='dropdown1' class='dropdown-content'>
+                    <ul id='dropdown1' class='invisible'>
                         <li><a href="{{url_for('logout')}}">Logout</a></li>
                         <li><a href="#!">My Recipes</a></li>
                     </ul>
-                    <li><a class='dropdown-trigger' data-target='dropdown1'>{{ session['username'] }}</a></li>
+                    <li><a class='dropdown-trigger'>{{ session['username'] }}</a></li>
                     {% else %}
                     <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
                     {% endif %}
@@ -37,13 +37,17 @@
             e.parentElement.remove(e.parentElement);
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.dropdown-trigger');
-            var instances = M.Dropdown.init(elems, options);
-        });
-
-
         $(document).ready(function() {
+            $(".dropdown-trigger").click(function() {
+                if ($("#dropdown1").hasClass(".visible")) {
+                    $("#dropdown1").removeClass(".visible");
+                    $("#dropdown1").addClass(".invisible");
+                }
+                else {
+                    $("#dropdown1").removeClass(".invisible");
+                    $("#dropdown1").addClass(".visible");
+                }
+            });
 
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='ingredients' name='ingredients'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")

@@ -68,3 +68,21 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
     line-height: 20px;
     background-color:#ffab40;
 }
+
+/*Styling for nav menu dropdown*/
+.visible{
+    background-color: #ffab40;
+    margin: 0;
+    display: block;
+    min-width: 100px;
+    max-height: 650px;
+    overflow-y: auto;
+    opacity: 1;
+    position: relative;
+    z-index: 999;
+}
+
+.invisible{
+    display:none;
+    opacity:0;
+}
