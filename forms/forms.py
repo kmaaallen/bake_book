@@ -1,10 +1,11 @@
 from flask_wtf import Form
-from wtforms import TextField, TextAreaField, StringField, SubmitField, PasswordField
+from wtforms import TextField, TextAreaField, StringField, SubmitField, PasswordField, FileField
 from wtforms.validators import DataRequired
 
 class AddRecipeForm(Form):
     recipe_title = StringField("Recipe Title", validators=[DataRequired()])
     sub_title = TextField("Recipe Sub-title", validators=[DataRequired()])
+    recipe_img = FileField("Recipe Image")
     makes = TextField("Makes")
     takes = TextField("Takes")
     ingredients = TextField("Ingredients:")
