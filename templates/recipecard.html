@@ -19,7 +19,7 @@
         </div>
 
         <div class="col s12 m6">
-            <img class="recipe-image" src="/static/images/placeholder.png"></img>
+            <img class="recipe-image" src="{{ url_for('file', filename=user[recipe_img])}}"></img>
             <div class="rating">
                 <p>Rating: {% for i in range (0, recipes.rating) %}
                     <i class="material-icons star">star</i> {% endfor %}

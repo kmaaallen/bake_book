@@ -69,6 +69,7 @@ def sign_up():
     
 @app.route('/recipe_card/<recipe_id>')
 def recipe_card(recipe_id):
+    user = session['username']
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/recipe_card/<recipe_id>', methods=['POST'])
@@ -96,9 +97,15 @@ def submit_recipe():
              "method":flat_form["method"],
              "rating":0,
              "tags": flat_form["tags"],
-             "created_by": "current user"
+             "created_by": session['username']
              }
                )
+            if 'recipe_img' in request.files:
+                unique_filename = session['username'].new_recipe['recipe_title']
+                recipe_img = request.files['recipe_img']
+                mongo.save_file(recipe_img.unique_filename, recipe_img)
+                new_recipe.update_one({'recipe_img': recipe_img.unique_filename})
+            
             return redirect(url_for('recipe_card', recipe_id = new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form);
     return redirect(url_for('login'))
