@@ -19,7 +19,7 @@
                     <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
                     <ul id='dropdown1' class='nav-dropdown-content'>
                         <li><a href="{{url_for('logout')}}">Logout</a></li>
-                        <li><a href="#!">My Recipes</a></li>
+                        <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>
                     </ul>
                     <li><a class='nav-dropdown'>{{ session['username'] }}</a></li>
                     {% else %}
