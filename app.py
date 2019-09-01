@@ -5,14 +5,10 @@ from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-UPLOAD_FOLDER = '/static/images/uploads/'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'bakingBookRecipes'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = os.getenv("SECRET")
 
 
@@ -84,6 +80,9 @@ def submit_recipe():
         form_normal = request.form.to_dict()
         flat_form = request.form.to_dict(flat=False)
         if request.method == "POST":
+            if 'recipe_img' in request.files:
+               recipe_img = request.files['recipe_img']
+               mongo.save_file(recipe_img.filename, recipe_img)
             new_recipe = recipes.insert_one(
              {
              "recipe_title" : form_normal["recipe_title"],
@@ -94,17 +93,10 @@ def submit_recipe():
              "method":flat_form["method"],
              "rating":0,
              "tags": flat_form["tags"],
-             "created_by": session['username']
+             "created_by": session['username'],
+             "recipe_img": recipe_img.filename
              }
                )
-            if 'recipe_img' in request.files:
-                filename = new_recipe['created_by'] + new_recipe['recipe_title']
-                #filename = images.save(request.files['recipe_img'])
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                #filepath = 'static/images/uploads/' + filename
-               # recipe_img = request.files['recipe_img']
-              #  mongo.save_file(recipe_img.unique_filename, recipe_img)
-               # new_recipe.update_one({'recipe_img': recipe_img.unique_filename})
             
             return redirect(url_for('recipe_card', recipe_id = new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form);
