@@ -69,7 +69,7 @@ def sign_up():
     
 @app.route('/recipe_card/<recipe_id>')
 def recipe_card(recipe_id):
-    user = session['username']
+    user = mongo.db.users.find_one({'user': session['username']})
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/recipe_card/<recipe_id>', methods=['POST'])
@@ -101,10 +101,12 @@ def submit_recipe():
              }
                )
             if 'recipe_img' in request.files:
-                unique_filename = session['username'].new_recipe['recipe_title']
-                recipe_img = request.files['recipe_img']
-                mongo.save_file(recipe_img.unique_filename, recipe_img)
-                new_recipe.update_one({'recipe_img': recipe_img.unique_filename})
+                #unique_filename = session['username'].new_recipe['recipe_title']
+                filename = images.save(request.files['recipe_img'])
+                filepath = 'static/images/uploads/' + filename
+               # recipe_img = request.files['recipe_img']
+              #  mongo.save_file(recipe_img.unique_filename, recipe_img)
+               # new_recipe.update_one({'recipe_img': recipe_img.unique_filename})
             
             return redirect(url_for('recipe_card', recipe_id = new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form);
