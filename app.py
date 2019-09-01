@@ -1,23 +1,20 @@
 import os
 import bcrypt
-#from flask_login import current_user, login_user, logout_user, login_required, LoginManager, login_manager
 from flask import Flask, render_template, redirect, request, url_for, session
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+UPLOAD_FOLDER = '/static/images/uploads/'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'bakingBookRecipes'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = os.getenv("SECRET")
 
-#login_manager = LoginManager()
-#login_manager.init_app(app)
-
-#@login_manager.user_loader
-#def load_user(_id):
- #   return User.get(_id)
 
 mongo = PyMongo(app)
 
@@ -101,9 +98,10 @@ def submit_recipe():
              }
                )
             if 'recipe_img' in request.files:
-                #unique_filename = session['username'].new_recipe['recipe_title']
-                filename = images.save(request.files['recipe_img'])
-                filepath = 'static/images/uploads/' + filename
+                filename = session['username'].new_recipe['recipe_title']
+                #filename = images.save(request.files['recipe_img'])
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                #filepath = 'static/images/uploads/' + filename
                # recipe_img = request.files['recipe_img']
               #  mongo.save_file(recipe_img.unique_filename, recipe_img)
                # new_recipe.update_one({'recipe_img': recipe_img.unique_filename})
