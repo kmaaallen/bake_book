@@ -79,10 +79,10 @@ def submit_recipe():
         recipes = mongo.db.recipes
         form_normal = request.form.to_dict()
         flat_form = request.form.to_dict(flat=False)
-        if request.method == "POST":
-            if 'recipe_img' in request.files:
+        if 'recipe_img' in request.files:
                recipe_img = request.files['recipe_img']
                mongo.save_file(recipe_img.filename, recipe_img)
+        if request.method == "POST":
             new_recipe = recipes.insert_one(
              {
              "recipe_title" : form_normal["recipe_title"],
