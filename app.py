@@ -78,10 +78,10 @@ def submit_recipe():
         recipes = mongo.db.recipes
         form_normal = request.form.to_dict()
         flat_form = request.form.to_dict(flat=False)
-        if 'recipe_img' in request.files:
-            recipe_img = request.files['recipe_img']
-            mongo.save_file(recipe_img.filename, recipe_img)
-            recipe_img_name = recipe_img.filename
+       # if 'recipe_img' in request.files:
+          #  recipe_img = request.files['recipe_img']
+          #  mongo.save_file(recipe_img.filename, recipe_img)
+          #  recipe_img_name = recipe_img.filename
         if request.method == "POST":
             new_recipe = recipes.insert_one(
              {
@@ -94,13 +94,17 @@ def submit_recipe():
              "rating":0,
              "tags": flat_form["tags"],
              "created_by": session['username'],
-             "recipe_img_name": recipe_img_name
+             #"recipe_img_name": recipe_img_name
              }
                )
             
             return redirect(url_for('recipe_card', recipe_id = new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form);
     return redirect(url_for('login'))
+    
+@app.route('/my_recipes')
+def my_recipes():
+    return render_template("recipes.html", recipes=mongo.db.recipes.find({'created_by':session['username']}))
     
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
