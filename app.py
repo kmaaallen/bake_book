@@ -98,7 +98,7 @@ def submit_recipe():
              }
                )
             if 'recipe_img' in request.files:
-                filename = session['username'].new_recipe['recipe_title']
+                filename = new_recipe['created_by'] + new_recipe['recipe_title']
                 #filename = images.save(request.files['recipe_img'])
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 #filepath = 'static/images/uploads/' + filename
