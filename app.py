@@ -83,6 +83,7 @@ def submit_recipe():
             recipe_img = request.files['recipe_img']
             mongo.save_file(recipe_img.filename, recipe_img)
         if request.method == "POST":
+            recipe_img_name = recipe_img.filename
             new_recipe = recipes.insert_one(
              {
              "recipe_title" : form_normal["recipe_title"],
@@ -94,7 +95,7 @@ def submit_recipe():
              "rating":0,
              "tags": flat_form["tags"],
              "created_by": session['username'],
-             "recipe_img_name": recipe_img.filename
+             "recipe_img_name": recipe_img_name
              }
                )
             
