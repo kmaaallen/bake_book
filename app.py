@@ -104,7 +104,8 @@ def submit_recipe():
     
 @app.route('/my_recipes')
 def my_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find({'created_by':session['username']}))
+    username = session["username"]
+    return render_template("recipes.html", recipes=mongo.db.recipes.find({'created_by': username}))
     
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
