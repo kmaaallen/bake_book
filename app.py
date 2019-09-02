@@ -64,11 +64,11 @@ def sign_up():
 def recipe_card(recipe_id):
     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
-@app.route('/recipe_card/<recipe_id>', methods=['POST'])
-def save_recipe(recipe_id, user_id):
-    user = mongo.db.user.find_one({'_id': ObjectId('5d567ffe1c9d44000015f495')})
-    user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
-    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+#@app.route('/recipe_card/<recipe_id>', methods=['POST'])
+#def save_recipe(recipe_id, user_id):
+ #   user = mongo.db.user.find_one({'_id': ObjectId('5d567ffe1c9d44000015f495')})
+  #  user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
+   # return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 @app.route('/submit_recipe', methods=['GET','POST'])
 def submit_recipe():
@@ -108,10 +108,13 @@ def my_recipes():
     return render_template("myrecipes.html", recipes=mongo.db.recipes.find({'created_by': username}))
 
 @app.route('/edit_recipe/<recipe_id>', methods=['GET','POST'])
-def edit_recipe():
+def edit_recipe(recipe_id):
     return render_template("submitrecipe.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+    
+@app.route('/update_recipe/<recipe_id>')
+def update_recipe(recipe_id):
+    recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     if request.method == "POST":
-        recipes = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
         recipes.update_one(
          {
          "recipe_title" : form_normal["recipe_title"],
@@ -126,10 +129,9 @@ def edit_recipe():
          #"recipe_img_name": recipe_img_name
          }
            )
-        return redirect(url_for('recipe_card', recipe_id = ObjectId(recipe_id)))
+    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
 
 
-    
