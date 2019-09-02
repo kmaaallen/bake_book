@@ -111,7 +111,7 @@ def my_recipes():
 def edit_recipe(recipe_id):
     recipe_to_update = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     form = AddRecipeForm(request.POST)
-    if request.method == 'POST':
+    if request.POST':
         form.populate_obj(recipe)
     return render_template("editrecipe.html", form=form, recipe=recipe_to_update)
     
