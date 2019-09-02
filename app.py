@@ -110,7 +110,7 @@ def my_recipes():
 @app.route('/edit_recipe/<recipe_id>', methods=['GET','POST'])
 def edit_recipe(request, recipe_id):
     recipe_to_update = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-    form = AddRecipeForm(request.POST)
+    form = AddRecipeForm(request.POST, recipe)
     if request.method =='POST':
         form.populate_obj(recipe)
     return render_template("editrecipe.html", form=form, recipe=recipe_to_update)
