@@ -105,8 +105,29 @@ def submit_recipe():
 @app.route('/my_recipes')
 def my_recipes():
     username = session["username"]
-    return render_template("recipes.html", recipes=mongo.db.recipes.find({'created_by': username}))
-    
+    return render_template("myrecipes.html", recipes=mongo.db.recipes.find({'created_by': username}))
+
+@app.route('/edit_recipe/<recipe_id>', methods=['POST'])
+def edit_recipe():
+    return render_template("submitrecipe.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+    if request.method == "POST":
+        recipes = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+        recipes.update_one(
+         {
+         "recipe_title" : form_normal["recipe_title"],
+         "sub_title" : form_normal["sub_title"],
+         "makes": form_normal["makes"],
+         "takes": form_normal["takes"],
+         "ingredients":flat_form["ingredients"],
+         "method":flat_form["method"],
+         "rating":0,
+         "tags": flat_form["tags"],
+         "created_by": session['username'],
+         #"recipe_img_name": recipe_img_name
+         }
+           )
+        return redirect(url_for('recipe_card', recipe_id = ObjectId(recipe_id)))
+
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
 
