@@ -108,8 +108,13 @@ def my_recipes():
     return render_template("myrecipes.html", recipes=mongo.db.recipes.find({'created_by': username}))
 
 @app.route('/edit_recipe/<recipe_id>', methods=['GET','POST'])
-def edit_recipe(recipe_id):
-    return render_template("submitrecipe.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+def edit_recipe(recipe_id, request):
+    recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    form = AddRecipeForm(request.POST, recipe)
+    if request.method == 'POST':
+        form.populate_obj(recipe)
+        recipe.save()
+    return render_template("editrecipe.html", form=form)
     
 @app.route('/update_recipe/<recipe_id>')
 def update_recipe(recipe_id):
