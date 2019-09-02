@@ -5,7 +5,7 @@
     <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST">
         {{ form.csrf_token }}
         {{ form.recipe_title.label }}
-        {{ form.recipe_title.data }} 
+        {{ form.recipe_title }} 
         {{ form.sub_title.label }} 
         {{ form.sub_title }} 
         <div>
