@@ -107,9 +107,9 @@ def my_recipes():
     username = session["username"]
     return render_template("myrecipes.html", recipes=mongo.db.recipes.find({'created_by': username}))
 
-@app.route('/edit_recipe/<recipe_id>', methods=['POST'])
+@app.route('/edit_recipe/<recipe_id>', methods=['GET','POST'])
 def edit_recipe():
-    render_template("submitrecipe.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+    return render_template("submitrecipe.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
     if request.method == "POST":
         recipes = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
         recipes.update_one(
