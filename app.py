@@ -111,7 +111,7 @@ def my_recipes():
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     form = AddRecipeForm(obj=recipe)
-    return render_template("editrecipe.html", form=form, recipe = recipe)
+    return render_template("editrecipe.html", form=form, recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
     
 @app.route('/update_recipe/<recipe_id>')
 def update_recipe(recipe_id):
