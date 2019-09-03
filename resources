@@ -1,1 +1,12 @@
 https://www.tutorialspoint.com/online_python_formatter.htm
+
+{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div class="alert alert-warning alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %} taken from https://pythonprogramming.net/flash-flask-tutorial/
