@@ -112,20 +112,20 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     form = AddRecipeForm()
     form = AddRecipeForm(data=recipe)
-        if request.method == "POST":
-            recipe.update_one({
-             "recipe_title" : form_normal["recipe_title"],
-             "sub_title" : form_normal["sub_title"],
-             "makes": form_normal["makes"],
-             "takes": form_normal["takes"],
-             "ingredients":flat_form["ingredients"],
-             "method":flat_form["method"],
-             "rating":0,
-             "tags": flat_form["tags"],
-             "created_by": session['username'],
-             #"recipe_img_name": recipe_img_name
-             })
-             return redirect(url_for('recipe_card', recipe_id = new_recipe.inserted_id))
+    if request.method == "POST":
+        recipe.update_one({
+         "recipe_title" : form_normal["recipe_title"],
+         "sub_title" : form_normal["sub_title"],
+         "makes": form_normal["makes"],
+         "takes": form_normal["takes"],
+         "ingredients":flat_form["ingredients"],
+         "method":flat_form["method"],
+         "rating":0,
+         "tags": flat_form["tags"],
+         "created_by": session['username'],
+         #"recipe_img_name": recipe_img_name
+         })
+         return redirect(url_for('recipe_card', recipe_id = new_recipe.inserted_id))
     return render_template('editrecipe.html', recipe=recipe, form=form)
 
     
