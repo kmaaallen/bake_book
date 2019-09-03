@@ -145,8 +145,7 @@ def edit_recipe(recipe_id):
             'ingredients': flat_form['ingredients'],
             'method': flat_form['method'],
             'rating': 0,
-            'tags': flat_form['tags'],
-            'created_by': session['username'],
+            'tags': flat_form['tags']
             })
 
          # "recipe_img_name": recipe_img_name
