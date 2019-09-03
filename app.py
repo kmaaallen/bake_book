@@ -150,8 +150,8 @@ def edit_recipe(recipe_id):
             })
 
          # "recipe_img_name": recipe_img_name
-
-        return redirect(url_for('recipe_card', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+        flash('Recipe has been successfully updated')
+        #return redirect(url_for('recipe_card', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
     return render_template('editrecipe.html', recipe=recipe, form=form)
 
 # @app.route('/update_recipe/<recipe_id>')
