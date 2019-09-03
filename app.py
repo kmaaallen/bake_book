@@ -112,30 +112,30 @@ def edit_recipe(recipe_id):
     if request.method == 'POST':
         recipe = request.form
         form = AddRecipeForm(obj=recipe)
-        return render_template("editrecipe.html", recipe = recipe)
+    return render_template("editrecipe.html", recipe = recipe)
     #recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     #form = AddRecipeForm(request.form, obj=recipe)
     #return render_template("editrecipe.html", form=form, recipe=recipe)
     
-@app.route('/update_recipe/<recipe_id>')
-def update_recipe(recipe_id):
-    recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-    if request.method == "POST":
-        recipes.update_one(
-         {
-         "recipe_title" : form_normal["recipe_title"],
-         "sub_title" : form_normal["sub_title"],
-         "makes": form_normal["makes"],
-         "takes": form_normal["takes"],
-         "ingredients":flat_form["ingredients"],
-         "method":flat_form["method"],
-         "rating":0,
-         "tags": flat_form["tags"],
-         "created_by": session['username'],
-         #"recipe_img_name": recipe_img_name
-         }
-           )
-    return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+# @app.route('/update_recipe/<recipe_id>')
+# def update_recipe(recipe_id):
+#     recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+#     if request.method == "POST":
+#         recipes.update_one(
+#          {
+#          "recipe_title" : form_normal["recipe_title"],
+#          "sub_title" : form_normal["sub_title"],
+#          "makes": form_normal["makes"],
+#          "takes": form_normal["takes"],
+#          "ingredients":flat_form["ingredients"],
+#          "method":flat_form["method"],
+#          "rating":0,
+#          "tags": flat_form["tags"],
+#          "created_by": session['username'],
+#          #"recipe_img_name": recipe_img_name
+#          }
+#           )
+#     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 if __name__=='__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
