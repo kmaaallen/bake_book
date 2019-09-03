@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import bcrypt
-from flask import Flask, render_template, redirect, request, url_for, \
+from flask import Flask, flash, render_template, redirect, request, url_for, \
     session
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
