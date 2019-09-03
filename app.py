@@ -135,6 +135,8 @@ def edit_recipe(recipe_id):
     form = AddRecipeForm()
     form = AddRecipeForm(data=recipe)
     if request.method == 'POST':
+        form_normal = request.form.to_dict()
+        flat_form = request.form.to_dict(flat=False)
         mongo.db.recipes.recipe.update_one({
             'recipe_title': form_normal['recipe_title'],
             'sub_title': form_normal['sub_title'],
