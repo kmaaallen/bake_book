@@ -20,6 +20,9 @@
             }
         }
     },
+    "python": {
+        "@formatOnSave": true
+    },
     "run": {
         "configs": {
             "@inited": "true",

@@ -15,9 +15,13 @@
         {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
         {{ form.takes.label }} {{ form.takes(placeholder = "How long does this recipe take to make?") }}
         {{ form.ingredients.label }} <a class="btn-floating btn-small waves-effect waves-light" id="addNewIngredient"><i class="material-icons">add</i></a>
+        {% for ingredient in form.ingredients %}
         <div id="ingredients">
-        {{ form.ingredients }}
+        {{ ingredient }}
         </div>
+        {% endfor %}
+        
+        
         {{ form.method.label }}  <a class="btn-floating btn-small waves-effect waves-light" id="addNewStep"><i class="material-icons">add</i></a>
         <div id="method">
         {{ form.method }} 
