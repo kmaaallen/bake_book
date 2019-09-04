@@ -134,6 +134,7 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     form = AddRecipeForm()
     form = AddRecipeForm(data=recipe)
+    form.ingredients.data = "".join(recipe['ingredients'])
     if request.method == 'POST':
         form_normal = request.form.to_dict()
         flat_form = request.form.to_dict(flat=False)

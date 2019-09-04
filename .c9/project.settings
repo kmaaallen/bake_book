@@ -21,7 +21,7 @@
         }
     },
     "python": {
-        "@formatOnSave": true
+        "@formatOnSave": false
     },
     "run": {
         "configs": {
