@@ -17,7 +17,7 @@
         {{ form.ingredients.label }} <a class="btn-floating btn-small waves-effect waves-light" id="addNewIngredient"><i class="material-icons">add</i></a>
         <div id="ingredients">
         {% for ingredient in form.ingredients.data %}
-        <input required="" type="text" value="" class="ingredients" name="ingredients">
+        <input type="text" value="{{ingredient}}" class="ingredients" name="ingredients">
          {% endfor %}
         </div>
         {{ form.method.label }}  <a class="btn-floating btn-small waves-effect waves-light" id="addNewStep"><i class="material-icons">add</i></a>
