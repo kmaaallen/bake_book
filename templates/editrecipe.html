@@ -11,18 +11,19 @@
             id="addNewIngredient"><i class="material-icons">add</i></a>
         <div id="ingredients">
             {% for ingredient in form.ingredients.data %}
-            <input type="text" value="{{ingredient}}" class="ingredients" name="ingredients"> {% endfor %}
+            <div><input required type='text' value='{{ingredient}}' class='ingredients' name='ingredients'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>
+            {% endfor %}
         </div>
         {{ form.method.label }} <a class="btn-floating btn-small waves-effect waves-light" id="addNewStep"><i class="material-icons">add</i></a>
         <div id="method">
             {% for step in form.method.data %}
-            <input id="method" name="method" type="text" value="{{step}}"> 
+            <div><input required type='text' value='{{step}}' class='method' name='method'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>
             {% endfor %}
         </div>
         {{ form.tags.label }} <a class="btn-floating btn-small waves-effect waves-light" id="addNewTag"><i class="material-icons">add</i></a>
         <div id="tags">
             {% for tag in form.tags.data %}
-            <input id=tags name="tags" type="text" value="{{tag}}"> 
+            <div><input required type='text' value='{{tag}}' class='tags' name='tags'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>
             {% endfor %}
         </div>
         <button class="btn btn-sm save-btn" type="submit">Edit Recipe</button>
