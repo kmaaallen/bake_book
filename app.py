@@ -158,7 +158,7 @@ def edit_recipe(recipe_id):
         #return redirect(url_for('recipe_card', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
     return render_template('editrecipe.html', recipe=recipe, form=form)
 
-@app.route('/delete_recipe/<recipe_id>'. methods=['POST'])
+@app.route('/delete_recipe/<recipe_id>', methods=['POST'])
 def delete_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     if request.method == 'POST':
