@@ -158,25 +158,6 @@ def edit_recipe(recipe_id):
         #return redirect(url_for('recipe_card', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
     return render_template('editrecipe.html', recipe=recipe, form=form)
 
-# @app.route('/update_recipe/<recipe_id>')
-# def update_recipe(recipe_id):
-#     recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-#     if request.method == "POST":
-#         recipes.update_one(
-#          {
-#          "recipe_title" : form_normal["recipe_title"],
-#          "sub_title" : form_normal["sub_title"],
-#          "makes": form_normal["makes"],
-#          "takes": form_normal["takes"],
-#          "ingredients":flat_form["ingredients"],
-#          "method":flat_form["method"],
-#          "rating":0,
-#          "tags": flat_form["tags"],
-#          "created_by": session['username'],
-#          #"recipe_img_name": recipe_img_name
-#          }
-#           )
-#     return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT'
