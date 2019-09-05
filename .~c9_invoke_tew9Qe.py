@@ -85,7 +85,7 @@ def recipe_card(recipe_id):
 def save_recipe(recipe_id):
     if session:
         user = mongo.db.users.find_one({'username' : session['username']})
-        user.update({$push: {'saved_recipes' : ObjectId(recipe_id)} })
+        user.
  #   user = mongo.db.user.find_one({'_id': ObjectId('5d567ffe1c9d44000015f495')})
   #  user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
    # return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
