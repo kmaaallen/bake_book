@@ -154,7 +154,6 @@ def edit_recipe(recipe_id):
             })
 
          # "recipe_img_name": recipe_img_name
-        #flash('Recipe has been successfully updated')
         return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
     return render_template('editrecipe.html', recipe=recipe, form=form)
 
