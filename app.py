@@ -83,12 +83,9 @@ def recipe_card(recipe_id):
 
 @app.route('/save_recipe/<recipe_id>', methods=['POST'])
 def save_recipe(recipe_id):
-    print(recipe_id)
     username = session['username']
-    print('user is: ' + username)
     user_record = mongo.db.users.find_one({'username' : username})
-    print("user record user is " + user_record.username)
-    #mongo.db.users.update('username' : session['username'], {$push: {'saved_recipes' : '1' })
+    user_record.update('username' : session['username'], {$push: {'saved_recipes' : '1' })
 
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
