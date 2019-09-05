@@ -162,7 +162,7 @@ def edit_recipe(recipe_id):
 def delete_recipe(recipe_id):
     recipes = mongo.db.recipes
     recipes.remove({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('/my_recipes'))
+    return redirect(url_for('my_recipes'))
 # def delete_recipe(recipe_id):
 #     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
 #     mongo.db.recipes.delete_one(recipe)
