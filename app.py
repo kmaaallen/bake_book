@@ -66,7 +66,7 @@ def sign_up():
             hashpass = bcrypt.hashpw(request.form['password'
                     ].encode('utf-8'), bcrypt.gensalt())
             users.insert_one({'user': request.form['username'],
-                             'password': hashpass.decode()})
+                             'password': hashpass.decode(), 'saved_recipes':''})
             session['username'] = request.form['username']
             return redirect(url_for('show_recipes'))
 
@@ -81,11 +81,12 @@ def recipe_card(recipe_id):
                            recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 
-@app.route('/save_recipe/<recipe_id>', methods=['POST'])
-def save_recipe(recipe_id):
-    if session:
-        user = mongo.db.users.find_one({'username' : session['username']})
-        mongo.db.users.update(user, {$push: {'saved_recipes' : ObjectId(recipe_id)} })
+# @app.route('/save_recipe/<recipe_id>', methods=['POST'])
+# def save_recipe(recipe_id):
+#     if 'username' in session:
+#         user = mongo.db.users.find_one({'username' : session['username']})
+#         saved_recipes = user['saved_recipes']
+#         mongo.db.users.update(user, {$push: {'saved_recipes' : ObjectId(recipe_id)} })
  #   user = mongo.db.user.find_one({'_id': ObjectId('5d567ffe1c9d44000015f495')})
   #  user.update_one({ '$push': { 'saved_recipes': ObjectId(recipe_id) }})
    # return render_template("recipecard.html", recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
