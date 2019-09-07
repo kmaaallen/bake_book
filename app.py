@@ -97,8 +97,8 @@ def save_recipe(recipe_id):
     #     """Check recipe is not already saved"""
         if recipe not in saved:
             flash("recipe not in saved")
-    #         flash("recipe not already saved")
-    #         users.update_one({'username': session['username']}, {"$push" : {"saved_recipes" : recipe}})
+            user.update_one({'user': session['username']}, {"$push" : {"saved_recipes" : recipe}})
+            flash (saved)
         else:
             flash("recipe is in saved")
     return render_template('recipecard.html',
