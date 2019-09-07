@@ -90,8 +90,10 @@ def save_recipe(recipe_id):
         flash("user is logged in")
         recipe = ObjectId(recipe_id)
         flash(recipe)
-    #     #user = mongo.db.users.find_one({'username': session['username']})
-    #   # saved = user['saved_recipes']
+        user = mongo.db.users.find_one({'username': session['username']})
+        flash("user id is" + user)
+        saved = user['saved_recipes']
+        flash (saved)
     #     """Check recipe is not already saved"""
     #     #if recipe not in saved:
     #     #already_saved = user.find({ saved_recipes: recipe })
