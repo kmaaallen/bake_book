@@ -81,11 +81,20 @@ def recipe_card(recipe_id):
                            recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 
-@app.route('/save_recipe/<recipe_id>', methods=['POST'])
+@app.route('/save_recipe/<recipe_id>', methods=['GET','POST'])
 def save_recipe(recipe_id):
-    username = session['username']
-    user_record = mongo.db.users.find_one({'username' : username})
-    user_record.update_one({'username' : session['username']}, {$push: {'saved_recipes' : '1' })
+    """Check user is logged in """
+    if 'logged_in' in session:
+        recipe = ObjectId(recipe_id)
+        user = mongo.db.users.find_one({'username': session['username']})
+        saved_recipes = user['saved_recipes']
+        """Check recipe is not already saved"""
+        if recipe is not in saved_recipes:
+            users.update_one({'username': session['username']}, {"$push" : {"saved_recipes" : recipe}})
+        else:
+            flash("You have already saved this recipe")
+    return render_template('recipecard.html',
+                           recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
