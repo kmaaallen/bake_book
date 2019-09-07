@@ -89,16 +89,17 @@ def save_recipe(recipe_id):
     if 'logged_in' in session:
         flash("user is logged in")
         recipe = ObjectId(recipe_id)
-        user = mongo.db.users.find_one({'username': session['username']})
-        #saved = mongo.db.users.user['saved_recipes']
-        """Check recipe is not already saved"""
-        #if recipe not in saved:
-        already_saved = user.find({ saved_recipes: recipe })
-        if !already_saved:
-            flash("recipe not already saved")
-            users.update_one({'username': session['username']}, {"$push" : {"saved_recipes" : recipe}})
-        else:
-            flash("You have already saved this recipe")
+        flash(recipe)
+    #     #user = mongo.db.users.find_one({'username': session['username']})
+    #   # saved = user['saved_recipes']
+    #     """Check recipe is not already saved"""
+    #     #if recipe not in saved:
+    #     #already_saved = user.find({ saved_recipes: recipe })
+    #     if !already_saved:
+    #         flash("recipe not already saved")
+    #         users.update_one({'username': session['username']}, {"$push" : {"saved_recipes" : recipe}})
+    #     else:
+    #         flash("You have already saved this recipe")
     return render_template('recipecard.html',
                            recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
