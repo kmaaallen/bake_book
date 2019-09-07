@@ -95,13 +95,12 @@ def save_recipe(recipe_id):
         saved = user['saved_recipes']
         flash (saved)
     #     """Check recipe is not already saved"""
-    #     #if recipe not in saved:
-    #     #already_saved = user.find({ saved_recipes: recipe })
-    #     if !already_saved:
+        if recipe not in saved:
+            flash("recipe not in saved")
     #         flash("recipe not already saved")
     #         users.update_one({'username': session['username']}, {"$push" : {"saved_recipes" : recipe}})
-    #     else:
-    #         flash("You have already saved this recipe")
+        else:
+            flash("recipe is in saved")
     return render_template('recipecard.html',
                            recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
