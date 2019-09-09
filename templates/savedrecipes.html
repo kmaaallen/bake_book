@@ -14,6 +14,7 @@
             </div>
             <div class="card-action">
                 <a href="{{url_for('recipe_card', recipe_id=recipe._id)}}">View Recipe</a>
+                <a href="{{url_for('unsave_recipe', recipe_id=recipe._id)}}">Unsave Recipe</a>
             </div>
         </div>
     </div>
