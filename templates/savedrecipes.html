@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %} 
+
+<div class="row">
+    {% for recipe in recipes %}
+    <div class="col s12 m4 l3">
+        
+        <div class="card">
+            <div class="card-image">
+                <img src="static/images/placeholder.png"></img>
+            </div>
+            <div class="card-content">
+                <h3>{{recipe.recipe_title}}</h3>
+                <p>{{recipe.sub_title}}</p>
+            </div>
+            <div class="card-action">
+                <a href="{{url_for('recipe_card', recipe_id=recipe._id)}}">View Recipe</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+ {% endblock %}
