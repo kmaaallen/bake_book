@@ -117,7 +117,7 @@ def unsave_recipe(recipe_id):
     if 'logged_in' in session:
         user = mongo.db.users.find_one({'user': session['username']})
         saved = user['saved_recipes']
-        saved.remove({ObjectId(recipe_id)})
+        saved.remove(recipe_id)
         return render_template('savedrecipes.html',
                            recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
         
