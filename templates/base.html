@@ -18,13 +18,13 @@
                     {% if session %}
                     <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
                     <!--Dropdown content -->
-                    <ul id='dropdown1' class='dropdown-content'>
+                    <ul id='dropdow1' class='dropdown-content'>
                         <li><a href="{{url_for('logout')}}">Logout</a></li>
                         <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>
                         <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>
                     </ul>
                     <!--Dropdown trigger -->
-                    <li><a class='dropdown-trigger' data-target="dropdown1">{{ session['username'] }}</a></li>
+                    <li><a class='dropdown-trigger' data-target="dropdown">{{ session['username'] }}</a></li>
                     {% else %}
                     <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
                     {% endif %}
@@ -50,7 +50,9 @@
         }
 
         $(document).ready(function() {
-            $(".dropdown-trigger").dropdown();
+            document.addEventListener('DOMContentLoaded', function() {
+                        var elems = document.querySelectorAll('.dropdown-trigger');
+                        var instances = M.Dropdown.init(elems, options);
             
             $(".nav-dropdown").click(function() {
                 if ($(".nav-dropdown-content").hasClass("nav-dropdown-visible")) {

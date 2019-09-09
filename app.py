@@ -108,8 +108,10 @@ def save_recipe(recipe_id):
 def my_saved_recipes():
     if 'logged_in' in session:
         """ returning show recipes template for now while I fix dropdown"""
+        user = mongo.db.users.find_one({'user': session['username']})
+        saved = user['saved_recipes']
         return render_template('recipes.html',
-                           recipes=mongo.db.recipes.find())
+                           recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
 
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
