@@ -119,7 +119,7 @@ def unsave_recipe(recipe_id):
         saved = user['saved_recipes']
         flash(saved)
         flash("recipe id is" + recipe_id)
-        user({ $pull: { 'saved_recipes': ObjectId(recipe_id)} })
+        mongo.db.users.update_one({'user': session['username']}, {"$pull": {"saved_recipes": ObjectId(recipe_id)}})
         flash(saved)
         return render_template('savedrecipes.html',
                            recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
