@@ -17,11 +17,14 @@
                     <li><a href="#">About</a></li>
                     {% if session %}
                     <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
-                    <ul id='dropdown1' class='nav-dropdown-content'>
+                    <!--Dropdown content -->
+                    <ul id='dropdown1' class='dropdown-content'>
                         <li><a href="{{url_for('logout')}}">Logout</a></li>
                         <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>
+                        <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>
                     </ul>
-                    <li><a class='nav-dropdown'>{{ session['username'] }}</a></li>
+                    <!--Dropdown trigger -->
+                    <li><a class='dropdown-trigger' data-target="dropdown1">{{ session['username'] }}</a></li>
                     {% else %}
                     <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
                     {% endif %}
@@ -47,6 +50,8 @@
         }
 
         $(document).ready(function() {
+            $(".dropdown-trigger").dropdown();
+            
             $(".nav-dropdown").click(function() {
                 if ($(".nav-dropdown-content").hasClass("nav-dropdown-visible")) {
                     $(".nav-dropdown-content").removeClass("nav-dropdown-visible");
