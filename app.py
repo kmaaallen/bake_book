@@ -94,7 +94,7 @@ def save_recipe(recipe_id):
         flash("user id is" + user['user'])
         saved = user['saved_recipes']
         flash (saved)
-    #     """Check recipe is not already saved"""
+         """Check recipe is not already saved"""
         if recipe not in saved:
             flash("recipe not in saved")
             mongo.db.users.update_one({'user': session['username']}, {"$push" : {"saved_recipes" : recipe}})
@@ -103,6 +103,13 @@ def save_recipe(recipe_id):
             flash("recipe is in saved")
     return render_template('recipecard.html',
                            recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+
+@app.route('/my_saved_recipes', methods=['GET', 'POST'])
+def my_saved_recipes():
+    if 'logged_in' in session:
+        """ returning show recipes template for now while I fix dropdown"""
+        return render_template('recipes.html',
+                           recipes=mongo.db.recipes.find())
 
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
