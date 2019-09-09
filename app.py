@@ -113,7 +113,7 @@ def my_saved_recipes():
                            recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
 
 @app.route('/unsave_recipe/<recipe_id>', methods=['GET', 'POST'])
-def unsave_recipe():
+def unsave_recipe(recipe_id):
     if 'logged_in' in session:
         user = mongo.db.users.find_one({'user': session['username']})
         saved = user['saved_recipes']
