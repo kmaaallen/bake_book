@@ -189,7 +189,7 @@ def delete_recipe(recipe_id):
     recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('my_recipes'))
     
-@app.route('/search_results/<keywords>')
+@app.route('/search_results/<keywords>', methods=["GET", "POST"])
 def search_results(keywords):
     return render_template('recipes.html',
                            recipes=mongo.db.recipes.find({"$text": { "$search": keywords}}))
