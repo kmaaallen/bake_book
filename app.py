@@ -190,7 +190,7 @@ def delete_recipe(recipe_id):
     return redirect(url_for('my_recipes'))
     
 @app.route('/search_results', methods=["GET", "POST"])
-def search_results(keywords):
+def search_results():
     if request.method == 'POST':
         keywords = request.form.get("keywords")
         flash(keywords)
