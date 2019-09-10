@@ -193,7 +193,6 @@ def delete_recipe(recipe_id):
 def search_results():
     if request.method == 'POST':
         keywords = request.form.get("keywords")
-        flash(keywords)
         recipes=mongo.db.recipes.find({"$text": { "$search": keywords}})
     return render_template('recipes.html', recipes=recipes )
 
