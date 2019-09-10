@@ -196,7 +196,7 @@ def search_results(keywords):
         flash(keywords)
         recipes=mongo.db.recipes.find({"$text": { "$search": keywords}})
     return render_template('recipes.html', recipes = recipes )
-return render_template('recipes.html', recipes=mongo.db.recipes.find())
+
 
 
 if __name__ == '__main__':
