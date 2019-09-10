@@ -192,7 +192,7 @@ def delete_recipe(recipe_id):
 @app.route('/search_results/<keywords>')
 def search_results(keywords):
     return render_template('recipes.html',
-                           recipes=mongo.db.recipes.find({$text: { $search: keywords}}))
+                           recipes=mongo.db.recipes.find({"$text": { "$search": keywords}}))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT'
