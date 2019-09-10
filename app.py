@@ -68,7 +68,7 @@ def sign_up():
             session['username'] = request.form['username']
             return redirect(url_for('show_recipes'))
 
-        return 'That username already exists, please choose another.'
+        return flash('That username already exists, please choose another.')
 
     return render_template('signup.html', form=form)
 
