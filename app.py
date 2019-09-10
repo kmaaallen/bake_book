@@ -68,7 +68,7 @@ def sign_up():
             session['username'] = request.form['username']
             return redirect(url_for('show_recipes'))
 
-        return flash('That username already exists, please choose another.')
+        else: flash('That username already exists, please choose another.')
 
     return render_template('signup.html', form=form)
 
@@ -88,9 +88,7 @@ def save_recipe(recipe_id):
         saved = user['saved_recipes']
         """Check recipe is not already saved"""
         if recipe not in saved:
-            flash("recipe not in saved")
             mongo.db.users.update_one({'user': session['username']}, {"$push": {"saved_recipes": recipe}})
-            flash(saved)
         else:
             flash("Recipe has already been saved")
     return render_template('recipecard.html',
