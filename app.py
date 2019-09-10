@@ -188,6 +188,10 @@ def delete_recipe(recipe_id):
     recipes = mongo.db.recipes
     recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('my_recipes'))
+    
+@app.route('/search_results/<keywords>')
+def search_results(keywords):
+    mongo.db.recipes.find({$text: { $search: keywords}})
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT'
