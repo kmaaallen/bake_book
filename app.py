@@ -189,10 +189,15 @@ def delete_recipe(recipe_id):
     recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('my_recipes'))
     
-@app.route('/search_results/<keywords>', methods=["GET", "POST"])
+@app.route('/search_results', methods=["GET", "POST"])
 def search_results(keywords):
-    return render_template('recipes.html',
-                           recipes=mongo.db.recipes.find({"$text": { "$search": keywords}}))
+    if request.method == 'POST':
+        keywords = request.form.get("keywords")
+        flash(keywords)
+        recipes=mongo.db.recipes.find({"$text": { "$search": keywords}})
+    return render_template('recipes.html', recipes = recipes )
+return render_template('recipes.html', recipes=mongo.db.recipes.find())
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT'
