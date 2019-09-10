@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 import os
 import bcrypt
 from flask import Flask, flash, render_template, redirect, request, url_for, \
