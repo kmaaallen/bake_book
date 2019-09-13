@@ -9,8 +9,11 @@
         {{ form.sub_title.label }} 
         {{ form.sub_title }} 
         <div>
-        <input type="file" name="recipe_img"/>
+        <input type="file" name="recipe_img" id ="recipe_img"/>
         </div>
+        <form method="POST" action="/submit_form/">
+            <input type="hidden" id="recipe_url" name="recipe_url" value="/static/images/placeholder.png">
+        </form>
         {{ form.makes.label }}
         {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
         {{ form.takes.label }} {{ form.takes(placeholder = "How long does this recipe take to make?") }}

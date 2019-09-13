@@ -1,4 +1,4 @@
-import os
+import os, json, boto3
 import bcrypt
 from flask import Flask, flash, render_template, redirect, request, url_for, \
     session
@@ -122,10 +122,25 @@ def submit_recipe():
         form_normal = request.form.to_dict()
         flat_form = request.form.to_dict(flat=False)
 
-       # if 'recipe_img' in request.files:
-          #  recipe_img = request.files['recipe_img']
-          #  mongo.save_file(recipe_img.filename, recipe_img)
-          #  recipe_img_name = recipe_img.filename
+        S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
+        file_name = session['username'] + '.' + form_normal['recipe_title']
+        file_type = request.args.get('file_type')
+        s3 = boto3.client('s3')
+    
+        presigned_post = s3.generate_presigned_post(
+        Bucket = S3_BUCKET,
+        Key = file_name,
+        Fields = {"acl": "public-read", "Content-Type": file_type},
+        Conditions = [
+         {"acl": "public-read"},
+        {"Content-Type": file_type}
+     ],
+        ExpiresIn = 3600
+    )
+return json.dumps({
+    'data': presigned_post,
+    'url': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name)
+  })
 
         if request.method == 'POST':
             new_recipe = recipes.insert_one({
@@ -138,6 +153,7 @@ def submit_recipe():
                 'rating': 0,
                 'tags': flat_form['tags'],
                 'created_by': session['username'],
+                'recipe_url' : form_normal['recipe_url']
                 })
 
              # "recipe_img_name": recipe_img_name
