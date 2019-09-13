@@ -25,7 +25,7 @@
                         <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>
                     </ul>
                     <!--Dropdown trigger -->
-                    <li><a class='dropdown-trigger' data-target="dropdown">{{ session['username'] }}</a></li>
+                    <li><a class='dropdown-trigger' data-target="">{{ session['username'] }}</a></li>
                     {% else %}
                     <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
                     {% endif %}

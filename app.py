@@ -101,6 +101,7 @@ def my_saved_recipes():
         saved = user['saved_recipes']
         return render_template('savedrecipes.html',
                            recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
+    else flash('Sorry you don\'t have any saved recipes.)
 
 @app.route('/unsave_recipe/<recipe_id>', methods=['GET', 'POST'])
 def unsave_recipe(recipe_id):
