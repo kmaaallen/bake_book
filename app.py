@@ -126,7 +126,7 @@ def submit_recipe():
         flat_form = request.form.to_dict(flat=False)
 
         S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
-        file_name = session['username'] + '.' + request.form.to_dict('recipe_title')
+        file_name = session['username'] + '.' +  form_normal['recipe_title']
         file_type = request.args.get('file_type')
         s3 = boto3.client('s3')
     
