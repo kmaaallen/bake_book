@@ -103,6 +103,7 @@ def my_saved_recipes():
                            recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
     else:
         flash("Sorry you don't have any saved recipes.")
+        
 
 @app.route('/unsave_recipe/<recipe_id>', methods=['GET', 'POST'])
 def unsave_recipe(recipe_id):
@@ -157,8 +158,6 @@ def submit_recipe():
                 'created_by': session['username'],
                 'recipe_url' : form_normal['recipe_url']
                 })
-
-             # "recipe_img_name": recipe_img_name
 
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
