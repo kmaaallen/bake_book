@@ -66,7 +66,7 @@ def sign_up():
             users.insert_one({'user': request.form['username'],
                              'password': hashpass.decode(), 'saved_recipes':''})
             session['username'] = request.form['username']
-            return redirect(url_for('show_recipes'))
+            return redirect(url_for('login'))
 
         else: flash('That username already exists, please choose another.')
 
