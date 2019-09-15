@@ -139,20 +139,20 @@ def submit_recipe():
                 'recipe_url' : form_normal['recipe_url']
                 })
                 
-                S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
-                file_name = session['username'] + '.' +  form.recipe_title.data
-                file_type = request.args.get('file_type')
-                s3 = boto3.client('s3')
+            S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
+            file_name = session['username'] + '.' +  form.recipe_title.data
+            file_type = request.args.get('file_type')
+            s3 = boto3.client('s3')
     
-                presigned_post = s3.generate_presigned_post(
-                Bucket=S3_BUCKET,
-                Key=file_name,
-                Fields={'acl': 'public-read','Content-Type': file_type},
-                Conditions=[
-                    {'acl': 'public-read'},
-                    {'Content-Type': file_type}
-                    ],
-                    ExpiresIn=3600)
+            presigned_post = s3.generate_presigned_post(
+            Bucket=S3_BUCKET,
+            Key=file_name,
+            Fields={'acl': 'public-read','Content-Type': file_type},
+            Conditions=[
+                {'acl': 'public-read'},
+                {'Content-Type': file_type}
+                ],
+                ExpiresIn=3600)
 
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
