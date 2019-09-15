@@ -78,9 +78,9 @@
             // below function taken from https://devcenter.heroku.com/articles/s3-upload-python for uploading recipe images to S3
             (function() {
                 document.getElementById("recipe_img").onchange = function() {
-                    var filename = session['username'] + '.' +  form.recipe_title.data
-                    // var files = document.getElementById("recipe_img").files;
-                    // var file = files[0];
+                    var files = document.getElementById("recipe_img").files;
+                    var file = files[0];
+                    var filename = file.filename = session['username'] + '.' +  form.recipe_title.data;
                     if (!file) {
                         return alert("No file selected.");
                     }
