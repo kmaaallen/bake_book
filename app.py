@@ -173,7 +173,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('submit_recipe')
-
+    return redirect(url_for('submit_recipe')
 
 @app.route('/my_recipes')
 def my_recipes():
