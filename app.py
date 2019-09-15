@@ -126,9 +126,7 @@ def unsave_recipe(recipe_id):
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
 def submit_recipe():
-    flash('reached submit-recipe in code')
     if 'logged_in' in session:
-        flash('reached logged in code')
         new_recipe = None
         form = AddRecipeForm(request.form)
         recipes = mongo.db.recipes
@@ -136,7 +134,6 @@ def submit_recipe():
         flat_form = request.form.to_dict(flat=False)
 
         if request.method == 'POST':
-            flash('reached insert code')
             new_recipe = recipes.insert_one({
                 'recipe_title': form_normal['recipe_title'],
                 'sub_title': form_normal['sub_title'],
@@ -161,7 +158,7 @@ def submit_recipe():
                 return redirect(request.url)
             if file and allowed_file(file.filename):
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('recipe_card',
+                return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
