@@ -118,55 +118,49 @@ def unsave_recipe(recipe_id):
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
 def submit_recipe():
-  flash('reached submit-recipe in code')
-if 'logged_in' in session:
-  flash('reached logged in code')
-new_recipe = None
-form = AddRecipeForm(request.form)
-recipes = mongo.db.recipes
-form_normal = request.form.to_dict()
-flat_form = request.form.to_dict(flat = False)
+flash('reached submit-recipe in code')
+    if 'logged_in' in session:
+    flash('reached logged in code')
+        new_recipe = None
+        form = AddRecipeForm(request.form)
+        recipes = mongo.db.recipes
+        form_normal = request.form.to_dict()
+        flat_form = request.form.to_dict(flat=False)
 
-if request.method == 'POST':
-  flash('reached insert code')
-new_recipe = recipes.insert_one({
-  'recipe_title': form_normal['recipe_title'],
-  'sub_title': form_normal['sub_title'],
-  'makes': form_normal['makes'],
-  'takes': form_normal['takes'],
-  'ingredients': flat_form['ingredients'],
-  'method': flat_form['method'],
-  'rating': 0,
-  'tags': flat_form['tags'],
-  'created_by': session['username'],
-  'recipe_url': form_normal['recipe_url']
-})
-flash('reached end of insert recipe code')
+        if request.method == 'POST':
+        flash('reached insert code')
+            new_recipe = recipes.insert_one({
+                'recipe_title': form_normal['recipe_title'],
+                'sub_title': form_normal['sub_title'],
+                'makes': form_normal['makes'],
+                'takes': form_normal['takes'],
+                'ingredients': flat_form['ingredients'],
+                'method': flat_form['method'],
+                'rating': 0,
+                'tags': flat_form['tags'],
+                'created_by': session['username'],
+                'recipe_url' : form_normal['recipe_url']
+                })
+            flash('reached end of insert recipe code')
 
-return redirect(url_for('recipe_card',
-  recipe_id = new_recipe.inserted_id))
-S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
-file_name = session['username'] + '.' + form.recipe_title.data
-file_type = request.args.get('file_type')
-s3 = boto3.client('s3')
-
-presigned_post = s3.generate_presigned_post(
-  Bucket = S3_BUCKET,
-  Key = file_name,
-  Fields = {
-    'acl': 'public-read',
-    'Content-Type': file_type
-  },
-  Conditions = [{
-      'acl': 'public-read'
-    },
-    {
-      'Content-Type': file_type
-    }
-  ],
-  ExpiresIn = 3600)
-return render_template('submitrecipe.html', form = form)
-return redirect(url_for('login'))
+            return redirect(url_for('recipe_card',
+                            recipe_id=new_recipe.inserted_id))
+            S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
+            file_name = session['username'] + '.' +  form.recipe_title.data
+            file_type = request.args.get('file_type')
+            s3 = boto3.client('s3')
+    
+            presigned_post = s3.generate_presigned_post(
+            Bucket=S3_BUCKET,
+            Key=file_name,
+            Fields={'acl': 'public-read','Content-Type': file_type},
+            Conditions=[
+                {'acl': 'public-read'},
+                {'Content-Type': file_type}
+                ],
+                ExpiresIn=3600)
+        return render_template('submitrecipe.html', form=form)
+    return redirect(url_for('login'))
 
 
 @app.route('/my_recipes')
