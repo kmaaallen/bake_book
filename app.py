@@ -139,7 +139,7 @@ def submit_recipe():
                 'rating': 0,
                 'tags': flat_form['tags'],
                 'created_by': session['username'],
-                'recipe_url' : form_normal['recipe_url']
+                # 'recipe_url' : form_normal['recipe_url']
                 })
             flash('reached end of insert recipe code')
 
