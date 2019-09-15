@@ -156,7 +156,7 @@ def submit_recipe():
                 flash('No selected file')
                 return redirect(request.url)
             if file and allowed_file(file.filename):
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
                 newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
                 return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
