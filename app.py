@@ -16,7 +16,9 @@ app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv('SECRET')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 mongo = PyMongo(app)
 
@@ -155,9 +157,6 @@ def submit_recipe():
     return redirect(url_for('login'))
 
 @app.route('/upload_file', methods=['GET', 'POST'])
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
