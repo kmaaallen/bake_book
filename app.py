@@ -149,16 +149,6 @@ def submit_recipe():
                 'created_by': session['username'],
                 # 'recipe_url' : form_normal['recipe_url']
                 })
-            
-       
-            return redirect(url_for('recipe_card',
-                            recipe_id=new_recipe.inserted_id))
-        return render_template('submitrecipe.html', form=form)
-    return redirect(url_for('login'))
-
-@app.route('/upload_file', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
@@ -171,8 +161,11 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('submit_recipe'))
-    return redirect(url_for('submit_recipe'))
+            return redirect(url_for('recipe_card',
+                            recipe_id=new_recipe.inserted_id))
+        return render_template('submitrecipe.html', form=form)
+    return redirect(url_for('login'))
+
 
 @app.route('/my_recipes')
 def my_recipes():
