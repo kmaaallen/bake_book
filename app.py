@@ -141,14 +141,15 @@ def submit_recipe():
                 'created_by': session['username'],
                 # 'recipe_url' : form_normal['recipe_url']
                 })
-            flash('reached end of insert recipe code')
+            flash(filename)
 
             
             S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
             filename = session['username'] + '.' +  form.recipe_title.data
+            flash(filename)
             s3 = boto3.client('s3')
     
-            s3.upload_file(filename, S3_BUCKET, filename)
+            s3.upload_file(file.filename, S3_BUCKET, filename)
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)

@@ -80,7 +80,9 @@
                 document.getElementById("recipe_img").onchange = function() {
                     var files = document.getElementById("recipe_img").files;
                     var file = files[0];
-                    var filename = file.filename = session['username'] + '.' +  form.recipe_title.data;
+                    console.log(filename)
+                    //var filename = file.filename = session['username'] + '.' +  form.recipe_title.data;
+                    console.log(filename)
                     if (!file) {
                         return alert("No file selected.");
                     }
