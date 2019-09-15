@@ -1,6 +1,7 @@
 import os
 import bcrypt
-from flask import Flask, flash, render_template, redirect, request, url_for, \session
+from flask import Flask, flash, render_template, redirect, request, url_for, \
+    session
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
