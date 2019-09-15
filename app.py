@@ -1,4 +1,4 @@
-import os, json, boto3
+import os, boto3
 import bcrypt
 from flask import Flask, flash, render_template, redirect, request, url_for, \
     session
@@ -147,18 +147,9 @@ def submit_recipe():
                             recipe_id=new_recipe.inserted_id))
             S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
             file_name = session['username'] + '.' +  form.recipe_title.data
-            file_type = request.args.get('file_type')
             s3 = boto3.client('s3')
     
-            presigned_post = s3.generate_presigned_post(
-            Bucket=S3_BUCKET,
-            Key=file_name,
-            Fields={'acl': 'public-read','Content-Type': file_type},
-            Conditions=[
-                {'acl': 'public-read'},
-                {'Content-Type': file_type}
-                ],
-                ExpiresIn=3600)
+            s3.upload_file(filename, S3_BUCKET, filename)
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
 
