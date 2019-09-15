@@ -1,16 +1,22 @@
-import os, boto3
+import os
 import bcrypt
-from flask import Flask, flash, render_template, redirect, request, url_for, \
+from flask import Flask, flash, render_template, redirect, request, url_for
     session
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+
+UPLOAD_FOLDER = '/static/images/uploads'
+EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'bakingBookRecipes'
 app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv('SECRET')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
 
 mongo = PyMongo(app)
 
@@ -142,17 +148,32 @@ def submit_recipe():
                 # 'recipe_url' : form_normal['recipe_url']
                 })
             
-            S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
-            file = file.name
-            filename = session['username'] + '.' +  form.recipe_title.data
-            flash(filename)
-            s3 = boto3.client('s3')
-    
-            s3.upload_file(file, S3_BUCKET, filename)
+       
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
+
+@app.route('/upload_file', methods=['GET', 'POST'])
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+def upload_file():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['recipe_img']
+        # if user does not select file, browser also
+        # submit an empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('recipe_card',
+                            recipe_id=new_recipe.inserted_id))
 
 
 @app.route('/my_recipes')
