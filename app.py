@@ -7,7 +7,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 UPLOAD_FOLDER = '/static/images/uploads'
-EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 app = Flask(__name__)
 
@@ -172,8 +172,7 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('recipe_card',
-                            recipe_id=new_recipe.inserted_id))
+            return redirect(url_for('submit_recipe')
 
 
 @app.route('/my_recipes')
