@@ -141,7 +141,7 @@ def submit_recipe():
                 'created_by': session['username'],
                 'recipe_url' : form_normal['recipe_url']
                 })
-                flash('reached end of insert recipe code')
+            flash('reached end of insert recipe code')
 
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
