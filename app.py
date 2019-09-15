@@ -140,11 +140,6 @@ def submit_recipe():
                 ],
                 ExpiresIn=3600)
 
-        return json.dumps({
-            'data': presigned_post,
-            'url': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET,file_name)
-        })
-
         if request.method == 'POST':
             new_recipe = recipes.insert_one({
                 'recipe_title': form_normal['recipe_title'],
