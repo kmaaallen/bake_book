@@ -138,7 +138,9 @@ def submit_recipe():
                 'created_by': session['username'],
                 'recipe_url' : form_normal['recipe_url']
                 })
-                
+
+            return redirect(url_for('recipe_card',
+                            recipe_id=new_recipe.inserted_id))
             S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
             file_name = session['username'] + '.' +  form.recipe_title.data
             file_type = request.args.get('file_type')
@@ -153,9 +155,6 @@ def submit_recipe():
                 {'Content-Type': file_type}
                 ],
                 ExpiresIn=3600)
-
-            return redirect(url_for('recipe_card',
-                            recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
 
