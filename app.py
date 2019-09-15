@@ -141,8 +141,6 @@ def submit_recipe():
                 'created_by': session['username'],
                 # 'recipe_url' : form_normal['recipe_url']
                 })
-            flash(filename)
-
             
             S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
             filename = session['username'] + '.' +  form.recipe_title.data
