@@ -118,7 +118,7 @@ def unsave_recipe(recipe_id):
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
 def submit_recipe():
-flash('reached submit-recipe in code')
+    flash('reached submit-recipe in code')
     if 'logged_in' in session:
     flash('reached logged in code')
         new_recipe = None
