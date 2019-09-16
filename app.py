@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'bakingBookRecipes'
 app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv('SECRET')
-app.config['UPLOAD_FOLDER'] = '/static/images/uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -145,17 +145,13 @@ def submit_recipe():
                 'tags': flat_form['tags'],
                 'created_by': session['username'],
                 })
-            file = request.files['recipe_img']
-            # if user does not select file, browser also
-            # submit an empty part without filename
-            if file.filename == '':
-                flash('No selected file')
-                return redirect(request.url)
-            if file and allowed_file(file.filename):
-                filename = file.filename
-                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(filepath)
-                newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
+
+            if 'recipe_img' in request.files:
+            filename = images.save(request.files['recipe_img'])
+            filepath = "../static/imgages/uploads/" + filename
+            else:
+            filepath = "../static/images/placeholder.png"
+            newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
                 return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
