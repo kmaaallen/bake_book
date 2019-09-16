@@ -146,8 +146,9 @@ def submit_recipe():
                 'created_by': session['username'],
                 })
 
-            if 'recipe_img' in request.files:
-                filename = recipe_img.save(request.files['recipe_img'])
+            if request.files:
+                image = request.files['recipe_img']
+                filename = image.save(request.files['recipe_img'])
                 filepath = "../static/images/uploads/" + filename
             else:
                 filepath = "../static/images/placeholder.png"
