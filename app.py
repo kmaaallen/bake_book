@@ -153,7 +153,7 @@ def submit_recipe():
             # else:
             #     filepath = "../static/images/placeholder.png"
             #     newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
-                return redirect(url_for('recipe_card',
+            return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
