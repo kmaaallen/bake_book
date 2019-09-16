@@ -147,11 +147,11 @@ def submit_recipe():
                 })
 
             if 'recipe_img' in request.files:
-            filename = images.save(request.files['recipe_img'])
-            filepath = "../static/imgages/uploads/" + filename
+                filename = images.save(request.files['recipe_img'])
+                filepath = "../static/imgages/uploads/" + filename
             else:
-            filepath = "../static/images/placeholder.png"
-            newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
+                filepath = "../static/images/placeholder.png"
+                newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
                 return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
