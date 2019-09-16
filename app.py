@@ -148,8 +148,8 @@ def submit_recipe():
 
             if request.files:
                 image = request.files['recipe_img']
-                filename = image.save(request.files['recipe_img'])
-                filepath = "../static/images/uploads/" + filename
+                filename = image.save(file.filename)
+                filepath = "/static/images/uploads/" + filename
             else:
                 filepath = "../static/images/placeholder.png"
                 newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
