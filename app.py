@@ -146,18 +146,35 @@ def submit_recipe():
                 'created_by': session['username'],
                 })
 
-            if request.files:
-                image = request.files['recipe_img']
-                filename = image.save(file.filename)
-                filepath = "/static/images/uploads/" + filename
-            else:
-                filepath = "../static/images/placeholder.png"
-                newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
+            # if request.files:
+            #     image = request.files['recipe_img']
+            #     filename = image.save(file.filename)
+            #     filepath = "/static/images/uploads/" + filename
+            # else:
+            #     filepath = "../static/images/placeholder.png"
+            #     newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
                 return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
+    
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST' and 'image' in request.files:
+        filename = images.save(request.files['recipe_img'])
+        rec = Image(filename=filename, user=g.user.id)
+        rec.store()
+        flash("Photo saved.")
+        return redirect(url_for('/submit_recipe', id=rec.id))
+    return render_template('submitrecipe.html', form=form)
 
+@app.route('/photo/<id>')
+def show(id):
+    photo = Photo.load(id)
+    if photo is None:
+        abort(404)
+    url = photos.url(photo.filename)
+    return render_template('show.html', url=url, photo=photo)
 
 @app.route('/my_recipes')
 def my_recipes():
