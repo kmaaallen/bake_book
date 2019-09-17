@@ -154,7 +154,7 @@ def submit_recipe():
     return redirect(url_for('login'))
     
 @app.route('/upload', methods=['GET', 'POST'])
-""" function from https://www.roytuts.com/python-flask-file-upload-example/ """
+#function from https://www.roytuts.com/python-flask-file-upload-example/
 def upload():
 	if request.method == 'POST':
         # check if the post request has the file part
