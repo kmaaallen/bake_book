@@ -7,7 +7,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/static/images/uploads'
+UPLOAD_FOLDER = '../static/images/uploads'
 
 
 app = Flask(__name__)
