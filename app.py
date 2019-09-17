@@ -153,7 +153,7 @@ def submit_recipe():
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
     
-@app.route('/upload_image', methods=['GET', 'POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def upload():
 	if request.method == 'POST':
         # check if the post request has the file part
