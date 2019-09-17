@@ -145,28 +145,29 @@ def submit_recipe():
                 'tags': flat_form['tags'],
                 'created_by': session['username'],
                 })
-
-            # if request.files:
-            #     image = request.files['recipe_img']
-            #     filename = image.save(file.filename)
-            #     filepath = "/static/images/uploads/" + filename
-            # else:
-            #     filepath = "../static/images/placeholder.png"
-            #     newrecipe.insert_one({'recipe_url' : '/static/images/uploads/'+file.filename})
+                
+            if request.files:
+                file_name = str(session["username"]) + str(recipe["title"])
+                image = request.files['recipe_img']
+                image.save(os.path.join(app.root_path,"/static/images/placeholder.png", file_name ))
+                filepath = "../static/images/uploads/" + file_name
+                newrecipe.insert_one({'recipe_url' : filepath})
+            else:
+                filepath = "../static/images/placeholder.png"
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
     
-@app.route('/upload', methods=['GET', 'POST'])
-def upload():
-    if request.method == 'POST' and 'image' in request.files:
-        filename = images.save(request.files['recipe_img'])
-        rec = Image(filename=filename, user=g.user.id)
-        rec.store()
-        flash("Photo saved.")
-        return redirect(url_for('/submit_recipe', id=rec.id))
-    return render_template('submitrecipe.html', form=form)
+# @app.route('/upload', methods=['GET', 'POST'])
+# def upload():
+#     if request.method == 'POST' and 'image' in request.files:
+#         filename = images.save(request.files['recipe_img'])
+#         rec = Image(filename=filename, user=g.user.id)
+#         rec.store()
+#         flash("Photo saved.")
+#         return redirect(url_for('/submit_recipe', id=rec.id))
+#     return render_template('submitrecipe.html', form=form)
 
 @app.route('/photo/<id>')
 def show(id):
