@@ -171,8 +171,7 @@ def upload():
 			return redirect('/')
 		else:
 			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
-			return redirect(request.url)
-        return redirect(url_for(request.url)
+		return redirect(request.url)
     return render_template('submitrecipe.html', form=form)
 
 @app.route('/photo/<id>')
