@@ -5,9 +5,10 @@ from flask import Flask, flash, render_template, redirect, request, url_for, \
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = '/static/images/uploads'
-EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+
 
 app = Flask(__name__)
 
@@ -16,9 +17,11 @@ app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv('SECRET')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
 def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in EXTENSIONS
+	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+	
 
 mongo = PyMongo(app)
 
@@ -145,29 +148,32 @@ def submit_recipe():
                 'tags': flat_form['tags'],
                 'created_by': session['username'],
                 })
-                
-            if request.files:
-                file_name = recipe_img.filename
-                image = request.files['recipe_img']
-                image.save(os.path.join(app.root_path,"/static/images/placeholder.png", file_name ))
-                filepath = "../static/images/uploads/" + file_name
-                newrecipe.insert_one({'recipe_url' : filepath})
-            else:
-                filepath = "../static/images/placeholder.png"
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
     
-# @app.route('/upload', methods=['GET', 'POST'])
-# def upload():
-#     if request.method == 'POST' and 'image' in request.files:
-#         filename = images.save(request.files['recipe_img'])
-#         rec = Image(filename=filename, user=g.user.id)
-#         rec.store()
-#         flash("Photo saved.")
-#         return redirect(url_for('/submit_recipe', id=rec.id))
-#     return render_template('submitrecipe.html', form=form)
+@app.route('/upload_image', methods=['GET', 'POST'])
+def upload():
+	if request.method == 'POST':
+        # check if the post request has the file part
+		if 'file' not in request.files:
+			flash('No file part')
+			return redirect(request.url)
+		file = request.files['file']
+		if file.filename == '':
+			flash('No file selected for uploading')
+			return redirect(request.url)
+		if file and allowed_file(file.filename):
+			filename = secure_filename(file.filename)
+			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			flash('File successfully uploaded')
+			return redirect('/')
+		else:
+			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
+			return redirect(request.url)
+        return redirect(url_for(request.url)
+    return render_template('submitrecipe.html', form=form)
 
 @app.route('/photo/<id>')
 def show(id):
