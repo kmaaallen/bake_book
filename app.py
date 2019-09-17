@@ -7,7 +7,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '../static/images/uploads'
+UPLOAD_FOLDER = '/static/images/uploads'
 
 
 app = Flask(__name__)
@@ -154,6 +154,7 @@ def submit_recipe():
     return redirect(url_for('login'))
     
 @app.route('/upload', methods=['GET', 'POST'])
+""" function from https://www.roytuts.com/python-flask-file-upload-example/ """
 def upload():
 	if request.method == 'POST':
         # check if the post request has the file part
@@ -166,7 +167,7 @@ def upload():
 			return redirect(request.url)
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
-			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) """ERRORING ON THIS LINE"""
 			flash('File successfully uploaded')
 			return redirect('/')
 		else:
