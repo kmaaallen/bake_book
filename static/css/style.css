@@ -10,12 +10,8 @@ a.brand-logo{
     font-family: 'Courgette';
 }
 
-.card-content{
-    min-height: 300px;
-}
-
 .card-img{
-    max-height:250px;
+    height:250px;
 }
 
 /* recipecard template styling */
