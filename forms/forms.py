@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired
 class AddRecipeForm(Form):
     recipe_title = StringField("Recipe Title", validators=[DataRequired()])
     sub_title = TextField("Recipe Sub-title", validators=[DataRequired()])
-    image_url = TextField('Imaage URL')
+    recipe_url = TextField('Recipe Image URL')
     makes = TextField("Makes")
     takes = TextField("Takes")
     ingredients = TextField("Ingredients:")
