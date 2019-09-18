@@ -15,7 +15,6 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="https://bake-book-milestone.herokuapp.com/">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li> <!-- putting link here for now while sorting out dropdown-->
                     {% if session %}
                     <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
                     <!--Dropdown content -->
