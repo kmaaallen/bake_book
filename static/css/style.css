@@ -15,9 +15,10 @@ a.brand-logo{
 }
 
 /* recipecard template styling */
-
-.recipe-image{
-    padding-top: 100px;
+.recipe_img{
+    margin-top: 100px;
+    height: 500px;
+    width: 500px;
 }
 
 .star{
@@ -90,3 +91,5 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 .nav-dropdown-visible {
   display: inline-block;
 }
+
+
