@@ -153,26 +153,26 @@ def submit_recipe():
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
     
-@app.route('/upload', methods=['GET', 'POST'])
-#function from https://www.roytuts.com/python-flask-file-upload-example/
-def upload():
-	if request.method == 'POST':
-        # check if the post request has the file part
-		if 'file' not in request.files:
-			flash('No file part')
-			return redirect(request.url)
-		file = request.files['file']
-		if file.filename == '':
-			flash('No file selected for uploading')
-			return redirect(request.url)
-		if file and allowed_file(file.filename):
-			filename = secure_filename(file.filename)
-			#file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) """ERRORING ON THIS LINE"""
-			flash('File successfully uploaded')
-			return redirect('/')
-		else:
-			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
-		return redirect(request.url)
+# @app.route('/upload', methods=['GET', 'POST'])
+# #function from https://www.roytuts.com/python-flask-file-upload-example/
+# def upload():
+# 	if request.method == 'POST':
+#         # check if the post request has the file part
+# 		if 'file' not in request.files:
+# 			flash('No file part')
+# 			return redirect(request.url)
+# 		file = request.files['file']
+# 		if file.filename == '':
+# 			flash('No file selected for uploading')
+# 			return redirect(request.url)
+# 		if file and allowed_file(file.filename):
+# 			filename = secure_filename(file.filename)
+# 			#file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) """ERRORING ON THIS LINE"""
+# 			flash('File successfully uploaded')
+# 			return redirect('/')
+# 		else:
+# 			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
+# 		return redirect(request.url)
 
 @app.route('/photo/<id>')
 def show(id):
