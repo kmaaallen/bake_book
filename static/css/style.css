@@ -26,16 +26,12 @@ a.brand-logo{
     height: 280px;
 }
 
-.card-action{
-    background-color: #339966;
-}
-
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
     color:#ffffff;
 }
 
 .card .card-action {
-    background-color: transparent;
+    background-color: #339966;
 }
 
 .search-bar{
