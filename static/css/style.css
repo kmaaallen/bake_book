@@ -30,7 +30,7 @@ a.brand-logo{
     background-color: #339966;
 }
 
-.recipe-link{
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
     color:#ffffff;
 }
 
