@@ -34,6 +34,10 @@ a.brand-logo{
     color:#ffffff;
 }
 
+.card .card-action {
+    background-color: transparent;
+}
+
 .search-bar{
     background-color:#cccccc;
     width:100%;
