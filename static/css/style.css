@@ -133,4 +133,8 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
   display: inline-block;
 }
 
+/* about page styling */
+.about-page{
+    margin-left:50px;
+}
 
