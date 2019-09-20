@@ -9,7 +9,7 @@
         {{ form.sub_title.label }} 
         {{ form.sub_title }} 
         {{ form.recipe_url(placeholder = "Please paste in the URL of the image for this recipe")}}
-        <img class="recipe-image" src={{recipes.recipe_url}}></img>
+        <img class="recipe-image" src={{recipe.recipe_url}}></img>
         {{ form.makes.label }}
         {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
         {{ form.takes.label }} {{ form.takes(placeholder = "How long does this recipe take to make?") }}
