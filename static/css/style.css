@@ -34,7 +34,7 @@ a.brand-logo{
     background-color: #339966;
 }
 
-.search-bar{
+input .search-bar{
     background-color:#cccccc;
     width:100%;
     height:50px;
