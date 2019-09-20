@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Courgette|Roboto&display=swap');
 /* recipes.html styling */
+body{
+    color:#333333;
+}
+.nav{
+    background-color: #339966;
+}
+
 .nav-wrapper{
-    background-color: #9b111e;
     padding-right: 20px;
 }
 
 a.brand-logo{
     padding-left: 20px;
     font-family: 'Courgette';
+    color: #ffffff;
 }
 
 .card .card-image img {
@@ -16,6 +23,10 @@ a.brand-logo{
 
 .card-content {
     height: 280px;
+}
+
+.card-action{
+    background-color: #339966;
 }
 
 /* recipecard template styling */
@@ -39,7 +50,8 @@ h5{
 }
 
 .btn.save-btn{
-    background-color:#9b111e;
+    background-color:#003333;
+    color:#ffffff;
 }
 
 /* styling for forms */
@@ -52,13 +64,13 @@ h5{
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly])+label{
-    border-bottom: 1px solid #9b111e;
-    -webkit-box-shadow: 0 1px 0 0 #9b111e;
-    box-shadow: 0 1px 0 0 #9b111e;
+    border-bottom: 1px solid #339966;
+    -webkit-box-shadow: 0 1px 0 0 #339966;
+    box-shadow: 0 1px 0 0 #339966;
 }
 
 .label{
-    color: #9b111e;
+    color: #339966;
 }
 
 /*styling for submit recipe*/
@@ -71,7 +83,7 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
     width: 20px; 
     height: 20px;
     line-height: 20px;
-    background-color:#ffab40;
+    background-color:#cccccc;
 }
 
 /*Styling for nav menu dropdown*/
@@ -85,7 +97,7 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 .nav-dropdown-content {
   display: none;
   position: absolute;
-  background-color: #9b111e;
+  background-color: #339966;
   min-width: 150px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
