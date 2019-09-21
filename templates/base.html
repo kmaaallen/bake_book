@@ -3,50 +3,74 @@
 
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 </head>
 
 <body>
-    <div class="navbar-fixed">
-<nav>
-    <div class="nav-wrapper">
-        <a href="https://bake-book-milestone.herokuapp.com/" class="brand-logo">BakeBook</a>
-        <a href="#" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="https://bake-book-milestone.herokuapp.com/">Home</a></li>
-            <li><a href="{{url_for('about')}}">About</a></li>
-            {% if session %}
-            <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
-            <!--Dropdown content -->
-            <ul id='dropdown' class='nav-dropdown-content'>
-                <li><a href="{{url_for('logout')}}">Logout</a></li>
-                <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>
-                <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>
-            </ul>
-            <!--Dropdown trigger -->
-            <li><a class='nav-dropdown'>{{ session['username'] }}</a></li>
-            {% else %}
-            <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
-            {% endif %}
-        </ul>
-    </div>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="https://bake-book-milestone.herokuapp.com/">Bakebook</a>
+    <li class="nav-item">
+        <a class="nav-link" href="{{url_for('about')}}">About</a>
+      </li>
+    {% if session %}
+    <li>
+        <a href="{{url_for('submit_recipe')}}">Submit a recipe</a>
+        </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             {{ session['username'] }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
+          <a class="dropdown-item" href="{{url_for('my_saved_recipes')}}">My Saved Recipes</a>
+          <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
+        </div>
+      </li>
+      {% endif %}
 </nav>
-<ul class="sidenav" id="mobile-demo">
-            {% if session %}
+    
+    
+    
+<!--    <div class="navbar-fixed">-->
+<!--<nav>-->
+<!--    <div class="nav-wrapper">-->
+<!--        <a href="https://bake-book-milestone.herokuapp.com/" class="brand-logo">BakeBook</a>-->
+<!--        <a href="#" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
+<!--        <ul id="nav-mobile" class="right hide-on-med-and-down">-->
+<!--            <li><a href="https://bake-book-milestone.herokuapp.com/">Home</a></li>-->
+<!--            <li><a href="{{url_for('about')}}">About</a></li>-->
+<!--            {% if session %}-->
+<!--            <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>-->
             <!--Dropdown content -->
-            <ul id='dropdown' class='nav-dropdown-content'>
-                <li><a href="{{url_for('logout')}}">Logout</a></li>
-                <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
-                <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>
-                <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>
-            </ul>
+<!--            <ul id='dropdown' class='nav-dropdown-content'>-->
+<!--                <li><a href="{{url_for('logout')}}">Logout</a></li>-->
+<!--                <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>-->
+<!--                <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>-->
+<!--            </ul>-->
             <!--Dropdown trigger -->
-            {% else %}
-            <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
-            {% endif %}
-        </ul>
-    </div>
+<!--            <li><a class='nav-dropdown'>{{ session['username'] }}</a></li>-->
+<!--            {% else %}-->
+<!--            <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>-->
+<!--            {% endif %}-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
+<!--<ul class="sidenav" id="mobile-demo">-->
+<!--            {% if session %}-->
+            <!--Dropdown content -->
+<!--            <ul id='dropdown' class='nav-dropdown-content'>-->
+<!--                <li><a href="{{url_for('logout')}}">Logout</a></li>-->
+<!--                <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>-->
+<!--                <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>-->
+<!--                <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>-->
+<!--            </ul>-->
+            <!--Dropdown trigger -->
+<!--            {% else %}-->
+<!--            <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>-->
+<!--            {% endif %}-->
+<!--        </ul>-->
+<!--    </div>-->
     {% with messages = get_flashed_messages() %}
 	  {% if messages %}
 	    {% for message in messages %}
@@ -57,8 +81,8 @@
 	  {% endif %}
 	{% endwith %}
     {% block content %} {% endblock %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function removeInput(e) {
             e.parentElement.remove(e.parentElement);
