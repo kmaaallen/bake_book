@@ -30,7 +30,9 @@
             <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
             {% endif %}
         </ul>
-        <ul class="sidenav" id="mobile-demo">
+    </div>
+</nav>
+<ul class="sidenav" id="mobile-demo">
             {% if session %}
             <!--Dropdown content -->
             <ul id='dropdown' class='nav-dropdown-content'>
@@ -44,8 +46,6 @@
             <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
             {% endif %}
         </ul>
-    </div>
-</nav>
     </div>
     {% with messages = get_flashed_messages() %}
 	  {% if messages %}
