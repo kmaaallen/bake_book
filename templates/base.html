@@ -64,9 +64,9 @@
         function removeInput(e) {
             e.parentElement.remove(e.parentElement);
         }
-
         $(document).ready(function() {
-            
+            $('.sidenav').sidenav();
+    
             $(".nav-dropdown").click(function() {
                 if ($(".nav-dropdown-content").hasClass("nav-dropdown-visible")) {
                     $(".nav-dropdown-content").removeClass("nav-dropdown-visible");
@@ -75,17 +75,17 @@
                     $(".nav-dropdown-content").addClass("nav-dropdown-visible");
                 }
             });
-
+    
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='ingredients' name='ingredients'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#ingredients").append(newInput);
             });
-
+    
             $("#addNewStep").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='method' name='method'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#method").append(newInput);
             });
-
+    
             $("#addNewTag").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='tags' name='tags'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#tags").append(newInput);
