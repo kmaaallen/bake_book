@@ -32,15 +32,14 @@
         </ul>
         <ul class="sidenav" id="mobile-demo">
             {% if session %}
-            <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
             <!--Dropdown content -->
             <ul id='dropdown' class='nav-dropdown-content'>
                 <li><a href="{{url_for('logout')}}">Logout</a></li>
+                <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>
                 <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>
                 <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>
             </ul>
             <!--Dropdown trigger -->
-            <li><a class='nav-dropdown'>{{ session['username'] }}</a></li>
             {% else %}
             <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>
             {% endif %}
