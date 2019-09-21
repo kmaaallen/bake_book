@@ -148,3 +148,8 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 .recipe-link:hover{
     color:#cccccc;
 }
+
+/*mobile nav*/
+.sidenav-trigger{
+    float:right;
+}
