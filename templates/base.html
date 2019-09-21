@@ -64,8 +64,13 @@
         function removeInput(e) {
             e.parentElement.remove(e.parentElement);
         }
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, options);
+            
+        });
+        
         $(document).ready(function() {
-            $('.sidenav').sidenav();
     
             $(".nav-dropdown").click(function() {
                 if ($(".nav-dropdown-content").hasClass("nav-dropdown-visible")) {
