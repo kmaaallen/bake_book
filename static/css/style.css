@@ -4,11 +4,16 @@ body{
     color:#333333;
 }
 
+.row{
+    margin-left:15px;
+    margin-right:15px;
+}
+
 .navbar{
     background-color: #339966;
     justify-content: space-between;
     list-style:none;
-    padding:(20px, 0px, 20px, 0px);
+    padding: 20px 0px 20px 0px;
 }
 
 .nav-wrapper{
@@ -26,7 +31,12 @@ body{
 }
 
 .card-text {
-    height: 280px;
+    min-height: 150px;
+    font-size: larger;
+}
+
+.card-title{
+    min-height:80px;
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
@@ -37,8 +47,21 @@ body{
     background-color: #339966;
 }
 
-.search-bar{
-    background-color:#cccccc;
+.view-recipe-btn{
+    color: #fff;
+    background-color: #339966;
+    border-color: #339966;
+}
+
+.search-bar {
+    background-color: #cccccc;
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.search-bar:focus {
+    outline: none;
 }
 
 .search-form{
@@ -152,3 +175,4 @@ a{
 .sidenav-trigger{
     float:right;
 }
+
