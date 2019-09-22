@@ -122,11 +122,11 @@ h5{
 }
 
 input{
-   width: 80%;
-   border-radius: 20px; 
-   border-bottom: none;
-   box-shadow: none;
-   margin-top:10px;
+    width: 80%;
+    border-radius: 20px;
+    box-shadow: none;
+    margin-bottom: 10px;
+    border: solid 1px #cccccc;
 }
 
 input:focus{
