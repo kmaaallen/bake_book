@@ -5,7 +5,7 @@
     <form action="{{ url_for('submit_recipe') }}" method="POST">
         {{ form.csrf_token }}
         <div class="form-group">
-        {{ form.recipe_title.label, extra_classes='form-input'}}
+        {{ form.recipe_title.label}}
         </div>
          <div>
         {{ form.recipe_title }}
