@@ -127,6 +127,7 @@ input{
     box-shadow: none;
     margin-bottom: 10px;
     border: solid 1px #cccccc;
+    padding-left:10px;
 }
 
 input:focus{
