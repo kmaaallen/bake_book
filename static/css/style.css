@@ -216,6 +216,14 @@ a:hover {
 }
 
 /* Media Queries */
+@media (max-width: 768px){
+    .burger-menu{
+        display:block;
+    }
+    .fixed-top{
+        display:flex;
+    }
+}
 
 @media (min-width:992px){
     .fixed-top{
@@ -223,6 +231,5 @@ a:hover {
     }
     .burger-menu{
         display:none;
-        float:right;
     }
 }
