@@ -56,7 +56,6 @@ body{
 .search-bar {
     background-color: #cccccc;
     width: 90%;
-    margin-left: 20px;
     margin-top: 10px;
 }
 
@@ -144,7 +143,15 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 .dropdown-menu{
     background-color:#339966;
     color:#ffffff;
-    width:100px;
+    width:200px;
+}
+
+.dropdown-item{
+    color:#ffffff;
+}
+
+.dropdown-item:hover{
+    background-color:#003333;
 }
 
 .nav-link{
@@ -154,6 +161,10 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 
 a{
     color:#ffffff;
+}
+
+a:hover{
+    color:#cccccc;
 }
 
 /* about page styling */
