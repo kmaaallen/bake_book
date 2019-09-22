@@ -4,8 +4,8 @@
     <h4>Fill in the details below to submit a recipe</h4>
     <form action="{{ url_for('submit_recipe') }}" method="POST">
         {{ form.csrf_token }}
-        <div>
-        {{ form.recipe_title.label }}
+        <div class="form-group">
+        {{ form.recipe_title.label, extra_classes='form-input'}}
         </div>
          <div>
         {{ form.recipe_title }}

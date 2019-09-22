@@ -128,6 +128,10 @@ input{
    box-shadow: none;
    margin-top:10px;
 }
+
+input:focus{
+    outline:none;
+}
     
 
 .label{
