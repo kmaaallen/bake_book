@@ -24,6 +24,11 @@ body{
     padding-left: 20px;
     font-family: 'Courgette';
     color: #ffffff;
+    font-size:25px;
+}
+
+.navbar-brand:hover{
+    color:#003333;
 }
 
 .card-img-top{
@@ -113,13 +118,17 @@ h5{
     padding-right: 20px;
     font-family: 'Roboto';
     max-width: 80%;
+    margin-top:20px;
 }
 
-input[type=text]:not(.browser-default):focus:not([readonly])+label{
-    border-bottom: 1px solid #339966;
+input{
+   width: 80%;
+   border-radius: 20px; 
+   border-bottom: 1px solid #339966;
     -webkit-box-shadow: 0 1px 0 0 #339966;
     box-shadow: 0 1px 0 0 #339966;
 }
+    
 
 .label{
     color: #339966;
@@ -152,6 +161,13 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 
 .dropdown-item:hover{
     background-color:#003333;
+    color:#ffffff;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #003333;
+    text-decoration: none;
+    background-color: #339966;
 }
 
 .nav-link{
@@ -163,8 +179,9 @@ a{
     color:#ffffff;
 }
 
-a:hover{
-    color:#cccccc;
+a:hover {
+    color: #003333;
+    text-decoration:none;
 }
 
 /* about page styling */

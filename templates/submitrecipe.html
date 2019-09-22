@@ -4,17 +4,28 @@
     <h4>Fill in the details below to submit a recipe</h4>
     <form action="{{ url_for('submit_recipe') }}" method="POST">
         {{ form.csrf_token }}
+        <div>
         {{ form.recipe_title.label }}
-        {{ form.recipe_title }} 
+        {{ form.recipe_title }}
+        </div>
+        <div>
         {{ form.sub_title.label }} 
         {{ form.sub_title }} 
+        </div>
+        <div>
         {{ form.recipe_url(placeholder = "Please paste in the URL of the image for this recipe")}}
         {% if form.recipe_url %}
         <img class="recipe-image" src="{{form.recipe_url}}"/>
         {% endif %}
+        </div>
+        <div>
         {{ form.makes.label }}
         {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
-        {{ form.takes.label }} {{ form.takes(placeholder = "How long does this recipe take to make?") }}
+        </div>
+        <div>
+        {{ form.takes.label }} 
+        {{ form.takes(placeholder = "How long does this recipe take to make?") }}
+        </div>
         {{ form.ingredients.label }} <a class="btn-floating btn-small waves-effect waves-light" id="addNewIngredient"><i class="material-icons">add</i></a>
         <div id="ingredients">
         {{ form.ingredients }}
