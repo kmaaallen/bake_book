@@ -100,6 +100,7 @@ body{
 .recipe-container{
     padding-left:20px;
     font-family: 'Roboto';
+    margin-top:100px;
 }
 
 h5{
@@ -192,6 +193,7 @@ a:hover {
 /* about page styling */
 .about-page{
     margin-left:50px;
+    margin-top:100px;
 }
 
 /*login page styling*/
