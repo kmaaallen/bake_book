@@ -3,10 +3,18 @@
 <h3>Sign Up</h3>
 <form action="{{ url_for('sign_up') }}" method="POST">
     {{ form.csrf_token }} 
+    <div>
     {{ form.username.label }} 
+    </div>
+    <div>
     {{ form.username }} 
+    </div>
+    <div>
     {{ form.password.label }} 
+    </div>
+    <div>
     {{ form.password }}
+    </div>
     <button class="btn btn-sm save-btn" type="submit">Sign Up!</button>
 </form>
 </div>
