@@ -214,3 +214,14 @@ a:hover {
 .search-form{
     margin-top:30px;
 }
+
+/* Media Queries */
+
+@media (min-width:992px){
+    .fixed-top{
+        display:block;
+    }
+    .hamburger-menu{
+        display:none;
+    }
+}
