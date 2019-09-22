@@ -8,6 +8,32 @@
 </head>
 
 <body>
+<!-- mobile nav -->
+<nav class="navbar navbar-default">
+        <div class="container nav-container">
+            <div class="col-xs-6 burger-menu">
+                <div class="dropdown hidden-md hidden-lg">
+                    <button><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+                    <ul class="dropdownMenu">
+                        <li class="dropdown-item"><a href="{{url_for('show_recipes')}}">Home</a></li>
+                        <li class="dropdown-item"><a href="{{url_for('about')}}">About</a></li>
+                        {% if session['logged_in'] %}
+                        <li class="dropdown-item"><a href="{{url_for('submit_recipe')}}">Submit a Recipe</a></li>
+                        <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
+                        <a class="dropdown-item" href="{{url_for('my_saved_recipes')}}">My Saved Recipes</a>
+                        <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
+                        <li class="dropdownItem"><a href="book.html" class="dropdownLink">Book</a></li>
+                        {% else %}
+                        <li class="dropdown-item"><a href="{{url_for('login')}}">Login / Sign Up</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 hidden-md hidden-lg">
+                <p><a href="#" class="sign-up-link-nav" data-toggle='modal' data-target='#signUpModal'>Sign up</a></p>
+            </div>
+        </div>
+<!-- Nav Section -->
 <nav class="navbar fixed-top">
     <a class="navbar-brand" href="https://bake-book-milestone.herokuapp.com/">Bakebook</a>
     <li class="nav-item">
