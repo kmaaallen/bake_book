@@ -6,24 +6,37 @@
         {{ form.csrf_token }}
         <div>
         {{ form.recipe_title.label }}
+        </div>
+         <div>
         {{ form.recipe_title }}
         </div>
         <div>
         {{ form.sub_title.label }} 
+        </div>
+         <div>
         {{ form.sub_title }} 
+        </div>
+         <div>
+        {{ form.recipe_url.label }}
         </div>
         <div>
         {{ form.recipe_url(placeholder = "Please paste in the URL of the image for this recipe")}}
+        </div>
+         <div>
         {% if form.recipe_url %}
         <img class="recipe-image" src="{{form.recipe_url}}"/>
         {% endif %}
         </div>
         <div>
         {{ form.makes.label }}
+        </div>
+         <div>
         {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
         </div>
         <div>
         {{ form.takes.label }} 
+        </div>
+         <div>
         {{ form.takes(placeholder = "How long does this recipe take to make?") }}
         </div>
         {{ form.ingredients.label }} <a class="btn-floating btn-small waves-effect waves-light" id="addNewIngredient"><i class="material-icons">add</i></a>
