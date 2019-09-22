@@ -2,30 +2,30 @@
 /* recipes.html styling */
 body{
     color:#333333;
+    margin-left:20px;
 }
 
-nav{
+.navbar{
     background-color: #339966;
-    overflow-y:hidden;
-    box-shadow: none; 
-    -webkit-box-shadow: none; 
+    justify-content: space-between;
+    list-style:none;
 }
 
 .nav-wrapper{
     padding-right: 20px;
 }
 
-a.brand-logo{
+.navbar-brand{
     padding-left: 20px;
     font-family: 'Courgette';
     color: #ffffff;
 }
 
-.card .card-image img {
+.card-img-top{
     height: 250px;
 }
 
-.card-content {
+.card-text {
     height: 280px;
 }
 
@@ -37,8 +37,13 @@ a.brand-logo{
     background-color: #339966;
 }
 
-input[type=search]:not(.browser-default){
+.search-bar{
     background-color:#cccccc;
+}
+
+.search-form{
+    width: 100%;
+    height:50px;
 }
 
 .input-field label{

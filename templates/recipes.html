@@ -1,18 +1,13 @@
 {% extends 'base.html' %} {% block content %} 
 
 <div class="row">
-    
-  <nav>
-    <div class="nav-wrapper">
-      <form action = "{{url_for('search_results', keywords=keywords)}}" method="POST">
+      <form action = "{{url_for('search_results', keywords=keywords)}}" class="search-form" method="POST">
         <div class="input-field">
           <input class="search-bar" id="keywords" type="search" name="keywords">
           <label class="label-icon" for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
       </form>
-    </div>
-  </nav>
     {% for recipe in recipes %}
     <!--<div class="col s12 m4 l3">-->
         
@@ -34,7 +29,7 @@
 <div class="card" style="width: 18rem;">
   <img src="{{recipe.recipe_url}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{recipe.recipe_title}}</h5>
+    <h3 class="card-title">{{recipe.recipe_title}}</h3>
     <p class="card-text">{{recipe.sub_title}}</p>
     <a href="{{url_for('recipe_card', recipe_id=recipe._id)}}" class="btn btn-primary">View Recipe</a>
   </div>
