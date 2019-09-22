@@ -16,7 +16,7 @@
     <div class="col-xs-6 burger-menu">
         <div class="dropdown hidden-md hidden-lg">
             <button><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
-            <ul class="dropdownMenu">
+            <ul class="dropdown-toggle">
                 <li class="dropdown-item"><a href="{{url_for('show_recipes')}}">Home</a></li>
                 <li class="dropdown-item"><a href="{{url_for('about')}}">About</a></li>
                 {% if session['logged_in'] %}
