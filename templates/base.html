@@ -24,7 +24,6 @@
                 <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
                 <a class="dropdown-item" href="{{url_for('my_saved_recipes')}}">My Saved Recipes</a>
                 <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
-                <li class="dropdownItem"><a href="book.html" class="dropdownLink">Book</a></li>
                 {% else %}
                 <li class="dropdown-item"><a href="{{url_for('login')}}">Login / Sign Up</a></li>
                 {% endif %}

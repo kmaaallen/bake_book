@@ -219,7 +219,7 @@ a:hover {
 
 @media (min-width:992px){
     .fixed-top{
-        display:block;
+        display:flex;
     }
     .burger-menu{
         display:none;
