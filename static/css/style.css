@@ -217,19 +217,19 @@ a:hover {
 
 /* Media Queries */
 @media (max-width: 768px){
-    .burger-menu{
+    .mobile-nav{
         display:block;
     }
-    .fixed-top{
+    .main-nav{
         display:flex;
     }
 }
 
 @media (min-width:992px){
-    .fixed-top{
+    .main-nav{
         display:flex;
     }
-    .burger-menu{
+    .mobile-nav{
         display:none;
     }
 }
