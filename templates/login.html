@@ -4,10 +4,18 @@
 <p>Please login to access additional features</p>
 <form action="{{ url_for('login') }}" method="POST">
     {{ form.csrf_token }} 
+    <div>
     {{ form.username.label }} 
+    </div>
+    <div>
     {{ form.username }} 
+    </div>
+    <div>
     {{ form.password.label }} 
+    </div>
+    <div>
     {{ form.password }}
+    </div>
     <button class="btn btn-sm save-btn" type="submit">Login</button>
 </form>
 <p>Not yet a member? Sign up <a class="signup" href="{{ url_for('sign_up') }}">here</a></p>
