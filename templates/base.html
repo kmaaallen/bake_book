@@ -11,10 +11,10 @@
 <nav class="navbar fixed-top">
     <a class="navbar-brand" href="https://bake-book-milestone.herokuapp.com/">Bakebook</a>
     <li class="nav-item">
-        <a class="nav-link" href="{{url_for('about')}}">About</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="{{url_for('show_recipes')}}">Home</a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{url_for('about')}}">About</a>
       </li>
     {% if session['logged_in'] %}
     <li>
