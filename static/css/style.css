@@ -2,13 +2,13 @@
 /* recipes.html styling */
 body{
     color:#333333;
-    margin-left:20px;
 }
 
 .navbar{
     background-color: #339966;
     justify-content: space-between;
     list-style:none;
+    padding:(20px, 0px, 20px, 0px);
 }
 
 .nav-wrapper{
@@ -118,25 +118,19 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 
 /*Styling for nav menu dropdown*/
 
-.nav-dropdown {
-  position: fixed;
-  display: inline-block;
-  width:150px;
-  transform:translate(20px);
+.dropdown-menu{
+    background-color:#339966;
+    color:#ffffff;
+    width:100px;
 }
 
-.nav-dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #339966;
-  min-width: 150px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  transform:translate(-130px, 64px);
+.nav-link{
+    padding-right:80px;
+    color:#ffffff;
 }
 
-.nav-dropdown-visible {
-  display: inline-block;
+a{
+    color:#ffffff;
 }
 
 /* about page styling */
