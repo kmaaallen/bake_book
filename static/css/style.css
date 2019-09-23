@@ -219,6 +219,10 @@ a:hover {
     margin-top:60px;
 }
 
+.delete-recipe-btn{
+    margin-top:10px;
+}
+
 /* Media Queries */
 @media (max-width: 768px){
     .mobile-nav{

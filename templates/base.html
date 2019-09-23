@@ -12,26 +12,22 @@
 <body>
 <!-- mobile nav -->
 <nav class="mobile-nav navbar fixed-top">
-    <div class="col-xs-6 burger-menu">
         <div class="dropdown hidden-md hidden-lg">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <i class="fa fa-bars"></i>
-        </a>
+            <li class="nav-item dropdown-mobile">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown-mobile" aria-haspopup="true" aria-expanded="false">
+                     <i class="fa fa-bars"></i>
+                </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{url_for('show_recipes')}}">Home</a>
-                    <a class="dropdown-item" href="{{url_for('about')}}">About</a> 
-                    {% if session['logged_in'] %}
+                    <a class="dropdown-item" href="{{url_for('about')}}">About</a> {% if session['logged_in'] %}
                     <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
                     <a class="dropdown-item" href="{{url_for('my_saved_recipes')}}">My Saved Recipes</a>
-                    <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a> 
-                    {% else %}
-                    <a class="nav-link" href="{{url_for('login')}}">Login / Sign Up</a>
-                    {% endif %}
+                    <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a> {% else %}
+                    <a class="nav-link" href="{{url_for('login')}}">Login / Sign Up</a> {% endif %}
                 </div>
             </li>
         </div>
-    </div>
+        </div>
 </nav>
 <!-- Nav Section -->
 <nav class="main-nav navbar fixed-top hidden-xs hidden-sm">
