@@ -170,7 +170,6 @@ def edit_recipe(recipe_id):
         form = AddRecipeForm(data=recipe)
         form.ingredients.data = recipe['ingredients']
         form.method.data = recipe['method']
-        form.tags.data = recipe['tags']
     
         if request.method == 'POST':
             form_normal = request.form.to_dict()
