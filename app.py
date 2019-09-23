@@ -182,7 +182,7 @@ def edit_recipe(recipe_id):
                 'takes': form_normal['takes'],
                 'ingredients': flat_form['ingredients'],
                 'method': flat_form['method'],
-                'created_by' : session['username']
+                'created_by' : session['username'],
                 'recipe_url': form_normal['recipe_url']
                 })
             return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
