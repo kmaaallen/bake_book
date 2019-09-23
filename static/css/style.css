@@ -211,8 +211,12 @@ a:hover {
     float:right;
 }
 
-.search-form, .my_recipes{
+.search-form{
     margin-top:30px;
+}
+
+.my_recipes{
+    margin-top:60px;
 }
 
 /* Media Queries */
