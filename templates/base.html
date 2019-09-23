@@ -75,15 +75,7 @@
         function removeInput(e) {
             e.parentElement.remove(e.parentElement);
         }
-        
-        $(document).ready(function() {
-    
-            // var img_url=document.getElementById('recipe_url').value;
-            // document.getElementById('img_preview').src = img_url;
-    
-            document.getElementById('recipe_url').addEventListener('change', showPreview);
-
-            function showPreview() {
+        function showPreview() {
                 var new_url = document.getElementById('recipe_url').value;
                 if (document.getElementById('edit_preview') != null) {
                     document.getElementById('edit_preview').src = new_url;
@@ -92,12 +84,10 @@
                     document.getElementById('submit-preview').src = new_url;
                 }
             }
-    
-            // function submitPreview() {
-            //     var new_url = document.getElementById('recipe_url').value;
-            //     document.getElementById('submit-preview').src = new_url;
-            // }
-
+        $(document).ready(function() {
+            showPreview();
+            document.getElementById('recipe_url').addEventListener('change', showPreview);
+            
             // on click functions to add extra inputs for method and ingredients
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='ingredients' name='ingredients'></input><a class='btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
