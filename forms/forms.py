@@ -10,7 +10,6 @@ class AddRecipeForm(Form):
     takes = TextField("Takes")
     ingredients = TextField("Ingredients:")
     method = TextField("Method:")
-    tags = TextField("Tags:")
     submit = SubmitField("Send")
     
 class LoginForm(Form):
