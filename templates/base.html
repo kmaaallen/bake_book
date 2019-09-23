@@ -126,9 +126,19 @@
              var img_url=document.getElementById('recipe_url').value;
              document.getElementById('img_preview').src = img_url;
             
-            var submit_img_element = document.querySelector('#recipe_url');
+            const img_input = document.getElementById('recipe_url');
+            const submit_img_preview = document.getElementById('submit-preview');
+
+            img_input.addEventListener('change', updateValue);
+
+            function updateValue(e) {
+                submit_img_preview.textContent = e.srcElement.value;
+            }
+            
+            
+            var submit_img_element = document.getElementById('recipe_url');
             submit_img_element.addEventListener('change', (event) =>{
-                submit_recipe_url = document.getElementById('recipe_url').value
+                submit_recipe_url = submit_img_element.value;
                 document.querySelector('.submit-preview-image').src = submit_recipe_url;
             });
 
