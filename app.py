@@ -148,7 +148,7 @@ def submit_recipe():
                 'ingredients': flat_form['ingredients'],
                 'method': flat_form['method'],
                 'rating': 0,
-                'tags': flat_form['tags'],
+                # 'tags': flat_form['tags'],
                 'created_by': session['username'],
                 'recipe_url': form_normal['recipe_url']
                 })
@@ -213,7 +213,7 @@ def edit_recipe(recipe_id):
             'ingredients': flat_form['ingredients'],
             'method': flat_form['method'],
             'rating': 0,
-            'tags': flat_form['tags'],
+            # 'tags': flat_form['tags'],
             'created_by' : session['username']
             })
 
@@ -233,7 +233,6 @@ def search_results():
         keywords = request.form.get("keywords")
         recipes=mongo.db.recipes.find({"$text": { "$search": keywords}})
     return render_template('recipes.html', recipes=recipes )
-
 
 
 if __name__ == '__main__':
