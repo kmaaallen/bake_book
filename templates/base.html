@@ -126,13 +126,13 @@
              var img_url=document.getElementById('recipe_url').value;
              document.getElementById('img_preview').src = img_url;
             
-            const img_input = document.getElementById('recipe_url');
-            const submit_img_preview = document.getElementById('submit-preview');
+            var img_input = document.getElementById('recipe_url'); //get input
+            var submit_img_preview = document.getElementById('submit-preview'); //get image element
 
             img_input.addEventListener('change', updateValue);
 
             function updateValue(e) {
-                submit_img_preview.textContent = e.srcElement.value;
+                submit_img_preview.src = e.srcElement.value;
             }
             
             
