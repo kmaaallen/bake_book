@@ -79,24 +79,14 @@
     
             var img_url=document.getElementById('recipe_url').value;
             document.getElementById('img_preview').src = img_url;
-            
-            
-            // var img_input = document.getElementById('recipe_url'); //get input
-            // var submit_img_preview = document.getElementById('submit-preview'); //get image element
-
+    
             document.getElementById('recipe_url').addEventListener('change', updateValue);
 
             function updateValue() {
                 document.getElementById('submit-preview').src = document.getElementById('recipe_url').value;
             }
-            
-            // var submit_img_element = document.getElementById('recipe_url');
-            // submit_img_element.addEventListener('change', (event) =>{
-            //     submit_recipe_url = submit_img_element.value;
-            //     document.querySelector('.submit-preview-image').src = submit_recipe_url;
-            // });
 
-    
+            // on click functions to add and remove extra inputs for method and ingredients
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='ingredients' name='ingredients'></input><a class='btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#ingredients").append(newInput);
@@ -105,11 +95,6 @@
             $("#addNewStep").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='method' name='method'></input><a class='btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
                 $("#method").append(newInput);
-            });
-    
-            $("#addNewTag").click(function() {
-                var newInput = $("<div><input required type='text' value='' class='tags' name='tags'></input><a class='btn-floating btn-small waves-effect waves-light extraInput' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
-                $("#tags").append(newInput);
             });
         });
     </script>
