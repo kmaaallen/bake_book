@@ -19,7 +19,7 @@
              <i class="fa fa-bars"></i>
         </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{url_for('home')}}">Home</a>
+                    <a class="dropdown-item" href="{{url_for('show_recipes')}}">Home</a>
                     <a class="dropdown-item" href="{{url_for('about')}}">About</a> 
                     {% if session['logged_in'] %}
                     <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
