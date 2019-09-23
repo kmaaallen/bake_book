@@ -44,14 +44,6 @@ body{
     min-height:80px;
 }
 
-/*.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){*/
-/*    color:#ffffff;*/
-/*}*/
-
-/*.card .card-action {*/
-/*    background-color: #339966;*/
-/*}*/
-
 .view-recipe-btn{
     color: #fff;
     background-color: #339966;
@@ -72,19 +64,6 @@ body{
     width: 100%;
     height:50px;
 }
-
-/*.input-field label{*/
-/*    -webkit-transform: translateY(0px);*/
-/*}*/
-
-/*.nav-wrapper{*/
-/*    height:0px;*/
-/*}*/
-
-/*.nav-wrapper .input-field input[type=search]{*/
-/*    width:100%;*/
-/*    height:50px;  */
-/*}*/
 
 /* recipecard template styling */
 .recipe_img{
@@ -221,6 +200,16 @@ a:hover {
 
 .delete-recipe-btn{
     margin-top:10px;
+}
+
+.mobile-dropdown{
+    float:right;
+    padding-right:0px;
+}
+
+.mobile-menu{
+    transform: translate(25px, 35px);
+    position: absolute;
 }
 
 /* Media Queries */

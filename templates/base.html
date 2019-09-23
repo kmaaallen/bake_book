@@ -12,12 +12,13 @@
 <body>
 <!-- mobile nav -->
 <nav class="mobile-nav navbar fixed-top">
-        <div class="dropdown hidden-md hidden-lg">
+    <a class="navbar-brand" href="https://bake-book-milestone.herokuapp.com/">Bakebook</a>
+        <div class="dropdown hidden-md-up">
             <li class="nav-item dropdown-mobile">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown-mobile" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link mobile-dropdown dropdown" href="#" id="navbarDropdownMobileLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <i class="fa fa-bars"></i>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu mobile-menu" aria-labelledby="navbarDropdownMobileLink">
                     <a class="dropdown-item" href="{{url_for('show_recipes')}}">Home</a>
                     <a class="dropdown-item" href="{{url_for('about')}}">About</a> {% if session['logged_in'] %}
                     <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
@@ -30,7 +31,7 @@
         </div>
 </nav>
 <!-- Nav Section -->
-<nav class="main-nav navbar fixed-top hidden-xs hidden-sm">
+<nav class="main-nav navbar fixed-top hidden-sm-down">
     <a class="navbar-brand" href="https://bake-book-milestone.herokuapp.com/">Bakebook</a>
     <li class="nav-item">
         <a class="nav-link" href="{{url_for('show_recipes')}}">Home</a>
