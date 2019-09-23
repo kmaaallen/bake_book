@@ -2,35 +2,18 @@
 
 <div class="row my_recipes">
     {% for recipe in recipes %}
-    <!--<div class="col s12 m4 l3">-->
-        
-    <!--    <div class="card">-->
-    <!--        <div class="card-image">-->
-    <!--            <img src='{{recipe.recipe_url}}'></img>-->
-    <!--        </div>-->
-    <!--        <div class="card-content">-->
-    <!--            <h3>{{recipe.recipe_title}}</h3>-->
-    <!--            <p>{{recipe.sub_title}}</p>-->
-    <!--        </div>-->
-    <!--        <div class="card-action">-->
-    <!--            <a class="recipe-link" href="{{url_for('recipe_card', recipe_id=recipe._id)}}">View Recipe</a>-->
-    <!--            <a class="recipe-link" href="{{url_for('edit_recipe', recipe_id=recipe._id)}}">Edit Recipe</a>-->
-    <!--            <a class="recipe-link" href="{{url_for('delete_recipe', recipe_id=recipe._id)}}">Delete Recipe</a>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
     <div class="card" style="width: 18rem;">
-  <img src="{{recipe.recipe_url}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h3 class="card-title">{{recipe.recipe_title}}</h3>
-    <p class="card-text">{{recipe.sub_title}}</p>
-    <a href="{{url_for('recipe_card', recipe_id=recipe._id)}}" class="btn view-recipe-btn">View Recipe</a>
-    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn view-recipe-btn">Edit Recipe</a>
-    <div>
-    <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn delete-recipe-btn view-recipe-btn">Delete Recipe</a>
+        <img src="{{recipe.recipe_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h3 class="card-title">{{recipe.recipe_title}}</h3>
+            <p class="card-text">{{recipe.sub_title}}</p>
+            <a href="{{url_for('recipe_card', recipe_id=recipe._id)}}" class="btn view-recipe-btn">View Recipe</a>
+            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn view-recipe-btn">Edit Recipe</a>
+            <div>
+                <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn delete-recipe-btn view-recipe-btn">Delete Recipe</a>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
     {% endfor %}
 </div>
 

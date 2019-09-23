@@ -23,9 +23,7 @@
         {{ form.recipe_url(placeholder = "Please paste in the URL of the image for this recipe")}}
         </div>
          <div>
-        {% if form.recipe_url %}
         <img class="submit-preview-image" id="submit-preview"/>
-        {% endif %}
         </div>
         <div>
         {{ form.makes.label }}
@@ -47,10 +45,6 @@
         <div id="method">
         {{ form.method }} 
         </div>
-        <!--{{ form.tags.label }}  <a class="btn" id="addNewTag"><i class="material-icons">add</i></a>-->
-        <!-- <div id="tags">-->
-        <!--{{ form.tags }}-->
-        <!--</div>-->
         <button class="btn btn-sm save-btn" type="submit">Submit Recipe</button>
     </form>
 </div>

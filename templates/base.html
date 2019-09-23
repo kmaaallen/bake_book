@@ -58,47 +58,6 @@
       {% endif %}
 </nav>
 
-    
-    
-<!--    <div class="navbar-fixed">-->
-<!--<nav>-->
-<!--    <div class="nav-wrapper">-->
-<!--        <a href="https://bake-book-milestone.herokuapp.com/" class="brand-logo">BakeBook</a>-->
-<!--        <a href="#" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
-<!--        <ul id="nav-mobile" class="right hide-on-med-and-down">-->
-<!--            <li><a href="https://bake-book-milestone.herokuapp.com/">Home</a></li>-->
-<!--            <li><a href="{{url_for('about')}}">About</a></li>-->
-<!--            {% if session %}-->
-<!--            <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>-->
-            <!--Dropdown content -->
-<!--            <ul id='dropdown' class='nav-dropdown-content'>-->
-<!--                <li><a href="{{url_for('logout')}}">Logout</a></li>-->
-<!--                <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>-->
-<!--                <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>-->
-<!--            </ul>-->
-            <!--Dropdown trigger -->
-<!--            <li><a class='nav-dropdown'>{{ session['username'] }}</a></li>-->
-<!--            {% else %}-->
-<!--            <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>-->
-<!--            {% endif %}-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</nav>-->
-<!--<ul class="sidenav" id="mobile-demo">-->
-<!--            {% if session %}-->
-            <!--Dropdown content -->
-<!--            <ul id='dropdown' class='nav-dropdown-content'>-->
-<!--                <li><a href="{{url_for('logout')}}">Logout</a></li>-->
-<!--                <li><a href="{{url_for('submit_recipe')}}">Submit a recipe</a></li>-->
-<!--                <li><a href="{{url_for('my_recipes')}}">My Recipes</a></li>-->
-<!--                <li><a href="{{url_for('my_saved_recipes')}}">Saved Recipes</a></li>-->
-<!--            </ul>-->
-            <!--Dropdown trigger -->
-<!--            {% else %}-->
-<!--            <li><a href="{{url_for('login')}}">Login / Sign Up</a></li>-->
-<!--            {% endif %}-->
-<!--        </ul>-->
-<!--    </div>-->
     {% with messages = get_flashed_messages() %}
 	  {% if messages %}
 	    {% for message in messages %}
@@ -115,11 +74,6 @@
         function removeInput(e) {
             e.parentElement.remove(e.parentElement);
         }
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.SideNav.init(elems, options);
-            
-        });
         
         $(document).ready(function() {
     
@@ -130,12 +84,10 @@
             // var img_input = document.getElementById('recipe_url'); //get input
             // var submit_img_preview = document.getElementById('submit-preview'); //get image element
 
-            img_input.addEventListener('change', updateValue);
+            document.getElementById('recipe_url').addEventListener('change', updateValue);
 
             function updateValue() {
-                console.log("called updateValue");
-                var img_url=document.getElementById('recipe_url').value;
-                document.getElementById('submit-preview').src = img_url;
+                document.getElementById('submit-preview').src = document.getElementById('recipe_url').value;
             }
             
             // var submit_img_element = document.getElementById('recipe_url');
