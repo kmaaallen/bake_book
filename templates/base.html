@@ -133,6 +133,7 @@
             img_input.addEventListener('change', updateValue);
 
             function updateValue() {
+                console.log("called updateValue");
                 var img_url=document.getElementById('recipe_url').value;
                 document.getElementById('submit-preview').src = img_url;
             }
