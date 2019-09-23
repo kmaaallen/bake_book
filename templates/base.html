@@ -126,6 +126,16 @@
              var img_url=document.getElementById('recipe_url').value;
              document.getElementById('img_preview').src = img_url;
             
+            var submit_img_element = document.querySelector('#recipe_url');
+            submit_img_element.addEventListener('change', (event) =>{
+                submit_recipe_url = document.getElementById('recipe_url').value
+                document.querySelector('.submit-preview-image').src = submit_recipe_url;
+            });
+
+selectElement.addEventListener('change', (event) => {
+  const result = document.querySelector('.result');
+  result.textContent = `You like ${event.target.value}`;
+});
     
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='ingredients' name='ingredients'></input><a class='btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")

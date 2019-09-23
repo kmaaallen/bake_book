@@ -208,7 +208,7 @@ a:hover {
     position: absolute;
 }
 
-.preview-image{
+.preview-image, .submit-preview-image{
     height:200px;
 }
 
