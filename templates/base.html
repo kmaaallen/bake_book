@@ -85,7 +85,7 @@
 
             function showPreview() {
                 var new_url = document.getElementById('recipe_url').value;
-                if (document.getElementById('edit-preview')) {
+                if (document.getElementById('edit-preview') != null) {
                     document.getElementById('edit-preview').src = new_url;
                 }
                 else {
