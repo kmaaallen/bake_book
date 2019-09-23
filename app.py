@@ -7,24 +7,13 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/static/images/uploads'
-
-
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'bakingBookRecipes'
 app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv('SECRET')
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-
-def allowed_file(filename):
-	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-	
 
 mongo = PyMongo(app)
-
 
 @app.route('/')
 @app.route('/show_recipes')
@@ -38,14 +27,16 @@ def about():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """ If user already logged in redirect to homepage """
     if 'logged_in' in session:
         return redirect(url_for('show_recipes'))
-
+    """ If user not logged in, check db for username """
     form = LoginForm(request.form)
     if request.method == 'POST':
         users = mongo.db.users
         login_username = users.find_one({'user': request.form['username'
                 ]})
+        """ If username exists, check password matches """
         if login_username is not None:
             if bcrypt.checkpw(request.form['password'].encode('utf-8'),
                               login_username['password'].encode('utf-8'
@@ -53,7 +44,7 @@ def login():
                 session['username'] = request.form['username']
                 session['logged_in'] = True
                 return redirect(url_for('show_recipes'))
-
+        """ If username and password combination is not correct """
         return render_template('login.html', form=form) \
             + 'Invalid username / password combination'
 
@@ -71,15 +62,17 @@ def sign_up():
     form = SignupForm(request.form)
     if request.method == 'POST':
         users = mongo.db.users
+        """ Check if username already exists in the db """
         existing_user = users.find_one({'user': request.form['username'
                 ]})
-
+        """ If username does not already exist, hash pw and store """
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['password'
                     ].encode('utf-8'), bcrypt.gensalt())
             users.insert_one({'user': request.form['username'],
                              'password': hashpass.decode(), 'saved_recipes':''})
             session['username'] = request.form['username']
+            """ Return user to login form to log in """
             return redirect(url_for('login'))
 
         else: flash('That username already exists, please choose another.')
@@ -110,6 +103,7 @@ def save_recipe(recipe_id):
 
 @app.route('/my_saved_recipes', methods=['GET', 'POST'])
 def my_saved_recipes():
+    """ Check user is logged in """
     if 'logged_in' in session:
         user = mongo.db.users.find_one({'user': session['username']})
         saved = user['saved_recipes']
@@ -121,8 +115,10 @@ def my_saved_recipes():
 
 @app.route('/unsave_recipe/<recipe_id>', methods=['GET', 'POST'])
 def unsave_recipe(recipe_id):
+    """ Check user is logged in """
     if 'logged_in' in session:
         user = mongo.db.users.find_one({'user': session['username']})
+        """ Remove recipe from saved_recipes array in db """
         mongo.db.users.update_one({'user': session['username']}, {"$pull": {"saved_recipes": ObjectId(recipe_id)}})
         saved = user['saved_recipes']
         return render_template('savedrecipes.html',
@@ -132,6 +128,7 @@ def unsave_recipe(recipe_id):
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
 def submit_recipe():
+    """ Check user is logged in """
     if 'logged_in' in session:
         new_recipe = None
         form = AddRecipeForm(request.form)
@@ -147,8 +144,6 @@ def submit_recipe():
                 'takes': form_normal['takes'],
                 'ingredients': flat_form['ingredients'],
                 'method': flat_form['method'],
-                'rating': 0,
-                # 'tags': flat_form['tags'],
                 'created_by': session['username'],
                 'recipe_url': form_normal['recipe_url']
                 })
@@ -156,38 +151,10 @@ def submit_recipe():
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
-    
-# @app.route('/upload', methods=['GET', 'POST'])
-# #function from https://www.roytuts.com/python-flask-file-upload-example/
-# def upload():
-# 	if request.method == 'POST':
-#         # check if the post request has the file part
-# 		if 'file' not in request.files:
-# 			flash('No file part')
-# 			return redirect(request.url)
-# 		file = request.files['file']
-# 		if file.filename == '':
-# 			flash('No file selected for uploading')
-# 			return redirect(request.url)
-# 		if file and allowed_file(file.filename):
-# 			filename = secure_filename(file.filename)
-# 			#file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) """ERRORING ON THIS LINE"""
-# 			flash('File successfully uploaded')
-# 			return redirect('/')
-# 		else:
-# 			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
-# 		return redirect(request.url)
-
-@app.route('/photo/<id>')
-def show(id):
-    photo = Photo.load(id)
-    if photo is None:
-        abort(404)
-    url = photos.url(photo.filename)
-    return render_template('show.html', url=url, photo=photo)
 
 @app.route('/my_recipes')
 def my_recipes():
+    """ Get username of logged in user """
     username = session['username']
     return render_template('myrecipes.html',
                            recipes=mongo.db.recipes.find({'created_by': username}))
@@ -195,42 +162,44 @@ def my_recipes():
 
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
-    recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-    form = AddRecipeForm()
-    form = AddRecipeForm(data=recipe)
-    form.ingredients.data = recipe['ingredients']
-    form.method.data = recipe['method']
-    form.tags.data = recipe['tags']
+    """ Check user is logged in """
+    if 'logged_in' in session:
+        recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+        form = AddRecipeForm()
+        """ Populate AddRecipeForm with data from db """
+        form = AddRecipeForm(data=recipe)
+        form.ingredients.data = recipe['ingredients']
+        form.method.data = recipe['method']
+        form.tags.data = recipe['tags']
     
-    if request.method == 'POST':
-        form_normal = request.form.to_dict()
-        flat_form = request.form.to_dict(flat=False)
-        mongo.db.recipes.update({'_id' : ObjectId(recipe_id)}, {
-            'recipe_title': form_normal['recipe_title'],
-            'sub_title': form_normal['sub_title'],
-            'makes': form_normal['makes'],
-            'takes': form_normal['takes'],
-            'ingredients': flat_form['ingredients'],
-            'method': flat_form['method'],
-            'rating': 0,
-            # 'tags': flat_form['tags'],
-            'created_by' : session['username']
-            })
-
-         # "recipe_img_name": recipe_img_name
-        return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
-    return render_template('editrecipe.html', recipe=recipe, form=form)
+        if request.method == 'POST':
+            form_normal = request.form.to_dict()
+            flat_form = request.form.to_dict(flat=False)
+            mongo.db.recipes.update({'_id' : ObjectId(recipe_id)}, {
+                'recipe_title': form_normal['recipe_title'],
+                'sub_title': form_normal['sub_title'],
+                'makes': form_normal['makes'],
+                'takes': form_normal['takes'],
+                'ingredients': flat_form['ingredients'],
+                'method': flat_form['method'],
+                'created_by' : session['username']
+                })
+            return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+        return render_template('editrecipe.html', recipe=recipe, form=form)
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
-    recipes = mongo.db.recipes
-    recipes.remove({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('my_recipes'))
+    """ Check user is logged in """
+    if 'logged_in' in session:
+        recipes = mongo.db.recipes
+        recipes.remove({'_id': ObjectId(recipe_id)})
+        return redirect(url_for('my_recipes'))
     
 @app.route('/search_results', methods=["GET", "POST"])
 def search_results():
     if request.method == 'POST':
         keywords = request.form.get("keywords")
+        """ Text index on mongodb set for recipe title and subtitle"""
         recipes=mongo.db.recipes.find({"$text": { "$search": keywords}})
     return render_template('recipes.html', recipes=recipes )
 
