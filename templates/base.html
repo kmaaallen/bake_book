@@ -4,8 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 </head>
 
@@ -15,7 +15,7 @@
 <nav class="mobile-nav navbar fixed-top">
     <div class="col-xs-6 burger-menu">
         <div class="dropdown hidden-md hidden-lg">
-            <button><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+            <button><i class="fa fa-bars"></i></button>
             <ul class="dropdown-toggle">
                 <li class="dropdown-item"><a href="{{url_for('show_recipes')}}">Home</a></li>
                 <li class="dropdown-item"><a href="{{url_for('about')}}">About</a></li>

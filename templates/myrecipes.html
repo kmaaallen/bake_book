@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %} 
 
-<div class="row">
+<div class="row my_recipes">
     {% for recipe in recipes %}
     <!--<div class="col s12 m4 l3">-->
         
@@ -26,7 +26,9 @@
     <p class="card-text">{{recipe.sub_title}}</p>
     <a href="{{url_for('recipe_card', recipe_id=recipe._id)}}" class="btn view-recipe-btn">View Recipe</a>
     <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn view-recipe-btn">Edit Recipe</a>
+    <div>
     <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn view-recipe-btn">Delete Recipe</a>
+    </div>
   </div>
 </div>
     {% endfor %}
