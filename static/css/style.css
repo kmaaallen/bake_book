@@ -72,10 +72,6 @@ body{
     width: 500px;
 }
 
-/*.star{*/
-/*    color: gold;*/
-/*}*/
-
 .recipe-container{
     padding-left:20px;
     font-family: 'Roboto';
@@ -210,6 +206,10 @@ a:hover {
 .mobile-menu{
     transform: translate(25px, 35px);
     position: absolute;
+}
+
+.preview-img{
+    height:200px;
 }
 
 /* Media Queries */
