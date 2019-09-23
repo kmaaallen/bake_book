@@ -123,14 +123,8 @@
         
         $(document).ready(function() {
     
-            // $(".nav-dropdown").click(function() {
-            //     if ($(".nav-dropdown-content").hasClass("nav-dropdown-visible")) {
-            //         $(".nav-dropdown-content").removeClass("nav-dropdown-visible");
-            //     }
-            //     else {
-            //         $(".nav-dropdown-content").addClass("nav-dropdown-visible");
-            //     }
-            // });
+             var img_url=document.getElementById('recipe_url').value;
+            
     
             $("#addNewIngredient").click(function() {
                 var newInput = $("<div><input required type='text' value='' class='ingredients' name='ingredients'></input><a class='btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>")
