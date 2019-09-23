@@ -84,7 +84,8 @@
             document.getElementById('recipe_url').addEventListener('change', updateValue);
 
             function updateValue() {
-                document.getElementById('submit-preview').src = document.getElementById('recipe_url').value;
+                var new_url = document.getElementById('recipe_url').value;
+                $(document).getElementById('submit-preview').src = new_url;
             }
 
             // on click functions to add extra inputs for method and ingredients
