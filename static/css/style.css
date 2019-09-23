@@ -68,7 +68,10 @@ body{
 /* recipecard template styling */
 .recipe-image{
     margin-top: 100px;
-    height: 500px;
+    max-width:500px;
+    max-height:500px;
+    width: auto;
+    height: auto;
 }
 
 .recipe-container{
