@@ -71,9 +71,6 @@ body{
 /*    height:500px;*/
 /*}*/
 
-.recipe-img{
-    background-image: url({{recipes.recipe_url}});
-}
 
 .recipe-container{
     padding-left:20px;
