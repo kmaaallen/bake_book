@@ -156,10 +156,6 @@ input:focus{
     top: 4px;
 }
 
-.mobile-dropdown{
-    padding-right: 150px;
-}
-
 .nav-link{
     padding-right:80px;
     color:#ffffff;
@@ -209,7 +205,7 @@ a:hover {
 
 .mobile-dropdown{
     float:right;
-    padding-right:0px;
+    padding-right:150px;
 }
 
 .mobile-menu{
