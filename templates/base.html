@@ -13,26 +13,28 @@
 <!-- mobile nav -->
 <nav class="mobile-nav navbar fixed-top">
     <a class="navbar-brand" href="https://bake-book-milestone.herokuapp.com/">Bakebook</a>
-        <div class="dropdown hidden-md-up">
-            <li class="nav-item dropdown-mobile">
-                <a class="nav-link mobile-dropdown dropdown" href="#" id="navbarDropdownMobileLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown hidden-md-up">
+        <li class="nav-item dropdown-mobile">
+            <a class="nav-link mobile-dropdown dropdown" href="#" id="navbarDropdownMobileLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <i class="fa fa-bars"></i>
                 </a>
-                <div class="dropdown-menu mobile-menu" aria-labelledby="navbarDropdownMobileLink">
-                    <a class="dropdown-item" href="{{url_for('show_recipes')}}">Home</a>
-                    <a class="dropdown-item" href="{{url_for('about')}}">About</a> {% if session['logged_in'] %}
-                    <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
-                    <a class="dropdown-item" href="{{url_for('my_saved_recipes')}}">My Saved Recipes</a>
-                    <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a> {% else %}
-                    <a class="nav-link" href="{{url_for('login')}}">Login / Sign Up</a> {% endif %}
-                </div>
-            </li>
-        </div>
-        </div>
+            <div class="dropdown-menu mobile-menu" aria-labelledby="navbarDropdownMobileLink">
+                <a class="dropdown-item" href="{{url_for('show_recipes')}}">Home</a>
+                <a class="dropdown-item" href="{{url_for('about')}}">About</a> {% if session['logged_in'] %}
+                <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
+                <a class="dropdown-item" href="{{url_for('my_saved_recipes')}}">My Saved Recipes</a>
+                <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a> {% else %}
+                <a class="nav-link" href="{{url_for('login')}}">Login / Sign Up</a> {% endif %}
+            </div>
+        </li>
+    </div>
+    </div>
 </nav>
 <!-- Nav Section -->
 <nav class="main-nav navbar fixed-top hidden-sm-down">
+    <li class="nav-item">
     <a class="navbar-brand" href="https://bake-book-milestone.herokuapp.com/">Bakebook</a>
+    </li>
     <li class="nav-item">
         <a class="nav-link" href="{{url_for('show_recipes')}}">Home</a>
       </li>
