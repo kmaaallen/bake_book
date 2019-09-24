@@ -18,7 +18,7 @@
             <a class="nav-link mobile-dropdown dropdown" href="#" id="navbarDropdownMobileLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <i class="fa fa-bars"></i>
                 </a>
-            <div class="dropdown-menu mobile-menu" aria-labelledby="navbarDropdownMobileLink">
+            <div class="dropdown-menu mobile-menu drop-down-menu-right" aria-labelledby="navbarDropdownMobileLink">
                 <a class="dropdown-item" href="{{url_for('show_recipes')}}">Home</a>
                 <a class="dropdown-item" href="{{url_for('about')}}">About</a> {% if session['logged_in'] %}
                 <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
