@@ -152,6 +152,14 @@ input:focus{
     background-color: #339966;
 }
 
+.dropdown-menu.show {
+    top: 4px;
+}
+
+.mobile-dropdown{
+    padding-right: 150px;
+}
+
 .nav-link{
     padding-right:80px;
     color:#ffffff;
