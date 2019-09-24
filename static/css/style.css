@@ -214,9 +214,6 @@ a:hover {
 
 /* Media Queries */
 @media (max-width: 992px){
-    .mobile-nav{
-        display:block;
-    }
     .main-nav{
         display:none;
     }
