@@ -66,9 +66,6 @@ body{
     height:50px;
 }
 
-.close{
-    transform: translate(-50px, 5px);
-}
 
 /* recipecard template styling */
 .recipe-image{
