@@ -66,9 +66,13 @@ body{
 }
 
 /* recipecard template styling */
-.recipe-image{
-    width:500px;
-    height:500px;
+/*.recipe-image{*/
+/*    width:500px;*/
+/*    height:500px;*/
+/*}*/
+
+.recipe-img{
+    background-image: url({{recipes.recipe_url}});
 }
 
 .recipe-container{
