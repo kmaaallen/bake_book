@@ -2,7 +2,7 @@
 /*page header styling*/
 .page-header{
     margin-top:80px;
-    font-style: none;
+    text-decoration: none;
 }
 /* recipes.html styling */
 body{
