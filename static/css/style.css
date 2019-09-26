@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Courgette|Roboto&display=swap');
+/*page header styling*/
+.page-header{
+    margin-top:80px;
+}
 /* recipes.html styling */
 body{
     color:#333333;
@@ -96,11 +100,11 @@ h5{
 /* styling for forms */
 
 .form-container{
-    padding-left: 20px;
     padding-right: 20px;
     font-family: 'Roboto';
     max-width: 80%;
-    margin-top:100px;
+    margin-top:80px;
+    margin-left:50px;
 }
 
 input{
