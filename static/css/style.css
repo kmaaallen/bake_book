@@ -156,6 +156,10 @@ input:focus{
     top: unset;
 }
 
+.dropdown-menu-right{
+    right: -23px;
+}
+
 .nav-link{
     padding-right:80px;
     color:#ffffff;
@@ -186,11 +190,6 @@ a:hover {
     color:#cccccc;
 }
 
-/*mobile nav*/
-/*.sidenav-trigger{*/
-/*    float:right;*/
-/*}*/
-
 .search-form{
     margin-top:30px;
 }
@@ -202,16 +201,6 @@ a:hover {
 .delete-recipe-btn{
     margin-top:10px;
 }
-
-/*.mobile-dropdown{*/
-/*    float:right;*/
-/*    padding-right:150px;*/
-/*}*/
-
-/*.mobile-menu{*/
-/*    transform: translate(25px, 35px);*/
-/*    position: absolute;*/
-/*}*/
 
 .preview-image, .submit-preview-image{
     height:200px;
