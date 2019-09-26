@@ -51,6 +51,10 @@ body{
     border-color: #339966;
 }
 
+.material-icons {
+    margin-right:10px;
+}
+
 .search-bar {
     background-color: #cccccc;
     width: 90%;
@@ -111,7 +115,6 @@ input:focus{
     outline:none;
 }
     
-
 .label{
     color: #339966;
 }
