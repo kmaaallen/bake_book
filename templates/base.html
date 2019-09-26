@@ -87,7 +87,10 @@
                 }
             }
         $(document).ready(function() {
-            showPreview();
+            if (document.getElementById('recipe_url')){
+                 showPreview();
+            }
+           
             document.getElementById('recipe_url').addEventListener('change', showPreview);
             
             // on click functions to add extra inputs for method and ingredients
