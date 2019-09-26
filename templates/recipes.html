@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %} 
 
 <div class="row search-form">
-  <h5>Got something specific in mind? Use the search bar to find the recipe you want.Or if you are looking for inspiration,explore the recipes below.</h5>
+  <h5 class="page-header">Got something specific in mind? Use the search bar to find the recipe you want.Or if you are looking for inspiration,explore the recipes below.</h5>
   <form action="{{url_for('search_results', keywords=keywords)}}" class="search-form" method="POST">
     <div class="input-field">
       <input class="search-bar" id="keywords" type="search" name="keywords">
