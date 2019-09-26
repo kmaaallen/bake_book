@@ -211,13 +211,16 @@ a:hover {
 }
 
 /* about page */
+.about-page{
+    margin:0px;
+}
 .about-text, .about-header{
     margin-left:-26px;
 }
 
 .jumbotron-fluid{
     background-image:url('https://c.pxhere.com/images/41/f2/9cae19e4045f684f3c3b9eeb1bc7-1455763.jpg!d');
-    height:300px;
+    height:400px;
     background-size:cover;
 }
 
