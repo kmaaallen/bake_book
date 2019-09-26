@@ -152,9 +152,9 @@ input:focus{
     background-color: #339966;
 }
 
-/*.dropdown-menu.show {*/
-/*    top: 4px;*/
-/*}*/
+.dropdown-menu.show.dropdown-main-nav {
+    top: 0px;
+}
 
 .nav-link{
     padding-right:80px;
@@ -187,9 +187,9 @@ a:hover {
 }
 
 /*mobile nav*/
-.sidenav-trigger{
-    float:right;
-}
+/*.sidenav-trigger{*/
+/*    float:right;*/
+/*}*/
 
 .search-form{
     margin-top:30px;
