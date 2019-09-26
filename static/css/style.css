@@ -210,6 +210,11 @@ a:hover {
     height:200px;
 }
 
+/* about page */
+.about-text{
+    margin-left:-26px;
+}
+
 /* Media Queries */
 @media (max-width: 992px){
     .main-nav{
