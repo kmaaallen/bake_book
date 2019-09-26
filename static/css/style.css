@@ -53,6 +53,7 @@ body{
 
 .material-icons {
     margin-right:10px;
+    transform: translateY(5px);
 }
 
 .search-bar {
