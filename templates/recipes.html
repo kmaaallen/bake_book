@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %} 
-
+<h5>Got something specific in mind? Use the search bar to find the recipe you want.</br>
+Looking for inspiration? Explore the recipes below and see what takes your fancy...</h5>
 <div class="row search-form">
   <form action="{{url_for('search_results', keywords=keywords)}}" class="search-form" method="POST">
     <div class="input-field">
