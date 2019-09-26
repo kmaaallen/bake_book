@@ -4,6 +4,11 @@
     margin-top:80px;
     text-decoration: none;
 }
+
+.home-page-header{
+    margin-top: 50px;
+    text-decoration: none;
+}
 /* recipes.html styling */
 body{
     color:#333333;
@@ -63,7 +68,7 @@ body{
 
 .search-bar {
     background-color: #cccccc;
-    width: 90%;
+    width: 95%;
     margin-top: 10px;
 }
 
