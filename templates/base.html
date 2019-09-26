@@ -89,9 +89,8 @@
         $(document).ready(function() {
             if (document.getElementById('recipe_url')){
                  showPreview();
+                 document.getElementById('recipe_url').addEventListener('change', showPreview);
             }
-           
-            document.getElementById('recipe_url').addEventListener('change', showPreview);
             
             // on click functions to add extra inputs for method and ingredients
             $("#addNewIngredient").click(function() {
