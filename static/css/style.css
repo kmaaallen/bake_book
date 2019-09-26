@@ -80,10 +80,13 @@ body{
     outline: none;
 }
 
+.search-form-top{
+    margin-top: 60px;
+}
+
 .search-form{
     width: 100%;
     height:50px;
-    margin-top: 60px;
 }
 
 
