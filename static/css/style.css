@@ -6,8 +6,11 @@
 }
 
 .home-page-header{
-    margin-top: 50px;
+    font-size:20px;
+    margin-top: 60px;
     text-decoration: none;
+    margin-right:auto;
+    margin-left:auto;
 }
 /* recipes.html styling */
 body{
@@ -202,10 +205,6 @@ a:hover {
 /*recipe link styling*/
 .recipe-link:hover{
     color:#cccccc;
-}
-
-.search-form{
-    margin-top:30px;
 }
 
 .my_recipes{

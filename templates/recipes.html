@@ -1,8 +1,13 @@
-{% extends 'base.html' %} {% block content %} 
+{% extends 'base.html' %} {% block content %}
 
 <div class="row search-form">
-  <p class="home-page-header">Got something specific in mind? Use the search bar to find the recipe you want.</p>
-  <p class="home-page-header">Or if you are looking for inspiration,explore the recipes below.</p>
+  <div>
+    <p class="home-page-header">Got something specific in mind? Use the search bar to find the recipe you want.</p>
+  </div>
+  <div>
+    <p class="home-page-header">Or if you are looking for inspiration,explore the recipes below.</p>
+  </div>
+
   <form action="{{url_for('search_results', keywords=keywords)}}" class="search-form" method="POST">
     <div class="input-field">
       <input class="search-bar" id="keywords" type="search" name="keywords">
