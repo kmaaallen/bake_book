@@ -7,19 +7,19 @@
         <div>
         {{ form.recipe_title.label}}
         </div>
-         <div>
+         <div class="input-div-width">
         {{ form.recipe_title }}
         </div>
         <div>
         {{ form.sub_title.label }} 
         </div>
-         <div>
+         <div class="input-div-width">
         {{ form.sub_title }} 
         </div>
          <div>
         {{ form.recipe_url.label }}
         </div>
-        <div>
+        <div class="input-div-width">
         {{ form.recipe_url(placeholder = "Please paste in the URL of the image")}}
         </div>
          <div>
@@ -28,21 +28,21 @@
         <div>
         {{ form.makes.label }}
         </div>
-         <div>
+         <div class="input-div-width">
         {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
         </div>
         <div>
         {{ form.takes.label }} 
         </div>
-         <div>
+         <div class="input-div-width">
         {{ form.takes(placeholder = "How long does this recipe take to make?") }}
         </div>
         {{ form.ingredients.label }} <a class="btn" id="addNewIngredient"><i class="material-icons">add</i></a>
-        <div id="ingredients">
+        <div id="ingredients" class="input-div-width">
         {{ form.ingredients }}
         </div>
         {{ form.method.label }}  <a class="btn" id="addNewStep"><i class="material-icons">add</i></a>
-        <div id="method">
+        <div id="method" class="input-div-width">
         {{ form.method }} 
         </div>
         <button class="btn btn-sm save-btn" type="submit">Submit Recipe</button>

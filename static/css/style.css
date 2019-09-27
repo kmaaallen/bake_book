@@ -126,7 +126,6 @@ h5{
 }
 
 input{
-    width: 100%;
     border-radius: 20px;
     box-shadow: none;
     margin-bottom: 10px;
@@ -140,6 +139,14 @@ input:focus{
     
 .label{
     color: #339966;
+}
+
+.extra-input{
+    width: 80%;
+}
+
+.input-div-width{
+    width: 100%;
 }
 
 /*styling for submit recipe*/
