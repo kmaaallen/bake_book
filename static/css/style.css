@@ -126,6 +126,7 @@ h5{
 }
 
 input{
+    width:100px;
     border-radius: 20px;
     box-shadow: none;
     margin-bottom: 10px;
@@ -253,12 +254,20 @@ a:hover {
         display:none;
     }
 }
-
-@media (min-width:992px){
-    .main-nav{
-        display:flex;
+@media (min-width:992px) {
+    .main-nav {
+        display: flex;
     }
-    .mobile-nav{
-        display:none;
+    .mobile-nav {
+        display: none;
+    }
+    .extra-input {
+        width: 90%;
+    }
+}
+
+@media (min-width:1280px){
+    .extra-input {
+        width: 95%;
     }
 }
