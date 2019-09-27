@@ -126,7 +126,7 @@ h5{
 }
 
 input{
-    width:100px;
+    width:100%;
     box-shadow: none;
     margin-bottom: 10px;
     border: solid 1px #cccccc;
