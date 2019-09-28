@@ -248,9 +248,9 @@ textarea {
 
 /* Media Queries */
 @media (max-width: 992px){
-    /*.main-nav{*/
-    /*    display:none;*/
-    /*}*/
+    .main-nav{
+        display:none;
+    }
 }
 @media (min-width:992px) {
     /*.main-nav {*/
