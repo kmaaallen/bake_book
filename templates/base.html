@@ -21,6 +21,7 @@
             <div class="dropdown-menu mobile-menu dropdown-menu-right" aria-labelledby="navbarDropdownMobileLink">
                 <a class="dropdown-item" href="{{url_for('show_recipes')}}">Home</a>
                 <a class="dropdown-item" href="{{url_for('about')}}">About</a> {% if session['logged_in'] %}
+                <a href="{{url_for('submit_recipe')}}">Submit a recipe</a>
                 <a class="dropdown-item" href="{{url_for('my_recipes')}}">My Recipes</a>
                 <a class="dropdown-item" href="{{url_for('my_saved_recipes')}}">My Saved Recipes</a>
                 <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a> {% else %}
