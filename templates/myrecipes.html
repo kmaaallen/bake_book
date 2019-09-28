@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %} 
 <h3 class="page-header">My Recipes</h3>
-<div class="row my-recipes">
+<div class="row">
     {% for recipe in recipes %}
     <div class="card" style="width: 18rem;">
         <img src="{{recipe.recipe_url}}" class="card-img-top" alt="...">
