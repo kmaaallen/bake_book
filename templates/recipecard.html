@@ -8,7 +8,7 @@
             <p class="makes">Makes : {{recipes.makes}}</p>
             <p>Takes : {{recipes.takes}}</p>
             <div class="ingredients">
-                <h5>Ingredients:</h5>
+                <h5 class="method-ingredient-title">Ingredients:</h5>
                 <ul>
                     {% for ingredient in recipes.ingredients %}
                     <li>{{ingredient}}</li>
@@ -16,7 +16,7 @@
                 </ul>
             </div>
             <div class="method">
-                <h5>Method:</h5>
+                <h5 class="method-ingredient-title">Method:</h5>
                 <ol>
                     {% for step in recipes.method %}
                     <li>{{step}}</li>
@@ -29,7 +29,7 @@
         </div>
         <div>
             {% if session %}
-            <a class="btn view-recipe-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}"><i class="material-icons left">add</i>Save Recipe</a>
+            <a class="btn btn-sm save-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}"><i class="material-icons left">add</i>Save Recipe</a>
             {% endif %}
         </div>
         </div>
