@@ -9,6 +9,7 @@
       <label class="label-icon" for="search"><i class="material-icons">search</i></label>
     </div>
   </form>
+  <div class="card-display">
   {% for recipe in recipes %}
   <div class="card img-fluid" style="width: 18rem;">
     <img src="{{recipe.recipe_url}}" class="card-img-top" alt="recipe image">
@@ -19,6 +20,7 @@
     </div>
   </div>
   {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

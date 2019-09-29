@@ -83,6 +83,11 @@ a:not([href]):not([tabindex]) {
 
 /* Recipes homepage style */
 
+.card-display{
+    margin-right:auto;
+    margin-left:auto;
+}
+
 .search-bar {
     background-color: #cccccc;
     width: 95%;
