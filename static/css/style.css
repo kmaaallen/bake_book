@@ -175,7 +175,7 @@ a:not([href]):not([tabindex]) {
 }
 
 input{
-    width:100%;
+    width:90%;
     box-shadow: none;
     margin-bottom: 10px;
     border: solid 1px #cccccc;
