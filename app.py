@@ -189,6 +189,8 @@ def edit_recipe(recipe_id):
                 })
             return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
         return render_template('editrecipe.html', recipe=recipe, form=form)
+    else if recipe_id == '':
+        return render_template('login.html', form=LoginForm(request.form))
     return render_template('login.html', form=LoginForm(request.form))
 
 @app.route('/delete_recipe/<recipe_id>')
