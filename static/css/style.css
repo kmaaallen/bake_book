@@ -82,6 +82,9 @@ a:not([href]):not([tabindex]) {
 }
 
 /* Recipes homepage style */
+.display-recipes{
+    justify-content:center;
+}
 
 .search-bar {
     background-color: #cccccc;
