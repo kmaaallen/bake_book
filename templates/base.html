@@ -92,13 +92,13 @@
             }
         
         function addIngredient(){
-            var newInput = $("<div><input required type='text' value='' class='ingredients extra-input' name='ingredients'></input><a class='btn add-btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a><a class='btn add-btn' onClick='addIngredient()'><i class='material-icons'>add</i></a></div>")
-                $("#ingredients").append(newInput);
+            var newInput = "<div><input required type='text' value='' class='ingredients extra-input' name='ingredients'></input><a class='btn add-btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a><a class='btn add-btn' onClick='addIngredient()'><i class='material-icons'>add</i></a></div>";
+                document.getElementById("ingredients").append(newInput);
         }
         
         function addStep(){
-            var newInput = $("<div><textarea value='' class='method extra-input' name='method'></textarea><a class='btn add-btn textarea-add-btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a><a class='btn add-btn textarea-add-btn' onClick='addStep()'><i class='material-icons'>add</i></a></div>")
-                $("#method").append(newInput);
+            var newInput = "<div><textarea value='' class='method extra-input' name='method'></textarea><a class='btn add-btn textarea-add-btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a><a class='btn add-btn textarea-add-btn' onClick='addStep()'><i class='material-icons'>add</i></a></div>";
+                document.getElementById('method').append(newInput);
         }
         
         $(document).ready(function() {
