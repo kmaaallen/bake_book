@@ -110,7 +110,6 @@ def my_saved_recipes():
         if (saved == None):
             flash("Sorry you don't have any saved recipes.")
         return render_template('savedrecipes.html',recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
-    
     return redirect(url_for('login'))
         
         
@@ -125,7 +124,7 @@ def unsave_recipe(recipe_id):
         saved = user['saved_recipes']
         return render_template('savedrecipes.html',
                            recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
-        
+    return render_template('login.html', form=form)   
 
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
@@ -190,7 +189,7 @@ def edit_recipe(recipe_id):
                 })
             return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
         return render_template('editrecipe.html', recipe=recipe, form=form)
-    return redirect(url_for('login'))
+    return render_template('login.html', form=form)
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -199,7 +198,7 @@ def delete_recipe(recipe_id):
         recipes = mongo.db.recipes
         recipes.remove({'_id': ObjectId(recipe_id)})
         return redirect(url_for('my_recipes'))
-    return redirect(url_for('login'))
+    return render_template('login.html', form=form)
     
 @app.route('/search_results', methods=["GET", "POST"])
 def search_results():
