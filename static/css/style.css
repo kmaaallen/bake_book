@@ -19,6 +19,10 @@ a:hover {
     text-decoration:none;
 }
 
+a:not([href]):not([tabindex]) {
+    color:#ffffff;
+}
+
 /* Page header styling*/
 .page-header{
     margin-top:80px;
@@ -150,14 +154,16 @@ a:hover {
     font-size: 16px;
 }
 
-.material-icons {
+.delete-icon {
     transform: translateY(5px);
 }
 
 .add-btn {
     background-color: #339966;
     color: #ffffff;
-    border-radius: 20px;
+    height: 24px;
+    margin-left: 5px;
+    padding: 0px;
 }
 
 .form-container{
@@ -191,7 +197,7 @@ input:focus, textarea:focus{
 textarea {
     overflow: auto;
     resize: vertical;
-    width: 100%;
+    width: 90%;
     height: 28px;
     border-color: #cccccc;
 }
@@ -242,11 +248,5 @@ textarea {
 @media (min-width:992px) {
     .extra-input {
         width: 90%;
-    }
-}
-
-@media (min-width:1280px){
-    .extra-input {
-        width: 94%;
     }
 }
