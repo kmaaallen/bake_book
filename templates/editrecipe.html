@@ -46,7 +46,7 @@
         <a class="btn" id="addNewStep"><i class="material-icons">add</i></a>
         <div id="method" class="input-div-width">
             {% for step in form.method.data %}
-            <div><textarea value='{{step}}' class='method' name='method'></textarea></div>
+            <div><textarea class='method' name='method'>{{step}}</textarea></div>
             {% endfor %}
         </div>
         <button class="btn btn-sm save-btn" type="submit">Edit Recipe</button>
