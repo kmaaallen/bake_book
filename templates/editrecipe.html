@@ -36,17 +36,17 @@
         {{ form.takes(placeholder = "How long does this recipe take to make?") }}
         </div>
         {{ form.ingredients.label }} 
-        <a class="btn" id="addNewIngredient"><i class="material-icons">add</i></a>
+        <p class="helper-text">Click the plus symbol to add more ingredients</p>
         <div id="ingredients" class="input-div-width">
             {% for ingredient in form.ingredients.data %}
-            <div><input required type='text' value='{{ingredient}}' class='ingredients' name='ingredients'></input></div>
+            <div><input required type='text' value='{{ingredient}}' class='ingredients' name='ingredients'></input><a class="btn add-btn" id="addNewStep"><i class="material-icons">add</i></a></div>
             {% endfor %}
         </div>
         {{ form.method.label }} 
-        <a class="btn" id="addNewStep"><i class="material-icons">add</i></a>
+        <p class="helper-text">Click the plus symbol to add more instructions</p>
         <div id="method" class="input-div-width">
             {% for step in form.method.data %}
-            <div><textarea class='method' name='method'>{{step}}</textarea></div>
+            <div><textarea class='method' name='method'>{{step}}</textarea><a class="btn add-btn" id="addNewStep"><i class="material-icons">add</i></a></div>
             {% endfor %}
         </div>
         <button class="btn btn-sm save-btn" type="submit">Edit Recipe</button>

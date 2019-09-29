@@ -145,8 +145,19 @@ a:hover {
 
 /* Submit / Edit  recipe form styling */
 
+.helper-text{
+    color:#cccccc;
+    font-size: 16px;
+}
+
 .material-icons {
     transform: translateY(5px);
+}
+
+.add-btn {
+    background-color: #339966;
+    color: #ffffff;
+    border-radius: 20px;
 }
 
 .form-container{
