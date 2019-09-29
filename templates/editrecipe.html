@@ -46,7 +46,7 @@
         <p class="helper-text">Click the plus symbol to add more instructions</p>
         <div id="method" class="input-div-width">
             {% for step in form.method.data %}
-            <div><textarea class='method' name='method'>{{step}}</textarea><a class="btn add-btn" id="addNewStep"><i class="material-icons">add</i></a></div>
+            <div><textarea class='method' name='method'>{{step}}</textarea><a class="btn add-btn textarea-add-btn" id="addNewStep"><i class="material-icons">add</i></a></div>
             {% endfor %}
         </div>
         <button class="btn btn-sm save-btn" type="submit">Edit Recipe</button>
