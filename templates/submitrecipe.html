@@ -41,13 +41,13 @@
         <p class="helper-text">Click the plus symbol to add more ingredients</p>
         <div id="ingredients" class="input-div-width">
         {{ form.ingredients }}
-        <a class="btn add-btn addNewIngredient"><i class="material-icons">add</i></a>
+        <a class="btn add-btn" onClick="addIngredient()"><i class="material-icons">add</i></a>
         </div>
         {{ form.method.label }} 
         <p class="helper-text">Click the plus symbol to add more instructions</p>
         <div id="method" class="input-div-width">
         {{ form.method }} 
-        <a class="btn add-btn textarea-add-btn addNewStep"><i class="material-icons">add</i></a>
+        <a class="btn add-btn textarea-add-btn" onClick="addStep()"><i class="material-icons">add</i></a>
         </div>
         <button class="btn btn-sm save-btn" type="submit">Submit Recipe</button>
     </form>
