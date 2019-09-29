@@ -136,6 +136,7 @@ def submit_recipe():
         recipes = mongo.db.recipes
         form_normal = request.form.to_dict()
         flat_form = request.form.to_dict(flat=False)
+        default_img_url = 'https://imgur.com/a/qeaCvhA'
 
         if request.method == 'POST':
             new_recipe = recipes.insert_one({
@@ -146,6 +147,9 @@ def submit_recipe():
                 'ingredients': flat_form['ingredients'],
                 'method': flat_form['method'],
                 'created_by': session['username'],
+                if form_normal['recipe_url'] = '':
+                    'recipe_url' : default_img_url
+                else:
                 'recipe_url': form_normal['recipe_url']
                 })
             return redirect(url_for('recipe_card',
