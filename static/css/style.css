@@ -141,6 +141,7 @@ a:not([href]):not([tabindex]) {
 .btn.save-btn{
     background-color:#003333;
     color:#ffffff;
+    margin-bottom:50px;
 }
 .btn:focus {
     outline: 0;
