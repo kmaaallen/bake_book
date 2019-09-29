@@ -98,7 +98,8 @@
         if (document.getElementById('edit_preview') != null) {
             document.getElementById('edit_preview').src = new_url;
         }else {
-            document.getElementById('submit-preview').src = '/static/images/placeholder.png';
+            document.getElementById('edit_preview').href = "{{url_for('static', filename='images/placeholder.png')}}";
+            document.getElementById('submit-preview').href = "{{url_for('static', filename='images/placeholder.png')}}";
         }
     }
 
