@@ -124,7 +124,7 @@ def unsave_recipe(recipe_id):
         saved = user['saved_recipes']
         return render_template('savedrecipes.html',
                            recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
-    return render_template('login.html', form=form)   
+    return render_template('login.html', form=LoginForm(request.form))   
 
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
@@ -189,7 +189,7 @@ def edit_recipe(recipe_id):
                 })
             return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
         return render_template('editrecipe.html', recipe=recipe, form=form)
-    return render_template('login.html', form=form)
+    return render_template('login.html', form=LoginForm(request.form))
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -198,7 +198,7 @@ def delete_recipe(recipe_id):
         recipes = mongo.db.recipes
         recipes.remove({'_id': ObjectId(recipe_id)})
         return redirect(url_for('my_recipes'))
-    return render_template('login.html', form=form)
+    return render_template('login.html', form=LoginForm(request.form))
     
 @app.route('/search_results', methods=["GET", "POST"])
 def search_results():
