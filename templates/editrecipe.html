@@ -35,17 +35,18 @@
          <div class="input-div-width">
         {{ form.takes(placeholder = "How long does this recipe take to make?") }}
         </div>
-        {{ form.ingredients.label }} <a class="btn"
-            id="addNewIngredient"><i class="material-icons">add</i></a>
+        {{ form.ingredients.label }} 
+        <a class="btn" id="addNewIngredient"><i class="material-icons">add</i></a>
         <div id="ingredients" class="input-div-width">
             {% for ingredient in form.ingredients.data %}
-            <div><input required type='text' value='{{ingredient}}' class='ingredients' name='ingredients'></input><a class='btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>
+            <div><input required type='text' value='{{ingredient}}' class='ingredients' name='ingredients'></input></div>
             {% endfor %}
         </div>
-        {{ form.method.label }} <a class="btn" id="addNewStep"><i class="material-icons">add</i></a>
+        {{ form.method.label }} 
+        <a class="btn" id="addNewStep"><i class="material-icons">add</i></a>
         <div id="method" class="input-div-width">
             {% for step in form.method.data %}
-            <div><input required type='text' value='{{step}}' class='method' name='method'></input><a class='btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a></div>
+            <div><textarea value='{{step}}' class='method' name='method'></textarea></div>
             {% endfor %}
         </div>
         <button class="btn btn-sm save-btn" type="submit">Edit Recipe</button>
