@@ -118,6 +118,7 @@ a:not([href]):not([tabindex]) {
     height: 24px;
     margin-left: 5px;
     padding: 0px;
+    transform: translateY(12px);
 }
 
 .card-img-top{
