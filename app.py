@@ -138,7 +138,7 @@ def submit_recipe():
         flat_form = request.form.to_dict(flat=False)
         default_img_url = 'https://imgur.com/a/qeaCvhA'
         
-        if form_normal['recipe_url'] == '':
+        if request.form['recipe_url'] == '':
             recipe_url = default_img_url
         else:
             recipe_url = form_normal['recipe_url']
