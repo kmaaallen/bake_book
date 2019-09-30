@@ -137,28 +137,25 @@ def submit_recipe():
         form_normal = request.form.to_dict()
         flat_form = request.form.to_dict(flat=False)
         default_img_url = 'https://imgur.com/a/qeaCvhA'
+        
+        if form_normal['recipe_url'] == '':
+            recipe_url = default_img_url
+        else:
+            recipe_url = form_normal['recipe_url']
 
-        if request.method == 'POST':
-            new_recipe = recipes.insert_one({
-                'recipe_title': form_normal['recipe_title'],
-                'sub_title': form_normal['sub_title'],
-                'makes': form_normal['makes'],
-                'takes': form_normal['takes'],
-                'ingredients': flat_form['ingredients'],
-                'method': flat_form['method'],
-                'created_by': session['username'],
-                'recipe_url': form_normal['recipe_url']
-                })
-            # if form_normal['recipe_url'] = '':
-            #     new_recipe.insert_one({
-            #         'recipe_url' : default_img_url 
-            #     })
-            # else:
-            #     new_recipe.insert_one({
-            #         'recipe_url': form_normal['recipe_url']
-            #     })
-            return redirect(url_for('recipe_card',
-                            recipe_id=new_recipe.inserted_id))
+            if request.method == 'POST':
+                new_recipe = recipes.insert_one({
+                    'recipe_title': form_normal['recipe_title'],
+                    'sub_title': form_normal['sub_title'],
+                    'makes': form_normal['makes'],
+                    'takes': form_normal['takes'],
+                    'ingredients': flat_form['ingredients'],
+                    'method': flat_form['method'],
+                    'created_by': session['username'],
+                    'recipe_url': recipe_url
+                    })
+                return redirect(url_for('recipe_card',
+                                recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
     return redirect(url_for('login'))
 
