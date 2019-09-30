@@ -129,6 +129,8 @@ a:not([href]):not([tabindex]) {
 
 .recipe-image{
     background-size:cover;
+    max-width: 800px;
+    height: 600px;
 }
 
 .recipe-container{
