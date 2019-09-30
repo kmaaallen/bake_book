@@ -212,8 +212,8 @@ def search_results():
         keywords = request.form.get("keywords")
         """ Text index on mongodb set for recipe title and subtitle"""
         recipes=mongo.db.recipes.find({"$text": { "$search": keywords}})
-        if recipes == None:
-            return "I'm sorry that search returned no results."
+        if recipes == '':
+            return render_template('recipes.html', recipes=recipes ) + "I'm sorry that search returned no results."
         else:
             return render_template('recipes.html', recipes=recipes )
 
