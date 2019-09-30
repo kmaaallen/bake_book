@@ -215,7 +215,7 @@ def search_results():
         if recipes:
             return render_template('recipes.html', recipes=recipes )
         else:
-            return render_template('recipes.html', recipes=recipes ) + "I'm sorry that search returned no results."
+            return render_template('recipes.html', recipes="I'm sorry that search returned no results." ) 
 
 
 if __name__ == '__main__':
