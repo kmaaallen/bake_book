@@ -230,7 +230,11 @@ textarea {
 
 /*login page styling*/
 .signup{
-    color:#003333;
+    color:#339966;
+}
+
+.invalid-message{
+    margin-left:50px;
 }
 
 /* My Recipes style */

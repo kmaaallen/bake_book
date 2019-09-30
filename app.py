@@ -46,7 +46,7 @@ def login():
                 return redirect(url_for('show_recipes'))
         """ If username and password combination is not correct """
         return render_template('login.html', form=form) \
-            + 'Invalid username / password combination'
+            + '<p class="invalid-message">Invalid username / password combination</p>'
 
     return render_template('login.html', form=form)
 
