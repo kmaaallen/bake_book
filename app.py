@@ -137,11 +137,12 @@ def submit_recipe():
         form_normal = request.form.to_dict()
         flat_form = request.form.to_dict(flat=False)
         default_img_url = 'https://imgur.com/a/qeaCvhA'
+        input_img_url = request.form['recipe_url']
         
-        if request.form['recipe_url'] == '':
+        if input_img_url == '':
             recipe_url = default_img_url
         else:
-            recipe_url = form_normal['recipe_url']
+            recipe_url = input_img_url
 
             if request.method == 'POST':
                 new_recipe = recipes.insert_one({
