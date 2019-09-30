@@ -140,12 +140,10 @@ def submit_recipe():
         if request.method == 'POST':
             default_img_url = 'https://i.imgur.com/dKEvSLE.png'
             input_img_url = request.form['recipe_url']
-            if input_img_url == '':
-                recipe_url = default_img_url
-            else if !input_img_url.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
-                recipe_url = default_img_url
-            else:
+            if input_img_url != '' && input_img_url.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
                 recipe_url = input_img_url
+            else:
+                recipe_url = default_img_url
             new_recipe = recipes.insert_one({
                 'recipe_title': form_normal['recipe_title'],
                 'sub_title': form_normal['sub_title'],
