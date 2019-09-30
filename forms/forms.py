@@ -6,10 +6,10 @@ class AddRecipeForm(Form):
     recipe_title = StringField("Recipe Title", validators=[DataRequired()])
     sub_title = TextField("Recipe Sub-title", validators=[DataRequired()])
     recipe_url = TextField("Recipe Image URL")
-    makes = TextField("Makes")
-    takes = TextField("Takes")
-    ingredients = TextField("Ingredients:")
-    method = TextAreaField("Method:")
+    makes = TextField("Makes", validators=[DataRequired()])
+    takes = TextField("Takes", validators=[DataRequired()])
+    ingredients = TextField("Ingredients:", validators=[DataRequired()])
+    method = TextAreaField("Method:", validators=[DataRequired()])
     submit = SubmitField("Send")
     
 class LoginForm(Form):
