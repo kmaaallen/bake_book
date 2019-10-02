@@ -26,7 +26,7 @@
  }
  
  // checking if no search results to display not found message
- $('.search-form').on('keyup', function(event) { // Fired on 'keyup' event
+ $('.search-form').on('submit', function(event) { // Fired on 'keyup' event
   if ($('.list').children().length === 0) { // Checking if list is empty
    $('.not-found').css('display', 'block'); // Display the Not Found message
   }
