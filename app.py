@@ -214,7 +214,7 @@ def search_results():
         """ Text index on mongodb set for recipe title and subtitle"""
         recipes=mongo.db.recipes.find({"$text": { "$search": keywords}})
         if recipes.count() == 0:
-            flash("no results")
+            flash("I'm sorry that search returned no results")
         return render_template('recipes.html', recipes=recipes )
 
 
