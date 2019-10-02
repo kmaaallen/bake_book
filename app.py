@@ -96,8 +96,9 @@ def save_recipe(recipe_id):
         """Check recipe is not already saved"""
         if recipe not in saved:
             mongo.db.users.update_one({'user': session['username']}, {"$push": {"saved_recipes": recipe}})
+            flash("Recipe has been saved")
         else:
-            flash("Recipe has already been saved")
+            flash("You have already saved this recipe")
     return render_template('recipecard.html',
                            recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
 
