@@ -213,7 +213,7 @@ def search_results():
         keywords = request.form.get("keywords")
         """ Text index on mongodb set for recipe title and subtitle"""
         recipes=mongo.db.recipes.find({"$text": { "$search": keywords}})
-        if recipes.length() == 0 :
+        if recipes == None:
             flash("I'm sorry that search didn't return any results")
         return render_template('recipes.html', recipes=recipes )
 
