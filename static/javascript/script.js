@@ -24,6 +24,16 @@
          document.getElementById('edit_preview').src = 'https://imgur.com/a/qeaCvhA';
      }
  }
+ 
+ // checking if no search results to display not found message
+ $('.search-form').on('keyup', function(event) { // Fired on 'keyup' event
+  if ($('.list').children().length === 0) { // Checking if list is empty
+   $('.not-found').css('display', 'block'); // Display the Not Found message
+  }
+  else {
+   $('.not-found').css('display', 'none'); // Hide the Not Found message
+  }
+ });
 
  $(document).ready(function() {
      // if recipe_url field is present call showPreview
