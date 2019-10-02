@@ -11,10 +11,10 @@
   </form>
   </div>
   <div class="row display-recipes">
-  {% if no recipe in recipes %}
-  <div><p>I'm sorry that search returned no results</p></div>
-  {% endif %}
   {% for recipe in recipes %}
+    {% if no recipe in recipes %}
+  <div><p>I'm sorry that search returned no results</p></div>
+  {% else %}
   <div class="card img-fluid" style="width: 18rem;">
     <img src="{{recipe.recipe_url}}" class="card-img-top" alt="recipe image">
     <div class="card-body">
@@ -23,6 +23,7 @@
       <a href="{{url_for('recipe_card', recipe_id=recipe._id)}}" class="btn view-recipe-btn">View Recipe</a>
     </div>
   </div>
+  {% endif %}
   {% endfor %}
   </div>
 
