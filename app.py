@@ -214,7 +214,7 @@ def search_results():
         """ Text index on mongodb set for recipe title and subtitle"""
         recipes=mongo.db.recipes.find({"$text": { "$search": keywords}})
         flash(recipes)
-        if recipes.rowcount == 0:
+        if cursor.rowcount == 0:
             flash("I'm sorry, your search returned no results")
         return render_template('recipes.html', recipes=recipes )
 
