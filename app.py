@@ -108,7 +108,8 @@ def my_saved_recipes():
     if 'logged_in' in session:
         user = mongo.db.users.find_one({'user': session['username']})
         saved = user['saved_recipes']
-        flash (saved)
+        if saved == []
+            flash("You haven't saved any recipes yet")
         return render_template('savedrecipes.html',recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
     return redirect(url_for('login'))
         
