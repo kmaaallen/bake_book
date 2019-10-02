@@ -11,6 +11,9 @@
   </form>
   </div>
   <div class="row display-recipes">
+  {% if no recipe in recipes %}
+  <div><p>I'm sorry that search returned no results</p></div>
+  {% else %}
   {% for recipe in recipes %}
   <div class="card img-fluid" style="width: 18rem;">
     <img src="{{recipe.recipe_url}}" class="card-img-top" alt="recipe image">
