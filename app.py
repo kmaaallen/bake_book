@@ -115,7 +115,7 @@ def my_saved_recipes():
         if saved == []:
             flash("You haven't saved any recipes yet")
         return render_template('savedrecipes.html',recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
-    return redirect(url_for('login'))
+    return redirect(url_for('error'))
         
         
 
@@ -129,7 +129,7 @@ def unsave_recipe(recipe_id):
         saved = user['saved_recipes']
         return render_template('savedrecipes.html',
                            recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
-    return render_template('login.html', form=LoginForm(request.form))   
+    return redirect(url_for('error'))   
 
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
@@ -162,7 +162,7 @@ def submit_recipe():
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
-    return redirect(url_for('login'))
+    return redirect(url_for('error'))
 
 @app.route('/my_recipes')
 def my_recipes():
@@ -171,7 +171,7 @@ def my_recipes():
         username = session['username']
         return render_template('myrecipes.html',
                            recipes=mongo.db.recipes.find({'created_by': username}))
-    return redirect(url_for('login'))
+    return redirect(url_for('error'))
 
 
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
@@ -200,7 +200,7 @@ def edit_recipe(recipe_id):
                 })
             return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
         return render_template('editrecipe.html', recipe=recipe, form=form)
-    return render_template('login.html', form=LoginForm(request.form))
+    return redirect(url_for('error'))
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -209,7 +209,7 @@ def delete_recipe(recipe_id):
         recipes = mongo.db.recipes
         recipes.remove({'_id': ObjectId(recipe_id)})
         return redirect(url_for('my_recipes'))
-    return render_template('login.html', form=LoginForm(request.form))
+    return redirect(url_for('error'))
     
 @app.route('/search_results', methods=["GET", "POST"])
 def search_results():
