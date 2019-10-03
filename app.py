@@ -175,27 +175,29 @@ def edit_recipe(recipe_id):
     """ Check user is logged in """
     if 'logged_in' in session:
         recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-        form = AddRecipeForm()
-        """ Populate AddRecipeForm with data from db """
-        form = AddRecipeForm(data=recipe)
-        form.ingredients.data = recipe['ingredients']
-        form.method.data = recipe['method']
-    
-        if request.method == 'POST':
-            form_normal = request.form.to_dict()
-            flat_form = request.form.to_dict(flat=False)
-            mongo.db.recipes.update({'_id' : ObjectId(recipe_id)}, {
-                'recipe_title': form_normal['recipe_title'],
-                'sub_title': form_normal['sub_title'],
-                'makes': form_normal['makes'],
-                'takes': form_normal['takes'],
-                'ingredients': flat_form['ingredients'],
-                'method': flat_form['method'],
-                'created_by' : session['username'],
-                'recipe_url': form_normal['recipe_url']
-                })
-            return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
-        return render_template('editrecipe.html', recipe=recipe, form=form)
+        if recipe.created_by == session['username']:
+            form = AddRecipeForm()
+            """ Populate AddRecipeForm with data from db """
+            form = AddRecipeForm(data=recipe)
+            form.ingredients.data = recipe['ingredients']
+            form.method.data = recipe['method']
+        
+            if request.method == 'POST':
+                form_normal = request.form.to_dict()
+                flat_form = request.form.to_dict(flat=False)
+                mongo.db.recipes.update({'_id' : ObjectId(recipe_id)}, {
+                    'recipe_title': form_normal['recipe_title'],
+                    'sub_title': form_normal['sub_title'],
+                    'makes': form_normal['makes'],
+                    'takes': form_normal['takes'],
+                    'ingredients': flat_form['ingredients'],
+                    'method': flat_form['method'],
+                    'created_by' : session['username'],
+                    'recipe_url': form_normal['recipe_url']
+                    })
+                return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
+            return render_template('editrecipe.html', recipe=recipe, form=form)
+        return render_template('404error.html')
     return render_template('404error.html')
 
 @app.route('/delete_recipe/<recipe_id>')
