@@ -14,23 +14,32 @@
  }
 
  // show recipe url preview if not empty
- function showPreview() {
+ function showEditPreview() {
   var new_url = document.getElementById('recipe_url').value;
   if (document.getElementById('edit_preview') != null) {
    document.getElementById('edit_preview').src = new_url;
-  }
-  else if (document.getElementById('submit-preview') != null) {
-   document.getElementById('submit_preview').src = new_url;
   }
   else {
    document.getElementById('edit_preview').src = '/static/images/default.png';
   }
  }
+ 
+ function showSubmitPreview() {
+  if (document.getElementById('submit-preview') != null) {
+   document.getElementById('submit_preview').src = new_url;
+  }else {
+   document.getElementById('edit_preview').src = '/static/images/default.png';
+  }
+ }
 
  $(document).ready(function() {
-     // if recipe_url field is present call showPreview
-     if (document.getElementById('recipe_url')) {
-         showPreview();
-         document.getElementById('recipe_url').addEventListener('change', showPreview);
-     }
+  // if recipe_url field is present call showPreview
+  if (document.getElementById('edit-preview')) {
+   showEditPreview();
+   document.getElementById('recipe_url').addEventListener('change', showEditPreview);
+  }
+  else if (document.getElementById('submit-preview')) {
+   showSubmitPreview();
+   document.getElementById('recipe_url').addEventListener('change', showSubmitPreview);
+  }
  });
