@@ -20,8 +20,8 @@
          document.getElementById('edit_preview').src = new_url;
      }
      else {
-         document.getElementById('submit-preview').src = 'https://imgur.com/a/qeaCvhA';
-         document.getElementById('edit_preview').src = 'https://imgur.com/a/qeaCvhA';
+         document.getElementById('submit-preview').src = '/static/images/default.png';
+         document.getElementById('edit_preview').src = '/static/images/default.png';
      }
  }
 
