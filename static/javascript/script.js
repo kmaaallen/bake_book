@@ -18,16 +18,14 @@
      var new_url = document.getElementById('recipe_url').value;
      if (document.getElementById('edit_preview') != null) {
          document.getElementById('edit_preview').src = new_url;
-     }
-     else {
-         document.getElementById('submit-preview').src = '/static/images/default.png';
-         document.getElementById('edit_preview').src = '/static/images/default.png';
+     }else{
+      document.getElementById('edit_preview').src = '/static/images/default.png';
      }
  }
 
  $(document).ready(function() {
      // if recipe_url field is present call showPreview
-     if (document.getElementById('recipe_url')) {
+     if (document.getElementById('edit_preview')) {
          showPreview();
          document.getElementById('recipe_url').addEventListener('change', showPreview);
      }
