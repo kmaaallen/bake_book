@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import TextField, TextAreaField, StringField, SubmitField, PasswordField, FileField
+from wtforms import TextField, TextAreaField, StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired
 
 class AddRecipeForm(Form):
