@@ -21,8 +21,9 @@ mongo = PyMongo(app)
 def show_recipes():
     return render_template('recipes.html',
                            recipes=mongo.db.recipes.find())
-    
+
 @app.errorhandler(404)
+""" error handler function taken from https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/ """    
 def page_not_found(e):
     return render_template('404error.html'), 404
 
@@ -52,7 +53,6 @@ def login():
         """ If username and password combination is not correct """
         return render_template('login.html', form=form) \
             + '<p class="invalid-message">Invalid username / password combination</p>'
-
     return render_template('login.html', form=form)
 
 
@@ -79,9 +79,7 @@ def sign_up():
             session['username'] = request.form['username']
             """ Return user to login form to log in """
             return redirect(url_for('login'))
-
         else: flash('That username already exists, please choose another.')
-
     return render_template('signup.html', form=form)
 
 
@@ -116,8 +114,7 @@ def my_saved_recipes():
         if saved == []:
             flash("You haven't saved any recipes yet")
         return render_template('savedrecipes.html',recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
-        
-        
+    return render_template('404error.html')
 
 @app.route('/unsave_recipe/<recipe_id>', methods=['GET', 'POST'])
 def unsave_recipe(recipe_id):
@@ -129,6 +126,7 @@ def unsave_recipe(recipe_id):
         saved = user['saved_recipes']
         return render_template('savedrecipes.html',
                            recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
+    return render_template('404error.html')
 
 
 @app.route('/submit_recipe', methods=['GET', 'POST'])
@@ -161,6 +159,7 @@ def submit_recipe():
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
         return render_template('submitrecipe.html', form=form)
+    return render_template('404error.html')
 
 @app.route('/my_recipes')
 def my_recipes():
@@ -169,6 +168,7 @@ def my_recipes():
         username = session['username']
         return render_template('myrecipes.html',
                            recipes=mongo.db.recipes.find({'created_by': username}))
+    return render_template('404error.html')
 
 
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
@@ -197,6 +197,7 @@ def edit_recipe(recipe_id):
                 })
             return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
         return render_template('editrecipe.html', recipe=recipe, form=form)
+    return render_template('404error.html')
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -205,6 +206,7 @@ def delete_recipe(recipe_id):
         recipes = mongo.db.recipes
         recipes.remove({'_id': ObjectId(recipe_id)})
         return redirect(url_for('my_recipes'))
+    return render_template('404error.html')
     
 @app.route('/search_results', methods=["GET", "POST"])
 def search_results():
