@@ -21,9 +21,8 @@ mongo = PyMongo(app)
 def show_recipes():
     return render_template('recipes.html',
                            recipes=mongo.db.recipes.find())
-
+"""error handler function taken from https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/""" 
 @app.errorhandler(404)
-""" error handler function taken from https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/ """    
 def page_not_found(e):
     return render_template('404error.html'), 404
 
