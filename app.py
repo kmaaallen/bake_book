@@ -13,6 +13,7 @@ app.config['MONGO_DBNAME'] = 'bakingBookRecipes'
 app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv('SECRET')
 
+
 mongo = PyMongo(app)
 
 @app.route('/')
@@ -20,10 +21,10 @@ mongo = PyMongo(app)
 def show_recipes():
     return render_template('recipes.html',
                            recipes=mongo.db.recipes.find())
-                           
-@app.route('/error')
-def error():
-    return render_template('404error.html')
+    
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404error.html'), 404
 
 @app.route('/about')
 def about():
