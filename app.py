@@ -175,7 +175,8 @@ def edit_recipe(recipe_id):
     """ Check user is logged in """
     if 'logged_in' in session:
         recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-        if recipe.created_by == session['username']:
+        """ check recipe was created by logged in user """
+        if recipe['created_by'] == session['username']:
             form = AddRecipeForm()
             """ Populate AddRecipeForm with data from db """
             form = AddRecipeForm(data=recipe)
