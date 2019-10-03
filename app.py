@@ -22,7 +22,7 @@ def show_recipes():
                            recipes=mongo.db.recipes.find())
                            
 @app.route('/error')
-def 404error():
+def error():
     return render_template('404error.html')
 
 @app.route('/about')
