@@ -20,6 +20,10 @@ mongo = PyMongo(app)
 def show_recipes():
     return render_template('recipes.html',
                            recipes=mongo.db.recipes.find())
+                           
+@app.route('/error')
+def 404error():
+    return render_template('404error.html')
 
 @app.route('/about')
 def about():
