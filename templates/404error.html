@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 
-<div>
+<div class="error-page">
     <p>Uh oh! Looks like you are missing a few ingredients...</p>
-    <p>Click <a href="https://bake-book-milestone.herokuapp.com/">here</a> to get back to the main page</p>
+    <p>Click <a class="error-home-link" href="https://bake-book-milestone.herokuapp.com/">here</a> to get back to the main page</p>
+    <p>Most likely you need to log in to access additional features, click on the link above to login in or sign up.</p>
 </div>
 
 {% endblock%}
