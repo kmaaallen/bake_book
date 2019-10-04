@@ -16,7 +16,7 @@
  // show recipe url preview if not empty
  function showEditPreview() {
   var new_url = document.getElementById('recipe_url').value;
-  if (document.getElementById('recipe_url') != null) {
+  if (document.getElementById('recipe_url').value != null) {
    document.getElementById('edit-preview').src = new_url;
   }
   else {
@@ -26,7 +26,7 @@
  
  function showSubmitPreview() {
   var new_url = document.getElementById('recipe_url').value;
-  if (document.getElementById('recipe_url') != null) {
+  if (document.getElementById('recipe_url').value != null) {
    document.getElementById('submit-preview').src = new_url;
   }
   else {
