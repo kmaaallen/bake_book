@@ -150,10 +150,10 @@ def submit_recipe():
                         test = urllib.request.urlopen(url_request)
                         #gets url type
                         url_type = test.info()['Content-type']
-                            if url_type.endswith("png") or url_type.endswith("jpeg") or url_type.endswith("gif"):
-                                recipe_image = request.form["recipe_url"]
-                            else:
-                                recipe_image = default_image_url
+                    if url_type.endswith("png") or url_type.endswith("jpeg") or url_type.endswith("gif"):
+                        recipe_image = request.form["recipe_url"]
+                    else:
+                        recipe_image = default_image_url
                 else:
                 #if user created a faulty url, default image is used
                     recipe_image = default_image
