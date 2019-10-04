@@ -25,6 +25,7 @@
  }
  
  function showSubmitPreview() {
+  var new_url = document.getElementById('recipe_url').value;
   if (document.getElementById('submit-preview') != null) {
    document.getElementById('submit_preview').src = new_url;
   }else {
