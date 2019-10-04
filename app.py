@@ -142,28 +142,28 @@ def submit_recipe():
             try:
             #tests image first
                 test_image = request.form['recipe_url']
-                    if url_parse(test_image).scheme:
-                    #data urls are excluded
-                        if url_parse(test_image).scheme == 'data':
-                            recipe_image = default_image_url
-                            else:
-                            #prevents 403 error
-                                headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
-                                url_request = urllib.request.Request(test_image, headers = headers)
-                                test = urllib.request.urlopen(url_request)
-                                #gets url type
-                                url_type = test.info()['Content-type']
-                                    if url_type.endswith("png") or url_type.endswith("jpeg") or url_type.endswith("gif"):
-                                        recipe_image = request.form["recipe_url"]
+                if url_parse(test_image).scheme:
+                #data urls are excluded
+                    if url_parse(test_image).scheme == 'data':
+                        recipe_image = default_image_url
+                        else:
+                        #prevents 403 error
+                            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
+                            url_request = urllib.request.Request(test_image, headers = headers)
+                            test = urllib.request.urlopen(url_request)
+                            #gets url type
+                            url_type = test.info()['Content-type']
+                                if url_type.endswith("png") or url_type.endswith("jpeg") or url_type.endswith("gif"):
+                                    recipe_image = request.form["recipe_url"]
+                                    else:
+                                        recipe_image = default_image_url
                                         else:
-                                            recipe_image = default_image_url
-                                            else:
-                                            #if user created a faulty url, default image is used
-                                                recipe_image = default_image
-           except Exception as e:
-               #inform them that a general error has occurred
-               pass
-               recipe_image = default_image_url
+                                        #if user created a faulty url, default image is used
+                                            recipe_image = default_image
+       except Exception as e:
+           #inform them that a general error has occurred
+           pass
+           recipe_image = default_image_url
             
             
             # #input_img_url = request.form['recipe_url']
