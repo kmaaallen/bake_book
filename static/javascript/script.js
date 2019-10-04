@@ -16,20 +16,20 @@
  // show recipe url preview if not empty
  function showEditPreview() {
   var new_url = document.getElementById('recipe_url').value;
-  if (document.getElementById('edit_preview') != null) {
-   document.getElementById('edit_preview').src = new_url;
+  if (document.getElementById('edit-preview') != null) {
+   document.getElementById('edit-preview').src = new_url;
   }
   else {
-   document.getElementById('edit_preview').src = '/static/images/default.png';
+   document.getElementById('edit-preview').src = '/static/images/default.png';
   }
  }
  
  function showSubmitPreview() {
   var new_url = document.getElementById('recipe_url').value;
   if (document.getElementById('submit-preview') != null) {
-   document.getElementById('submit_preview').src = new_url;
+   document.getElementById('submit-preview').src = new_url;
   }else {
-   document.getElementById('edit_preview').src = '/static/images/default.png';
+   document.getElementById('submit-preview').src = '/static/images/default.png';
   }
  }
 
