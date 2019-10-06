@@ -188,7 +188,7 @@ def edit_recipe(recipe_id):
                 if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
                     recipe_url = input_img_url
                 else:
-                recipe_url = default_img_url
+                    recipe_url = default_img_url
                 
                 form_normal = request.form.to_dict()
                 flat_form = request.form.to_dict(flat=False)
