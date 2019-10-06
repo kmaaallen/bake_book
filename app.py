@@ -139,35 +139,13 @@ def submit_recipe():
         flat_form = request.form.to_dict(flat=False)
         if request.method == 'POST':
             default_img_url = '/static/images/default.png'
-            try:
-                test_image = request.form['recipe_url']
-                if url_parse(test_image).scheme:
-                    if url_parse(test_image).scheme == 'data':
-                        recipe_image = default_image_url
-                    else:
-                        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
-                        url_request = urllib.request.Request(test_image, headers = headers)
-                        test = urllib.request.urlopen(url_request)
-                        #gets url type
-                        url_type = test.info()['Content-type']
-                    if url_type.endswith("png") or url_type.endswith("jpeg") or url_type.endswith("gif"):
-                        recipe_image = request.form["recipe_url"]
-                    else:
-                        recipe_image = default_image_url
-                else:
-                #if user created a faulty url, default image is used
-                    recipe_image = default_image
-            except Exception as e:
-               #inform them that a general error has occurred
-               pass
-               recipe_image = default_image_url
-            
-            
-            # #input_img_url = request.form['recipe_url']
-            # if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
-            #     recipe_url = input_img_url
-            # else:
-            #     recipe_url = default_img_url
+            input_img_url = request.form['recipe_url']
+            if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
+                recipe_url = input_img_url
+            else if:
+                recipe_url.validate
+            else:
+                recipe_url = default_img_url
             new_recipe = recipes.insert_one({
                 'recipe_title': form_normal['recipe_title'],
                 'sub_title': form_normal['sub_title'],
@@ -247,6 +225,3 @@ def search_results():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT'
             )), debug=True)
-
-
-#testing remote connection
