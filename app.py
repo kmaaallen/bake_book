@@ -183,6 +183,13 @@ def edit_recipe(recipe_id):
             form.method.data = recipe['method']
         
             if request.method == 'POST':
+                default_img_url = '/static/images/default.png'
+                input_img_url = request.form['recipe_url']
+                if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
+                    recipe_url = input_img_url
+                else:
+                recipe_url = default_img_url
+                
                 form_normal = request.form.to_dict()
                 flat_form = request.form.to_dict(flat=False)
                 mongo.db.recipes.update({'_id' : ObjectId(recipe_id)}, {
