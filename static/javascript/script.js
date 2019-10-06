@@ -16,7 +16,10 @@
  // show recipe url preview if not empty
  function showEditPreview() {
   var new_url = document.getElementById('recipe_url').value;
-  if (document.getElementById('recipe_url').value != "") {
+  if (document.getElementById('recipe_url').value != "" &&
+   document.getElementById("recipe_url").value.toLowerCase().endsWith('.jpg') ||
+   document.getElementById("recipe_url").value.toLowerCase().endsWith('.jpeg') ||
+   document.getElementById("recipe_url").value.toLowerCase().endsWith('.png')) {
    document.getElementById('edit-preview').src = new_url;
   }
   else {
@@ -26,13 +29,14 @@
  
  function showSubmitPreview() {
   var new_url = document.getElementById('recipe_url').value;
-  console.log("showpreview function reached");
-  if (document.getElementById('recipe_url').value != "" && document.getElementById("recipe_url").value.toLowerCase().endsWith('.jpg')) {
-   console.log("conditions passed for url");
+  if (document.getElementById('recipe_url').value != "" &&
+   document.getElementById("recipe_url").value.toLowerCase().endsWith('.jpg') ||
+   document.getElementById("recipe_url").value.toLowerCase().endsWith('.jpeg') ||
+   document.getElementById("recipe_url").value.toLowerCase().endsWith('.png')
+  ) {
    document.getElementById('submit-preview').src = new_url;
   }
   else {
-   console.log("conditions not passed for url");
    document.getElementById('submit-preview').src = "/static/images/default.png";
   }
  }
