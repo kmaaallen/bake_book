@@ -33,6 +33,7 @@
             {% if recipes.created_by == session['username'] %}
             <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn view-recipe-btn">Edit Recipe</a>
             {% endif %}
+            {% endif %}
         </div>
         </div>
 </div>
