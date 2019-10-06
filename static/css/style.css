@@ -164,18 +164,15 @@ a:not([href]):not([tabindex]) {
 
 .recipe-image{
     background-size:cover;
-    max-width: 800px;
+    max-width: 600px;
     height: 600px;
+    margin-right:50px;
 }
 
 .recipe-container{
     padding-left:20px;
     font-family: 'Roboto';
     margin-top:100px;
-}
-
-.recipe-method{
-    margin-left:50px;
 }
 
 .method-ingredient-title{
