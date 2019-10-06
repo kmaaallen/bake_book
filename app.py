@@ -154,7 +154,7 @@ def submit_recipe():
                 'ingredients': flat_form['ingredients'],
                 'method': flat_form['method'],
                 'created_by': session['username'],
-                'recipe_url': recipe_image
+                'recipe_url': recipe_url
                 })
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
