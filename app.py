@@ -142,8 +142,8 @@ def submit_recipe():
             input_img_url = request.form['recipe_url']
             if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
                 recipe_url = input_img_url
-            else if:
-                recipe_url.validate
+            # elif:
+            #     recipe_url.validate
             else:
                 recipe_url = default_img_url
             new_recipe = recipes.insert_one({
