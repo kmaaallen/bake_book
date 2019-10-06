@@ -26,10 +26,13 @@
  
  function showSubmitPreview() {
   var new_url = document.getElementById('recipe_url').value;
-  if (document.getElementById('recipe_url').value != "" && document.getElementById("recipe_url").value.toLowerCase().endsWith('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')) {
+  console.log("showpreview function reached");
+  if (document.getElementById('recipe_url').value != "" && document.getElementById("recipe_url").value.toLowerCase().endsWith('.jpg')) {
+   console.log("conditions passed for url");
    document.getElementById('submit-preview').src = new_url;
   }
   else {
+   console.log("conditions not passed for url");
    document.getElementById('submit-preview').src = "/static/images/default.png";
   }
  }
