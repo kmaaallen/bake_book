@@ -26,7 +26,7 @@
  
  function showSubmitPreview() {
   var new_url = document.getElementById('recipe_url').value;
-  if (document.getElementById('recipe_url').value != "") {
+  if (document.getElementById('recipe_url').value != "" && document.getElementById("recipe_url").toLowerCase().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif'))) {
    document.getElementById('submit-preview').src = new_url;
   }
   else {
