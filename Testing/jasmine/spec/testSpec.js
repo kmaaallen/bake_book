@@ -96,12 +96,11 @@ describe("should call show preview functions if preview fields present", functio
 
 describe("should call show preview functions when recipe_url field changes", function(){
     beforeEach(function(){
-        spyOn(window, 'onReady').and.callThrough();
-        document.getElementById('recipe_url').value = "test";
+        window.document.getElementById('recipe_url').value = "test";
     });
     it("should call showEditPreview if recipe_url changes", function(){
         spyOn(window, 'showEditPreview');
-        document.getElementById('recipe_url').value = "testing";
+        window.document.getElementById('recipe_url').value = "testing";
         expect(window.showEditPreview).toHaveBeenCalled();
     });
 });
