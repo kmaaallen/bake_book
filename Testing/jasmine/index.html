@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine-html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/boot.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.css">
+</head>
+
+<body>
+    <div class='form-container'>
+    <h3>Submit a recipe</h3>
+    <h4>Fill in the details below to submit a recipe</h4>
+    <form action="{{ url_for('submit_recipe') }}" method="POST" class="form-group">
+        {{ form.csrf_token }}
+        <div>
+        {{ form.recipe_title.label}}
+        </div>
+         <div class="input-div-width">
+        {{ form.recipe_title }}
+        </div>
+        <div>
+        {{ form.sub_title.label }} 
+        </div>
+         <div class="input-div-width">
+        {{ form.sub_title }} 
+        </div>
+         <div>
+        {{ form.recipe_url.label }}
+        <p class="helper-text">Please make sure the URL ends with 'png', 'jpg', 'jpeg', 'tiff', 'bmp'or 'gif' or it will be replaced with the default image pictured.</p>
+        </div>
+        <div class="input-div-width">
+        {{ form.recipe_url(placeholder = "Please paste in the URL of the image")}}
+        </div>
+         <div>
+        <img class="submit-preview-image" id="submit-preview" src="/static/images/default.png"/>
+        <!-- Adding in image tag for edit preview to test -->
+        <img class="preview-image" id="edit-preview">
+        <!-- -->
+        </div>
+        <div>
+        {{ form.makes.label }}
+        </div>
+         <div class="input-div-width">
+        {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
+        </div>
+        <div>
+        {{ form.takes.label }} 
+        </div>
+         <div class="input-div-width">
+        {{ form.takes(placeholder = "How long does this recipe take to make?") }}
+        </div>
+        {{ form.ingredients.label }} 
+        <p class="helper-text">Click the plus symbol to add more ingredients</p>
+        <div id="ingredients" class="input-div-width">
+        {{ form.ingredients }}
+        <a class="btn add-btn" onClick="addIngredient()"><i class="material-icons">add</i></a>
+        </div>
+        {{ form.method.label }} 
+        <p class="helper-text">Click the plus symbol to add more instructions</p>
+        <div id="method" class="input-div-width">
+        {{ form.method }} 
+        <a class="btn add-btn textarea-add-btn" onClick="addStep()"><i class="material-icons">add</i></a>
+        </div>
+        <button class="btn btn-sm save-btn" type="submit">Submit Recipe</button>
+    </form>
+</div>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../static/javascript/script.js"></script>
+    <script src="spec/testSpec.js"></script>
+</body>
+
+</html>

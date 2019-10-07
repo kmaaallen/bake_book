@@ -4,12 +4,12 @@
  }
 
  function addIngredient() {
-     var newInput = $("<div><input required type='text' value='' class='ingredients extra-input' name='ingredients'></input><a class='btn add-btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a><a class='btn add-btn' onClick='addIngredient()'><i class='material-icons'>add</i></a></div>")
+     var newInput = $("<div><input required type='text' value='' class='ingredients extra-input extra-ing-input' name='ingredients'></input><a class='btn add-btn' onClick='removeInput(this)'><i class='material-icons del-btn-ing'>delete</i></a><a class='btn add-btn' onClick='addIngredient()'><i class='material-icons'>add</i></a></div>")
      $("#ingredients").append(newInput);
  }
 
  function addStep() {
-     var newInput = $("<div><textarea value='' class='method extra-input' name='method'></textarea><a class='btn add-btn textarea-add-btn' onClick='removeInput(this)'><i class='material-icons'>delete</i></a><a class='btn add-btn textarea-add-btn' onClick='addStep()'><i class='material-icons'>add</i></a></div>")
+     var newInput = $("<div><textarea value='' class='method extra-input extra-step-input' name='method'></textarea><a class='btn add-btn textarea-add-btn' onClick='removeInput(this)'><i class='material-icons del-btn-step'>delete</i></a><a class='btn add-btn textarea-add-btn' onClick='addStep()'><i class='material-icons'>add</i></a></div>")
      $("#method").append(newInput);
  }
 
