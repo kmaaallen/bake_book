@@ -28,6 +28,12 @@ function onReadyReversed() {
     }
 }
 
+// function for changing content of recipe_url
+function changeRecipeUrl(){
+    document.getElementById('recipe_url').value = "";
+    document.getElementById('recipe_url').value = "testing";
+}
+
 
 describe("should call add input functions when plus btn clicked", function() {
     it("should call addIngredient function", function() {
@@ -75,9 +81,9 @@ describe("should remove input when removeInput function is clicked", function(){
 });
 
 
-describe("should call showPreview if recipe_url field is present", function() {
+describe("should call show preview functions if preview fields present", function() {
     it("should call showEditPreview if edit-preview element is present", function() {
-        spyOn(window, 'showEditPreview')
+        spyOn(window, 'showEditPreview');
         onReady();
         expect(window.showEditPreview).toHaveBeenCalled();
     });
@@ -85,6 +91,18 @@ describe("should call showPreview if recipe_url field is present", function() {
         spyOn(window, 'showSubmitPreview');
         onReadyReversed();
         expect(window.showSubmitPreview).toHaveBeenCalled();
+    });
+});
+
+describe("should call show preview functions when recipe_url field changes", function(){
+    beforeEach(function(){
+        spyOn(window, 'onReady').and.callThrough();
+        document.getElementById('recipe_url').value = "test";
+    });
+    it("should call showEditPreview if recipe_url changes", function(){
+        spyOn(window, 'showEditPreview');
+        document.getElementById('recipe_url').value = "testing";
+        expect(window.showEditPreview).toHaveBeenCalled();
     });
 });
 
