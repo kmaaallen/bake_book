@@ -25,8 +25,8 @@
                 </ol>
             </div>
             {% if session %}
-            <a class="btn btn-sm save-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}">Save Recipe</a> {% if recipes.created_by == session['username'] %}
-            <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn btn-sm save-btn">Edit Recipe</a> {% endif %} {% endif %}
+            <a class="btn btn-sm save-btn recipecard-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}">Save Recipe</a> {% if recipes.created_by == session['username'] %}
+            <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn btn-sm save-btn recipecard-btn">Edit Recipe</a> {% endif %} {% endif %}
         </div>
     </div>
 </div>
