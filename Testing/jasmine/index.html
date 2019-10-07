@@ -32,7 +32,8 @@
         <p class="helper-text">Please make sure the URL ends with 'png', 'jpg', 'jpeg', 'tiff', 'bmp'or 'gif' or it will be replaced with the default image pictured.</p>
         </div>
         <div class="input-div-width">
-        {{ form.recipe_url(placeholder = "Please paste in the URL of the image")}}
+        <!-- Had to add in HTML input for recipe url as jasmine tests could not pick up templating -->
+        <input id="recipe_url" name="recipe_url" type="url" value="">
         </div>
          <div>
         <img class="submit-preview-image" id="submit-preview" src="/static/images/default.png"/>

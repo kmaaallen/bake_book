@@ -15,29 +15,16 @@ function clickFirstDelBtnStep(){
     document.getElementsByClassName('del-btn-step')[0].click();
 }
 
-// document ready function mocks that checks for edit-preview and submit-preview elements
-// had to split these into two and reverse order as index.html contains both elements from submit and edit recipe templates.
-function mockDocReadyEdit() {
-    // if recipe_url field is present call showPreview
-    if (document.getElementById('edit-preview')) {
-        showEditPreview();
-        //document.getElementById('recipe_url').addEventListener('change', showEditPreview);
-    }
-    else if (document.getElementById('submit-preview')) {
-        showSubmitPreview();
-        //document.getElementById('recipe_url').addEventListener('change', showSubmitPreview);
-    }
-}
-
-function mockDocReadySubmit() {
+//mock onReady function with if conditions reversed as both submit-preview and edit-preview elements are present index.html
+function onReadyReversed() {
     // if recipe_url field is present call showPreview
     if (document.getElementById('submit-preview')) {
         showSubmitPreview();
-        //document.getElementById('recipe_url').addEventListener('change', showSubmitPreview);
+        document.getElementById('recipe_url').addEventListener('change', showSubmitPreview);
     }
     else if (document.getElementById('edit-preview')) {
         showEditPreview();
-        //document.getElementById('recipe_url').addEventListener('change', showEditPreview);
+        document.getElementById('recipe_url').addEventListener('change', showEditPreview);
     }
 }
 
@@ -88,15 +75,16 @@ describe("should remove input when removeInput function is clicked", function(){
 });
 
 
-describe("should call showPreview if recipe_url field is present", function(){
-   it("should call showEditPreview if edit-preview element is present", function(){
-      spyOn(window, 'showEditPreview');
-      mockDocReadyEdit();
-      expect(window.showEditPreview).toHaveBeenCalled();
-   }); 
-   it("should call showSubmitPreview if submit-preview element is present", function(){
-       spyOn(window, 'showSubmitPreview');
-       mockDocReadySubmit();
-       expect(window.showSubmitPreview).toHaveBeenCalled();
-   });
+describe("should call showPreview if recipe_url field is present", function() {
+    it("should call showEditPreview if edit-preview element is present", function() {
+        spyOn(window, 'showEditPreview')
+        onReady();
+        expect(window.showEditPreview).toHaveBeenCalled();
+    });
+    it("should call showSubmitPreview if submit-preview element is present", function() {
+        spyOn(window, 'showSubmitPreview');
+        onReadyReversed();
+        expect(window.showSubmitPreview).toHaveBeenCalled();
+    });
 });
+

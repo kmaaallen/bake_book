@@ -41,8 +41,10 @@
   }
  }
 
- $(document).ready(function() {
-  // if recipe_url field is present call showPreview
+ $(document).ready(onReady);
+ 
+ function onReady(){
+    // if recipe_url field is present call showPreview
   if (document.getElementById('edit-preview')) {
    showEditPreview();
    document.getElementById('recipe_url').addEventListener('change', showEditPreview);
@@ -51,4 +53,4 @@
    showSubmitPreview();
    document.getElementById('recipe_url').addEventListener('change', showSubmitPreview);
   }
- });
+ }
