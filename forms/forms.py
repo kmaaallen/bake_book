@@ -1,11 +1,13 @@
 from flask_wtf import Form
 from wtforms import TextField, TextAreaField, StringField, SubmitField, PasswordField
-from wtforms.validators import DataRequired
+from wtforms.fields.html5 import  URLField
+from wtforms.validators import DataRequired, URL
+
 
 class AddRecipeForm(Form):
     recipe_title = StringField("Recipe Title", validators=[DataRequired()])
     sub_title = TextField("Recipe Sub-title", validators=[DataRequired()])
-    recipe_url = TextField("Recipe Image URL")
+    recipe_url = URLField("Recipe Image URL", validators=[URL()])
     makes = TextField("Makes", validators=[DataRequired()])
     takes = TextField("Takes", validators=[DataRequired()])
     ingredients = TextField("Ingredients:", validators=[DataRequired()])

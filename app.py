@@ -139,35 +139,11 @@ def submit_recipe():
         flat_form = request.form.to_dict(flat=False)
         if request.method == 'POST':
             default_img_url = '/static/images/default.png'
-            try:
-                test_image = request.form['recipe_url']
-                if url_parse(test_image).scheme:
-                    if url_parse(test_image).scheme == 'data':
-                        recipe_image = default_image_url
-                    else:
-                        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
-                        url_request = urllib.request.Request(test_image, headers = headers)
-                        test = urllib.request.urlopen(url_request)
-                        #gets url type
-                        url_type = test.info()['Content-type']
-                    if url_type.endswith("png") or url_type.endswith("jpeg") or url_type.endswith("gif"):
-                        recipe_image = request.form["recipe_url"]
-                    else:
-                        recipe_image = default_image_url
-                else:
-                #if user created a faulty url, default image is used
-                    recipe_image = default_image
-            except Exception as e:
-               #inform them that a general error has occurred
-               pass
-               recipe_image = default_image_url
-            
-            
-            # #input_img_url = request.form['recipe_url']
-            # if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
-            #     recipe_url = input_img_url
-            # else:
-            #     recipe_url = default_img_url
+            input_img_url = request.form['recipe_url']
+            if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
+                recipe_url = input_img_url
+            else:
+                recipe_url = default_img_url
             new_recipe = recipes.insert_one({
                 'recipe_title': form_normal['recipe_title'],
                 'sub_title': form_normal['sub_title'],
@@ -176,7 +152,7 @@ def submit_recipe():
                 'ingredients': flat_form['ingredients'],
                 'method': flat_form['method'],
                 'created_by': session['username'],
-                'recipe_url': recipe_image
+                'recipe_url': recipe_url
                 })
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
@@ -205,8 +181,13 @@ def edit_recipe(recipe_id):
             form = AddRecipeForm(data=recipe)
             form.ingredients.data = recipe['ingredients']
             form.method.data = recipe['method']
-        
             if request.method == 'POST':
+                default_img_url = '/static/images/default.png'
+                input_img_url = request.form['recipe_url']
+                if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
+                    recipe_url = input_img_url
+                else:
+                    recipe_url = default_img_url
                 form_normal = request.form.to_dict()
                 flat_form = request.form.to_dict(flat=False)
                 mongo.db.recipes.update({'_id' : ObjectId(recipe_id)}, {
@@ -217,7 +198,7 @@ def edit_recipe(recipe_id):
                     'ingredients': flat_form['ingredients'],
                     'method': flat_form['method'],
                     'created_by' : session['username'],
-                    'recipe_url': form_normal['recipe_url']
+                    'recipe_url': recipe_url
                     })
                 return render_template('recipecard.html', recipes=mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}))
             return render_template('editrecipe.html', recipe=recipe, form=form)

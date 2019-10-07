@@ -2,7 +2,8 @@
 
 <div class="recipe-container">
     <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-sm-6 recipe-image" style=background-image:url("{{recipes.recipe_url}}")></div>
+        <div class="col-xs-12 col-sm-6">
             <h3>{{recipes.recipe_title}}</h3>
             <h4 class="sub-title">{{recipes.sub_title}}</h4>
             <p class="makes">Makes : {{recipes.makes}}</p>
@@ -24,15 +25,13 @@
                 </ol>
             </div>
         </div>
-
-        <div class="col-sm-12 col-md-6 recipe-image" style= background-image:url("{{recipes.recipe_url}}")>
-        </div>
-        <div class="col-sm-12">
-            {% if session %}
-            <a class="btn btn-sm save-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}">Save Recipe</a>
-            {% endif %}
-        </div>
-        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {% if session %}
+        <a class="btn btn-sm save-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}">Save Recipe</a> {% if recipes.created_by == session['username'] %}
+        <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn btn-sm save-btn">Edit Recipe</a> {% endif %} {% endif %}
+    </div>
 </div>
+
 
 {% endblock %}

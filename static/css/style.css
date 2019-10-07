@@ -164,8 +164,9 @@ a:not([href]):not([tabindex]) {
 
 .recipe-image{
     background-size:cover;
-    max-width: 800px;
+    max-width: 600px;
     height: 600px;
+    margin-right:50px;
 }
 
 .recipe-container{
@@ -182,6 +183,7 @@ a:not([href]):not([tabindex]) {
     background-color:#003333;
     color:#ffffff;
     margin-bottom:50px;
+    margin-top:50px;
 }
 .btn:focus {
     outline: 0;
