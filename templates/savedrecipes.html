@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <h3 class="page-header">My Saved Recipes</h3>
 <div class="row display-recipes">
-    {% if recipes.count %} {% for recipe in recipes %}
+    {% for recipe in recipes %}
     <div class="card" style="width: 18rem;">
         <img src="{{recipe.recipe_url}}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -11,11 +11,11 @@
             <a href="{{url_for('unsave_recipe', recipe_id=recipe._id)}}" class="btn view-recipe-btn delete-recipe-btn">Unsave Recipe</a>
         </div>
     </div>
-    {% endfor %} {% else %}
+    {% else %}
     <div class="about text">
         <p>You haven't saved any recipes yet. Browse the collection <a class="signup" href="{{url_for('show_recipes')}}">here.</a></p>
     </div>
-    {% endif %}
+    {% endfor %} 
 </div>
 
 {% endblock %}
