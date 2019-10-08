@@ -74,7 +74,7 @@ def sign_up():
             hashpass = bcrypt.hashpw(request.form['password'
                     ].encode('utf-8'), bcrypt.gensalt())
             users.insert_one({'user': request.form['username'],
-                             'password': hashpass.decode(), 'saved_recipes':''})
+                             'password': hashpass.decode(), 'saved_recipes':[]})
             session['username'] = request.form['username']
             """ Return user to login form to log in """
             return redirect(url_for('login'))
@@ -94,9 +94,9 @@ def save_recipe(recipe_id):
     if 'logged_in' in session:
         recipe = ObjectId(recipe_id)
         user = mongo.db.users.find_one({'user': session['username']})
-       # saved = user['saved_recipes']
+        saved = user['saved_recipes']
         """Check recipe is not already saved"""
-        if recipe not in user['saved_recipes']:
+        if recipe not in saved:
             mongo.db.users.update_one({'user': session['username']}, {"$push": {"saved_recipes": recipe}})
             flash("Recipe has been saved")
         else:
