@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %} 
 <h3 class="page-header">My Saved Recipes</h3>
 <div class="row display-recipes">
-    {% if recipes|length %}
+    {% if recipes is not empty %}
     {% for recipe in recipes %}
     <div class="card" style="width: 18rem;">
         <img src="{{recipe.recipe_url}}" class="card-img-top" alt="...">
