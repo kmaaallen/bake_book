@@ -16,7 +16,7 @@
     </div>
     {% endfor %} 
     
-    {% if recipes.count is null %} 
+    {% if not recipes.count %} 
     <div class="about-text">
         <p>You haven't created any recipes yet! Click on <a class="signup" href="{{url_for('submit_recipe')}}">Submit a Recipe</a> to get started.</p>
     </div>
