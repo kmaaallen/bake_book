@@ -162,12 +162,12 @@ a:not([href]):not([tabindex]) {
 
 /* Recipecard template styling */
 
-.recipe-image{
-    background-size:cover;
-    max-width: 600px;
-    height: 600px;
-    margin-right:50px;
-}
+/*.recipe-image{*/
+/*    background-size:cover;*/
+/*    max-width: 600px;*/
+/*    height: 600px;*/
+/*    margin-right:50px;*/
+/*}*/
 
 .recipe-container{
     padding-left:20px;
@@ -192,6 +192,19 @@ a:not([href]):not([tabindex]) {
 
 .recipecard-btn{
     float:right;
+}
+
+.full-recipe-card{
+    width:100%;
+}
+
+.full-recipe-card-top{
+    height:500px;
+    object-fit: cover;
+}
+
+.full-recipe-card-body{
+    height: 60px;
 }
 
 /* Submit / Edit  recipe form styling */

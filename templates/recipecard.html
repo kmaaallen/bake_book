@@ -2,20 +2,16 @@
 
 <div class="recipe-container">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 recipe-image">
-            <div class="card img-fluid" style="width: 18rem;">
-                <img src="{{recipes.recipe_url}}" class="card-img-top" alt="...">
-                <div class="card-body">
+        <div class="col-xs-12 col-sm-6">
+            <div class="card img-fluid full-recipe-card">
+                <img src="{{recipes.recipe_url}}" class="full-recipe-card-top" alt="recipe image">
+                <div class="card-body full-recipe-card-body">
                     <p class="card-text">Created by : {{recipes.created_by}}</p>
                 </div>
-                <ul class="list-group list-group-flush">
-                    {% if session %}
-                    <li class="list-group-item">
-                        <a class="btn btn-sm save-btn recipecard-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}">Save Recipe</a></li>
-                    {% if recipes.created_by == session['username'] %}
-                    <li class="list-group-item"><a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn btn-sm save-btn recipecard-btn">Edit Recipe</a></li>
-                    {% endif %} {% endif %}
-                </ul>
+                {% if session %}
+                <a class="btn btn-sm save-btn recipecard-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}">Save Recipe</a> {% if recipes.created_by == session['username'] %}
+                <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn btn-sm save-btn recipecard-btn">Edit Recipe</a> {% endif %} {% endif %}
+
                 <div class="card-body">
                     <a href="#" class="card-link">Card link</a>
                     <a href="#" class="card-link">Another link</a>
