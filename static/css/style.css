@@ -274,6 +274,10 @@ textarea {
     margin: -55px -55px 20px -55px;
 }
 
+.mailto {
+    color: #339966;
+}
+
 /*login page styling*/
 .signup{
     color:#339966;
