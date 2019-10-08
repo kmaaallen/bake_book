@@ -122,9 +122,7 @@ def unsave_recipe(recipe_id):
         user = mongo.db.users.find_one({'user': session['username']})
         """ Remove recipe from saved_recipes array in db """
         mongo.db.users.update_one({'user': session['username']}, {"$pull": {"saved_recipes": ObjectId(recipe_id)}})
-        saved = user['saved_recipes']
-        return render_template('savedrecipes.html',
-                           recipes=mongo.db.recipes.find({'_id': {"$in": saved}}))
+        return redirect(url_for('savedrecipes'))
     return render_template('404error.html')
 
 
