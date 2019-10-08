@@ -182,16 +182,10 @@ a:not([href]):not([tabindex]) {
 .btn.save-btn{
     background-color:#003333;
     color:#ffffff;
-    margin-bottom:50px;
-    margin-left:10px;
 }
 .btn:focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem #cccccc;
-}
-
-.recipecard-btn{
-    float:right;
 }
 
 .full-recipe-card{
