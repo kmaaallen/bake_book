@@ -94,9 +94,9 @@ def save_recipe(recipe_id):
     if 'logged_in' in session:
         recipe = ObjectId(recipe_id)
         user = mongo.db.users.find_one({'user': session['username']})
-        saved = user['saved_recipes']
+       # saved = user['saved_recipes']
         """Check recipe is not already saved"""
-        if recipe not in saved:
+        if recipe not in user['saved_recipes']:
             mongo.db.users.update_one({'user': session['username']}, {"$push": {"saved_recipes": recipe}})
             flash("Recipe has been saved")
         else:
