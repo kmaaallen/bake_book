@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <h3 class="page-header">My Recipes</h3>
 <div class="row display-recipes">
-    {% if recipes.count %} {% for recipe in recipes %}
+    {% for recipe in recipes if recipes.count %}
     <div class="card" style="width: 18rem;">
         <img src="{{recipe.recipe_url}}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -14,11 +14,12 @@
             </div>
         </div>
     </div>
-    {% endfor %} {% else %}
+    {% else %}
     <div class="about-text">
         <p>You haven't created any recipes yet! Click on <a class="signup" href="{{url_for('submit_recipe')}}">Submit a Recipe</a> to get started.</p>
     </div>
     {% endif %}
+    {% endfor %} 
 </div>
 
 {% endblock %}
