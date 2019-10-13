@@ -17,16 +17,8 @@
             </div>
         </div>
     </div>
-    {% else %}
-    <div class="about-text">
-        <p>You haven't created any recipes yet! Click on <a class="signup" href="{{url_for('submit_recipe')}}">Submit a Recipe</a> to get started.</p>
-    </div>
-    {% endfor %}
-
-    <!-- Button trigger modal -->
-
-
-    <!-- Modal -->
+    
+        <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -44,6 +36,17 @@
             </div>
         </div>
     </div>
+    
+    {% else %}
+    <div class="about-text">
+        <p>You haven't created any recipes yet! Click on <a class="signup" href="{{url_for('submit_recipe')}}">Submit a Recipe</a> to get started.</p>
+    </div>
+    {% endfor %}
+
+    <!-- Button trigger modal -->
+
+
+
 
 </div>
 
