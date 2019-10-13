@@ -295,6 +295,10 @@ textarea {
     border-color: #333333;
 }
 
+.delete-recipe-btn:hover{
+    color:#cccccc;
+}
+
 .preview-image, .submit-preview-image{
     height:200px;
 }
