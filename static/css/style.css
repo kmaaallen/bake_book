@@ -291,6 +291,8 @@ textarea {
 
 .delete-recipe-btn{
     margin-top:10px;
+    background-color:#333333;
+    border-color: #333333;
 }
 
 .preview-image, .submit-preview-image{
