@@ -1,6 +1,7 @@
 <h1>Bakebook</h1>
-<p>Bakebook is a recipe sharing site designed to allow users to contribute baking recipes with the community.
-New bakers can search through the content to gain inspiration and try new recipes whilst more experienced can submit recipes for users to try.
+<p>Bakebook is a recipe sharing site designed to allow users to contribute baking recipes with the community.</p>
+<p> It can be viewed here: <a href="https://bake-book-milestone.herokuapp.com/">https://bake-book-milestone.herokuapp.com/</a> </p>
+<p>New bakers can search through the content to gain inspiration and try new recipes whilst more experienced can submit recipes for users to try.
 Users can view all recipes without logging in or signing up.</p>
 <p>From the home page, any user can search for relevant recipes using the search bar at the top which looks in the title and sub-title of recipes for the keywords.
 On signing up, then logging in, users have the additional functionalities of saving any recipe and submitting, editing and deleting their own recipes. 
