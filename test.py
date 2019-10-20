@@ -28,10 +28,6 @@ class testApp(unittest.TestCase):
     """
     def test_is_working(self):
         self.assertEqual(1, 1)
-
-    # def test_main_page_route(self):
-    #     response = self.app.get('https://bake-book-milestone.herokuapp.com/show_recipes')
-    #     self.assertEqual(response.status_code, 200)
         
     def test_page_not_found(self):
         response = self.app.get('404')
@@ -40,11 +36,6 @@ class testApp(unittest.TestCase):
     def test_about_page_route(self):
         response = self.app.get('/about')
         self.assertEqual(response.status_code, 200)
-    
-
-        
- 
-  
 
 if __name__ == "__main__":
     unittest.main()  
