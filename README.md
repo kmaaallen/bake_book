@@ -294,7 +294,7 @@ MongoDB Atlas was used as the database for this project.:<a href="https://www.mo
 
 <h2>Testing</h2>
 For this project I opted to carry out detailed and thorough manual testing as the baseline. My reasoning behind this was that the success of this website would depend on a good user experience to keep users coming back. By documenting and carrying out extensive manual testing I can more easily replicate the user experience.    
-<p>Please see full manual test script here : <a href="https://github.com/kmaaallen/bake_book/blob/master/Testing/manualTesting.txt">https://github.com/kmaaallen/bake_book/blob/master/Testing/manualTesting.txt<a></p>
+<p>Please see full manual test script and connectivity test outline here : <a href="https://github.com/kmaaallen/bake_book/tree/master/Testing/manualTesting">Manual Testing Documentation<a></p>
 
 <h3>Automated testing</h3>
 <p>I used Jasmine to carry out automated testing on my Javascript functions.</p>
@@ -389,9 +389,9 @@ I have included a test.py file available here which contains a few simple tests 
 <h2>Credits</h2>
 <h3>Content</h3>
 Recipes used to populate the site were taken from BBC Good Food website and from family and friends.
-For a comprehensive list of these sources please view the resources documentation, available <a href="https://github.com/kmaaallen/bake_book/blob/master/resources">here</a>.
+For a comprehensive list of these sources please view the resources documentation, available <a href="https://github.com/kmaaallen/bake_book/blob/master/resources.md">here</a>.
 <h3>Media</h3>
 The photos used in this site were obtained from google, using an advanced image search, searching for images that were free to use and modify, even commercially. For a full list of source images please view the resources document, available <a href="https://github.com/kmaaallen/bake_book/blob/master/resources">here</a>.
 
 <h2>Acknowledgements</h2>
-Code snippets that have been sourced from elsewhere are documented in my project by comments and below:
+Code snippets that have been sourced from elsewhere are documented in my project by comments and in the resources documentation <a href="https://github.com/kmaaallen/bake_book/blob/master/resources.md">here</a>
