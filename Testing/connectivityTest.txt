@@ -44,19 +44,4 @@ def hello():
 
 output: displayed Hello World in preview.
 
-Test can view recipes without being logged in:
-
-Test redirected to log in / sign up to submit recipe:
-
-Test sign up:
-
-Test login:
-
-Test can edit own recipes:
-
-Test can delete own recipes:
-
-Test can save recipes:
-
-Test can search for recipes:
 
