@@ -13,7 +13,6 @@ app.config['MONGO_DBNAME'] = 'bakingBookRecipes'
 app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv('SECRET')
 
-
 mongo = PyMongo(app)
 
 @app.route('/')
@@ -21,6 +20,7 @@ mongo = PyMongo(app)
 def show_recipes():
     return render_template('recipes.html',
                            recipes=mongo.db.recipes.find())
+                           
 """error handler function taken from https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/""" 
 @app.errorhandler(404)
 def page_not_found(e):
