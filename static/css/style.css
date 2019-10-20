@@ -151,7 +151,7 @@ a:not([href]):not([tabindex]) {
 }
 
 .card-title{
-    min-height:80px;
+    min-height:120px;
 }
 
 .view-recipe-btn{
