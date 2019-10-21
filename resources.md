@@ -1,88 +1,62 @@
-<h1>Resources</h1>
-<h2>Image sources</h2>
-<h3>Brownies:</h3>
+# Resources
+## Image sources
+### Brownies:
 https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Chocolate_brownies.jpg/800px-Chocolate_brownies.jpg
-<h3>Christmas Biscuits:</h3>
+### Christmas Biscuits:
 https://c.pxhere.com/photos/e2/7e/santa's_arm_hot_chocolate_cocoa_christmas_cookie_chocolate_hot_cookies_holiday-1264689.jpg!d
-<h3>Chocolate chip cookies</h3>
+### Chocolate chip cookies:
 https://c.pxhere.com/images/9d/d6/d3a64f8beb97ee0bcf550dbe4dd1-1453093.jpg!d
-<h3>Classic Victoria Sponge</h3>
+### Classic Victoria Sponge:
 https://upload.wikimedia.org/wikipedia/commons/0/05/111rfyh.jpg
-<h3>Pumpkin Pie</h3>
+### Pumpkin Pie:
 https://cdn.pixabay.com/photo/2015/11/13/02/06/pumpkin-pie-1041330_960_720.jpg
-<h3> New York Cheesecake</h3>
+### New York Cheesecake:
 https://upload.wikimedia.org/wikipedia/commons/d/d6/New_york_cheesecake_with_strawberries.jpg
-<h3>Raspberry cupcakes</h3>
+### Raspberry cupcakes:
 https://www.maxpixel.net/static/photo/1x/Food-Raspberries-Nutrition-Lime-Fruit-Lemon-2546686.jpg
 
-<h2>Recipes</h2>
-<ul>
+## Recipes
+- Christmas Biscuits
+	- Family recipe
 
-<li>Christmas Biscuits</li>
-<ul>
-<li>Family recipe</li>
-</ul>
+- Chocolate Chip Cookies
+	- Family recipe
 
-<li>Chocolate Chip Cookies</li>
-<ul>
-<li>Family recipe</li>
-</ul>
+- The Old Mans Bacon and Egg Pie
+	- Adapted from [http://www.radionz.co.nz/collections/recipes/best-ever-bacon-and-egg-pie](http://www.radionz.co.nz/collections/recipes/best-ever-bacon-and-egg-pie)
 
-<li>The Old Mans Bacon and Egg Pie</li>
-<ul>
-<li>Family recipe adapted from <a href="http://www.radionz.co.nz/collections/recipes/best-ever-bacon-and-egg-pie">http://www.radionz.co.nz/collections/recipes/best-ever-bacon-and-egg-pie</a></li>
-</ul>
+- BBC Good Food: Best Ever Chocolate Brownies
+	- https://www.bbcgoodfood.com/recipes/1223/bestever-brownies
 
-<li>BBC Good Food: Best Ever Chocolate Brownies</li>
-<ul>
-<li>https://www.bbcgoodfood.com/recipes/1223/bestever-brownies</li>
-</ul>
+- Classic Victoria Sponge
+	- https://www.bbcgoodfood.com/recipes/1997/classic-victoria-sandwich
 
-<li>Classic Victoria Sponge</li>
-<ul>
-<li>https://www.bbcgoodfood.com/recipes/1997/classic-victoria-sandwich</li>
-</ul>
+- Pumpkin Pie
+	- https://www.bbcgoodfood.com/recipes/pumpkin-pie
 
-<li>Pumpkin Pie</li>
-<ul>
-<li>https://www.bbcgoodfood.com/recipes/pumpkin-pie</li>
-</ul>
+- New York Cheesecake
+	- https://www.bbcgoodfood.com/recipes/2869/new-york-cheesecake
 
-<li>New York Cheesecake</li>
-<ul>
-<li>https://www.bbcgoodfood.com/recipes/2869/new-york-cheesecake</li>
-</ul>
+- Raspberry Cupcakes
+	- https://www.bbcgoodfood.com/recipes/2210/warm-raspberry-cupcakes-with-orange-sugar-drizzle
 
-<li>Raspberry Cupcakes</li>
-<ul>
-<li>https://www.bbcgoodfood.com/recipes/2210/warm-raspberry-cupcakes-with-orange-sugar-drizzle</li>
-</ul>
+## Code Snippets
+		{% with messages = get_flashed_messages() %}
+			  {% if messages %}
+			    {% for message in messages %}
+				  <div class="alert alert-warning alert-dismissible" role="alert">
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+					{{message}}
+				  </div>
+				{% endfor %}
+			  {% endif %}
+			{% endwith %} 
+
+Messages template with button, sourced from https://pythonprogramming.net/flash-flask-tutorial/
 
 
-</ul>
+		@app.errorhandler(404)
+		def page_not_found(e):
+		    return render_template('404error.html'), 404
 
-
-<h2> Code Snippets </h2>
-{% codeblock %}
-
-{% with messages = get_flashed_messages() %}
-	  {% if messages %}
-	    {% for message in messages %}
-		  <div class="alert alert-warning alert-dismissible" role="alert">
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-			{{message}}
-		  </div>
-		{% endfor %}
-	  {% endif %}
-	{% endwith %} 
-
-{% endcodeblock %}
-
-<p>Messages template with button, sourced from https://pythonprogramming.net/flash-flask-tutorial/</p>
-
-{% codeblock %}
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404error.html'), 404
-{% endcodeblock %}
-<p>Error handler function sourced from https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/</p>
+Error handler function sourced from https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/
