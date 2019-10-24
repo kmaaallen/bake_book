@@ -217,7 +217,7 @@ Online validators were used to check code was valid for HTML and CSS and to help
 - HTML validator:[https://validator.w3.org](https://validator.w3.org">https://validator.w3.org)
 - CSS Validator:[http://jigsaw.w3.org/css-validator/](http://jigsaw.w3.org/css-validator/)
 - JavaScript correction tool:[https://jshint.com/](https://jshint.com/)
-- Python validator:[https://www.tutorialspoint.com/online_python_formatter.htm](https://www.tutorialspoint.com/online_python_formatter.htm)
+- Python validator:[http://pep8online.com/checkresult](http://pep8online.com/checkresult)
 
 ### Libraries
 #### Bootstrap
