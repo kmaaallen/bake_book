@@ -27,7 +27,7 @@ I used the below user stories to help plan my features:
 - As a frequent user of the site I want to be able to track my saved recipes, recipes I have submitted and have these associated to my account.
 - As a user I want to be able to view recipes in the same standard format with an easy to follow layout.
 
-I also created some basic wireframes, which I used as the starting point for my designs. I wanted the recipe cards to have a picture to draw the eye and provide some contrast and for users to be able to scroll through if they just wanted to browse.</p>
+I also created some basic wireframes, which I used as the starting point for my designs. I wanted the recipe cards to have a picture to draw the eye and provide some contrast and for users to be able to scroll through if they just wanted to browse.
 
 ## Layout
 I wanted to keep the layout consistent and intuitive.

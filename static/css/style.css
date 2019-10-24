@@ -83,6 +83,11 @@ a:not([href]):not([tabindex]) {
     align-items: baseline;
 }
 
+.nav-ul {
+    list-style: none;
+    display: contents;
+}
+
 /*Styling for nav menu dropdown*/
 
 .dropdown-menu, .dropdown-item, .nav-link{
