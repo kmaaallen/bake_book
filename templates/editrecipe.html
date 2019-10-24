@@ -23,7 +23,7 @@
         <div class="input-div-width">
         {{ form.recipe_url}}
         </div>
-        <img class="preview-image" id="edit-preview">
+        <img class="preview-image" id="edit-preview" alt="Recipe Image Preview" src="">
         <div>
        {{ form.makes.label }}
         </div>
@@ -40,7 +40,7 @@
         <p class="helper-text">Click the plus symbol to add more ingredients</p>
         <div id="ingredients" class="input-div-width">
             {% for ingredient in form.ingredients.data %}
-            <div><input required type='text' value='{{ingredient}}' class='ingredients' name='ingredients'></input><a class="btn add-btn" onClick="addIngredient()"><i class="material-icons">add</i></a></div>
+            <div><input required type='text' value='{{ingredient}}' class='ingredients' name='ingredients'/><a class="btn add-btn" onClick="addIngredient()"><i class="material-icons">add</i></a></div>
             {% endfor %}
         </div>
         {{ form.method.label }} 
