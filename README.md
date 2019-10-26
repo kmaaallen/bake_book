@@ -20,7 +20,7 @@ I used the below user stories to help plan my features:
 
 - As a baker, I want to be able to search for recipes using keywords, so that I can find the recipes most relevant to me.
 - As a user I want to be able to browse through recipes quickly and have key information easily displayed so I can choose a recipe to make.
-- As a baker, I want to share my recipes, so that other people can use them.
+- As a baker, I want to share my recipes, so that other people can use them and track how popular they are.
 - As a baker, I want to be able to edit or delete my own recipes, so that they can be updated as I keep perfecting them.
 - As a frequent baker, I want to be able to save and unsave my favourite recipes so that I can easily find them again later. 
 - As a user I want to be able to contact the owner of the site in case of any questions.

@@ -7,7 +7,7 @@
                 <img src="{{recipes.recipe_url}}" class="full-recipe-card-top" alt="recipe image">
                 <div class="card-body full-recipe-card-body">
                     <p class="card-text">Created by : {{recipes.created_by}}</p>
-                    <p class="card-text"><i class="material-icons star">star</i>{{recipes.save_count}} users have saved this recipe</p>
+                    <p class="card-text"><i class="material-icons star">star</i>{{recipes.save_count}} user(s) have saved this recipe</p>
                 </div>
                 {% if session %}
                 <a class="btn btn-sm save-btn recipecard-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}">Save Recipe</a> {% if recipes.created_by == session['username'] %}

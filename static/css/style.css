@@ -203,7 +203,7 @@ a:not([href]):not([tabindex]) {
 }
 
 .star{
-    color: gold;
+    transform: translateY(4px);
 }
 
 /* Submit / Edit  recipe form styling */
