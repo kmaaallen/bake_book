@@ -317,9 +317,7 @@ textarea {
     .main-nav{
         display:none;
     }
-    .card-text {
-    min-height: 100px;
-    font-size: larger;
+    .recipecard-text {
     margin-bottom: 30px;
 }
 }
