@@ -180,7 +180,7 @@ a:not([href]):not([tabindex]) {
 .btn.save-btn{
     background-color:#003333;
     color:#ffffff;
-    margin-top:10px;
+    margin-top:30px;
 }
 .btn:focus {
     outline: 0;
@@ -204,7 +204,6 @@ a:not([href]):not([tabindex]) {
 
 .icon-star{
     transform: translateY(4px);
-    margin-top: 40px;
 }
 
 /* Submit / Edit  recipe form styling */
@@ -239,7 +238,7 @@ input{
     box-shadow: none;
     margin-bottom: 10px;
     border: solid 1px #cccccc;
-    padding-left:10px; 
+    padding-left:10px;
 }
 
 input:focus, textarea:focus{
@@ -261,7 +260,7 @@ textarea {
     height: 28px;
     border-color: #cccccc;
 }
-    
+
 .label{
     color: #339966;
 }
