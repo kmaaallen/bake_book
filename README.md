@@ -285,7 +285,7 @@ The test specifications can be viewed here:[https://github.com/kmaaallen/bake_bo
 
 
 #### How to run these tests
-- As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9 or preview in browser.
+- As I did: run the file /testing/jasmine/index.html in preview in cloud9 or preview in browser.
 - Or follow these instructions from the Jasmine documentation on how to install and run Jasmine available at: https://github.com/jasmine/jasmine#installation
 - These tests must be run in sequential order (untick run tests in random order).
 
