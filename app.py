@@ -80,11 +80,10 @@ def sign_up():
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             users.insert_one({'user': request.form['username'],
                              'password': hashpass.decode(), 'saved_recipes': []})
+            """ Return logged in user to homepage """
             session['username'] = request.form['username']
             session['logged_in'] = True
             return redirect(url_for('show_recipes'))
-            """ Return user to login form to log in """
-            #return redirect(url_for('login'))
         else:
             flash('That username already exists, please choose another.')
     return render_template('signup.html', form=form)
