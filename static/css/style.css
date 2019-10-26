@@ -204,6 +204,7 @@ a:not([href]):not([tabindex]) {
 
 .star{
     transform: translateY(4px);
+    margin-top: 40px;
 }
 
 /* Submit / Edit  recipe form styling */
