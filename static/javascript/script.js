@@ -47,10 +47,11 @@
   // if recipe_url field is present call showPreview
   if (document.getElementById('edit-preview')) {
    showEditPreview();
-   document.getElementById('recipe_url').addEventListener('change', showEditPreview);
+   document.getElementById('recipe_url').addEventListener('change', showEditPreview());
   }
   else if (document.getElementById('submit-preview')) {
    showSubmitPreview();
-   document.getElementById('recipe_url').addEventListener('change', showSubmitPreview);
+   document.getElementById('recipe_url').addEventListener('change', showSubmitPreview());
   }
  }
+ 

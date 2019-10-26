@@ -284,11 +284,12 @@ The test specifications can be viewed here:[https://github.com/kmaaallen/bake_bo
 #### How to run these tests
 - As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9 or preview in browser.
 - Or follow these instructions from the Jasmine documentation on how to install and run Jasmine available at: https://github.com/jasmine/jasmine#installation
+- These tests must be run in sequential order (untick run tests in random order).
 
 #### Python testing using unittest
-I attempted to create some automated tests for Python for this project. However, as I struggled to mock my mongodb database I couldn’t properly test my route functions as they all utilise the database to carry out functions.
+I created some automated tests for Python for this project. However, as I struggled to mock my mongodb database I couldn’t properly test my route functions as they all utilise the database to carry out functions.
 I didn’t want to spend more time on this because the functions have been exhaustively tested by manual testing (documented above). However this is something I would like to improve for this project in future and an area where further study is required.
-I have included a test.py file available here which contains a few simple tests that can be run to check the ‘about’ page route (which requires no interaction with the database) and the ‘page_not_found’ function work as expected.
+I have included a test.py file available here which contains a few simple tests that can be run to check the ‘about’ page route (which requires no interaction with the database) and the ‘page_not_found’ function work as expected as well as the password check logic.
 
 ## Deployment
 ### How to deploy this project to Heroku

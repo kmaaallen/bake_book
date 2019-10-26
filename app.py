@@ -14,6 +14,11 @@ app.secret_key = os.getenv('SECRET')
 
 mongo = PyMongo(app)
 
+""" Helper Functions """
+def password_check(password, db_password):
+    return bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8'))
+
+""" Routes """
 
 @app.route('/')
 @app.route('/show_recipes')
@@ -47,11 +52,10 @@ def login():
         login_username = users.find_one({'user': request.form['username']})
         """ If username exists, check password matches """
         if login_username is not None:
-            if bcrypt.checkpw(request.form['password'].encode('utf-8'),
-                              login_username['password'].encode('utf-8')):
+            if(password_check(request.form['password'], login_username['password'])):
                 session['username'] = request.form['username']
                 session['logged_in'] = True
-                return redirect(url_for('show_recipes'))
+            return redirect(url_for('show_recipes'))
         """ If username and password combination is not correct """
         return render_template('login.html', form=form) \
             + '<p class="invalid-message">Invalid username / password combination</p>'

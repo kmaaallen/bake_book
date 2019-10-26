@@ -20,18 +20,12 @@ function onReadyReversed() {
     // if recipe_url field is present call showPreview
     if (document.getElementById('submit-preview')) {
         showSubmitPreview();
-        document.getElementById('recipe_url').addEventListener('change', showSubmitPreview);
+        document.getElementById('recipe_url').addEventListener('change', showSubmitPreview());
     }
     else if (document.getElementById('edit-preview')) {
         showEditPreview();
-        document.getElementById('recipe_url').addEventListener('change', showEditPreview);
+        document.getElementById('recipe_url').addEventListener('change', showEditPreview());
     }
-}
-
-// function for changing content of recipe_url
-function changeRecipeUrl(){
-    document.getElementById('recipe_url').value = "";
-    document.getElementById('recipe_url').value = "testing";
 }
 
 
@@ -100,8 +94,17 @@ describe("should call show preview functions when recipe_url field changes", fun
     });
     it("should call showEditPreview if recipe_url changes", function(){
         spyOn(window, 'showEditPreview');
+        onReady();
         window.document.getElementById('recipe_url').value = "testing";
         expect(window.showEditPreview).toHaveBeenCalled();
+        expect(window.showEditPreview.calls.count()).toEqual(2);
+    });
+    it("should call showSubmitPreview if recipe_url changes", function(){
+        spyOn(window, 'showSubmitPreview');
+        onReadyReversed();
+        window.document.getElementById('recipe_url').value = "testing";
+        expect(window.showSubmitPreview).toHaveBeenCalled();
+        expect(window.showSubmitPreview.calls.count()).toEqual(2);
     });
 });
 
