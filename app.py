@@ -55,7 +55,7 @@ def login():
             if(password_check(request.form['password'], login_username['password'])):
                 session['username'] = request.form['username']
                 session['logged_in'] = True
-            return redirect(url_for('show_recipes'))
+                return redirect(url_for('show_recipes'))
         """ If username and password combination is not correct """
         return render_template('login.html', form=form) \
             + '<p class="invalid-message">Invalid username / password combination</p>'
