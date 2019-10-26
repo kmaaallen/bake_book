@@ -82,8 +82,7 @@ def sign_up():
                              'password': hashpass.decode(), 'saved_recipes': []})
             session['username'] = request.form['username']
             """ Return user to login form to log in """
-            return redirect(url_for('login')) \
-            + '<p class="invalid-message">Thanks for signing up! Please login to access extra features.</p>'
+            return redirect(url_for('login'))
         else:
             flash('That username already exists, please choose another.')
     return render_template('signup.html', form=form)
