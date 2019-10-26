@@ -7,7 +7,7 @@ New bakers can search through the content to gain inspiration and try new recipe
 Users can view all recipes without logging in or signing up.
 
 From the home page, any user can search for relevant recipes using the search bar at the top which looks in the title and sub-title of recipes for the keywords.
-On signing up, then logging in, users have the additional functionalities of saving any recipe and submitting, editing and deleting their own recipes. 
+On signing up, then logging in, users have the additional functionalities of saving any recipe and submitting, editing and deleting their own recipes.
 
 ## UX
 ### Goals
@@ -22,7 +22,7 @@ I used the below user stories to help plan my features:
 - As a user I want to be able to browse through recipes quickly and have key information easily displayed so I can choose a recipe to make.
 - As a baker, I want to share my recipes, so that other people can use them and track how popular they are.
 - As a baker, I want to be able to edit or delete my own recipes, so that they can be updated as I keep perfecting them.
-- As a frequent baker, I want to be able to save and unsave my favourite recipes so that I can easily find them again later. 
+- As a frequent baker, I want to be able to save and unsave my favourite recipes so that I can easily find them again later.
 - As a user I want to be able to contact the owner of the site in case of any questions.
 - As a frequent user of the site I want to be able to track my saved recipes, recipes I have submitted and have these associated to my account.
 - As a user I want to be able to view recipes in the same standard format with an easy to follow layout.
@@ -46,7 +46,7 @@ The initial wireframes can be viewed [here](https://github.com/kmaaallen/bake_bo
 #### Colours
 
 - I also wanted to use web-safe colours where possible to keep the user experience consistent between browsers.
-- Using color-hex.com/216-web-safe-colors/ I chose a web safe colour as my base. Dark green, #003333. I then used sessions,edu/color-calculator/ to generate a complimentary colour (a lighter green), #219E66. 
+- Using color-hex.com/216-web-safe-colors/ I chose a web safe colour as my base. Dark green, #003333. I then used sessions,edu/color-calculator/ to generate a complimentary colour (a lighter green), #219E66.
 - Using https://www.colortools.net/color_make_web-safe.html I converted this green into a web safe colour, #339966.
 - The rest of the palette is made up of two web safe greys and white.
 - To check that the colours had good contrast I used https://webaim.org/resources/contrastchecker/ to check which colours would work best together according to WCAG AA and WCAG AAA.
@@ -67,12 +67,12 @@ The initial wireframes can be viewed [here](https://github.com/kmaaallen/bake_bo
 - If the user IS logged in there will be four links to the right.
     - ‘Home’ will return the user to the homepage
     - ‘About’ will take the user to the About page
-    - ‘Submit a recipe’ will take the user to the Submit a Recipe page. This link is included in the main navigation as it is a key feature of the site and one users would commonly used.
+    - ‘Submit a recipe’ will take the user to the Submit a Recipe page. This link is included in the main navigation as it is a key feature of the site and one users would commonly use.
     - ‘Username’. This is a dropdown (denoted by the small, downward pointing arrow) and is dynamic. It will display the logged in user’s username. The dropdown menu links are grouped together as actions that are associated with the user’s profile. On clicking the dropdown menu will appear with the following items:
 
-- 'My Recipes’ which takes the user to the My Recipes page.
-- ‘My Saved Recipes’ which takes the user to the My Saved Recipes site.
-- ‘Logout’ which ends the user session and redirected the now logged out user to the homepage.
+        - 'My Recipes’ which takes the user to the My Recipes page.
+        - ‘My Saved Recipes’ which takes the user to the My Saved Recipes site.
+        - ‘Logout’ which ends the user session and redirected the now logged out user to the homepage.
 
 ##### Mobile Navbar (Mobile)
 
@@ -104,7 +104,7 @@ All links in the navigation bars change colour from white to dark green (as per 
     - If the user enters no words into the search bar and hits the search button OR if a user enters keywords but there are no matches a ‘Sorry that search returned no results’ alert message appears at the top of the screen.
 
 - Recipe cards
-    - Each recipe is displayed in a common format in the form of cards. 
+    - Each recipe is displayed in a common format in the form of cards.
     - The cards have an image at the top which is formatted to be the same size, with no overlap and without any image skewing.
     - Underneath, in large text is the recipe title and slightly smaller text the recipe sub-title for easy viewing.
     - Users can quickly assess the image, title and sub-title when scrolling through the recipes.
@@ -112,7 +112,7 @@ All links in the navigation bars change colour from white to dark green (as per 
 
 - About Page
     - Jumbotron header image to visually break up the page
-    
+
 - Contact details
     - For the purposes of this project I have created an email address. When a user clicks on the email address link it will open their default email programme with the ‘to’ field already filled out to the site’s address ‘bakebooksite@gmail.com’. When a user composes and sends an email to this account it will be received at the site account.
 
@@ -231,7 +231,7 @@ Library used to work with MongoDB from Python:[https://api.mongodb.com/python/cu
 
 #### WTForms
 Library used to create, render and validate forms with Python:[https://wtforms.readthedocs.io/en/stable/](https://wtforms.readthedocs.io/en/stable/)
-	
+
 #### Google Fonts and icons
 Main theme font "Roboto" and the logo font “Courgette” were imported from Google fonts:[https://fonts.google.com/](https://fonts.google.com/)
 Icons were taken from Materialize framework site:[https://materializecss.com/icons.html](https://materializecss.com/icons.html)
@@ -262,7 +262,7 @@ The online generator tool is available at: [https://www.favicongenerator.com/](h
 MongoDB Atlas was used as the database for this project :[https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
 
 ## Testing
-For this project I opted to carry out detailed and thorough manual testing as the baseline. My reasoning behind this was that the success of this website would depend on a good user experience to keep users coming back. By documenting and carrying out extensive manual testing I can more easily replicate the user experience.    
+For this project I opted to carry out detailed and thorough manual testing as the baseline. My reasoning behind this was that the success of this website would depend on a good user experience to keep users coming back. By documenting and carrying out extensive manual testing I can more easily replicate the user experience.
 
 Please see full manual test script and connectivity test outline here : [Manual Testing Documentation](https://github.com/kmaaallen/bake_book/tree/master/testing/manualTesting)
 
@@ -308,7 +308,7 @@ I have included a test.py file available here which contains a few simple tests 
     - *This would be TRUE whilst developing the project
 
 - In order to deploy to Heroku you need to make sure your project has a requirements.txt file
-- Create by running the following command in your terminal: 
+- Create by running the following command in your terminal:
  > pip freeze –local  > requirements.txt
 - You will also need a Procfile
     - Create by running the following command in your terminal:
