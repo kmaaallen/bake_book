@@ -235,6 +235,7 @@ Library used to create, render and validate forms with Python:[https://wtforms.r
 
 #### Google Fonts and icons
 Main theme font "Roboto" and the logo font “Courgette” were imported from Google fonts:[https://fonts.google.com/](https://fonts.google.com/)
+
 Icons were taken from Materialize framework site:[https://materializecss.com/icons.html](https://materializecss.com/icons.html)
 
 ### Frameworks
