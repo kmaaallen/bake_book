@@ -9,9 +9,13 @@
                     <p class="card-text">Created by : {{recipes.created_by}}</p>
                     <p class="card-text"><i class="material-icons icon-star">star</i>{{recipes.save_count}} user(s) have saved this recipe</p>
                 </div>
+                <div>
                 {% if session %}
-                <a class="btn btn-sm save-btn recipecard-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}">Save Recipe</a> {% if recipes.created_by == session['username'] %}
-                <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn btn-sm save-btn recipecard-btn">Edit Recipe</a> {% endif %} {% endif %}
+                <a class="btn btn-sm save-btn recipecard-btn" href="{{url_for('save_recipe', recipe_id=recipes._id)}}">Save Recipe</a>
+                {% if recipes.created_by == session['username'] %}
+                <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn btn-sm save-btn recipecard-btn">Edit Recipe</a>
+                {% endif %} {% endif %}
+                </div>
             </div>
 
         </div>
