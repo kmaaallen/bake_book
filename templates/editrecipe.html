@@ -11,10 +11,10 @@
         {{ form.recipe_title }}
         </div>
         <div>
-        {{ form.sub_title.label }} 
+        {{ form.sub_title.label }}
         </div>
          <div class="input-div-width">
-        {{ form.sub_title }} 
+        {{ form.sub_title }}
         </div>
         <div>
         {{ form.recipe_url.label }}
@@ -28,26 +28,26 @@
        {{ form.makes.label }}
         </div>
         <div class="input-div-width">
-        {{ form.makes(placeholder = "How many/much does this recipe make?") }} 
+        {{ form.makes(placeholder = "How many/much does this recipe make?") }}
         </div>
         <div>
-        {{ form.takes.label }} 
+        {{ form.takes.label }}
         </div>
          <div class="input-div-width">
         {{ form.takes(placeholder = "How long does this recipe take to make?") }}
         </div>
-        {{ form.ingredients.label }} 
+        {{ form.ingredients.label }}
         <p class="helper-text">Click the plus symbol to add more ingredients</p>
         <div id="ingredients" class="input-div-width">
             {% for ingredient in form.ingredients.data %}
-            <div><input required type='text' value='{{ingredient}}' class='ingredients' name='ingredients'/><a class="btn add-btn" onClick="addIngredient()"><i class="material-icons">add</i></a></div>
+            <div><input required type='text' value='{{ingredient}}' class='ingredients' name='ingredients'/><a class='btn add-btn' onClick='removeInput(this)'><i class='material-icons del-btn-ing'>delete</i></a><a class="btn add-btn" onClick="addIngredient()"><i class="material-icons">add</i></a></div>
             {% endfor %}
         </div>
-        {{ form.method.label }} 
+        {{ form.method.label }}
         <p class="helper-text">Click the plus symbol to add more instructions</p>
         <div id="method" class="input-div-width">
             {% for step in form.method.data %}
-            <div><textarea class='method' name='method'>{{step}}</textarea><a class="btn add-btn textarea-add-btn" onClick="addStep()"><i class="material-icons">add</i></a></div>
+            <div><textarea class='method' name='method'>{{step}}</textarea><a class='btn add-btn' onClick='removeInput(this)'><i class='material-icons del-btn-ing'>delete</i></a><a class="btn add-btn textarea-add-btn" onClick="addStep()"><i class="material-icons">add</i></a></div>
             {% endfor %}
         </div>
         <button class="btn btn-sm save-btn" type="submit">Edit Recipe</button>
