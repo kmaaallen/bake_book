@@ -266,6 +266,9 @@ MongoDB Atlas was used as the database for this project :[https://www.mongodb.co
 ## Testing
 For this project I opted to carry out detailed and thorough manual testing as the baseline. My reasoning behind this was that the success of this website would depend on a good user experience to keep users coming back. By documenting and carrying out extensive manual testing I can more easily replicate the user experience.
 
+### Manual Testing
+I completed manual testing for site responsiveness on mobile and laptop using my own devices (both a pc and a mac).
+The majority of my testing was carried out on Google Chrome (my main web browser), however website appearance and functionality was then checked in other browsers (Internet explorer, safari and edge, and utilising the mobile responsiveness testing in chromes inspector tools).
 Please see full manual test script and connectivity test outline here : [Manual Testing Documentation](https://github.com/kmaaallen/bake_book/tree/master/testing/manualTesting)
 
 ### Automated testing
