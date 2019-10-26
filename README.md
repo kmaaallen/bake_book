@@ -1,7 +1,7 @@
 # Bakebook
 Bakebook is a recipe sharing site designed to allow users to contribute baking recipes with the community.
 
-It can be viewed [here]("https://bake-book-milestone.herokuapp.com/).
+It can be viewed [here](https://bake-book-milestone.herokuapp.com/).
 
 New bakers can search through the content to gain inspiration and try new recipes whilst more experienced can submit recipes for users to try.
 Users can view all recipes without logging in or signing up.
@@ -332,10 +332,10 @@ I have included a test.py file available here which contains a few simple tests 
 ## Credits
 ### Content
 Recipes used to populate the site were taken from BBC Good Food website and from family and friends.
-For a comprehensive list of these sources please view the resources documentation, available [here](https://github.com/kmaaallen/bake_book/blob/master/resources.md)
+For a comprehensive list of these sources please view the resources documentation, available [here](https://github.com/kmaaallen/bake_book/blob/master/documentation/resources.md)
 
 ### Media
 The photos used in this site were obtained from google, using an advanced image search, searching for images that were free to use and modify, even commercially. For a full list of source images please view the resources document, available [here](https://github.com/kmaaallen/bake_book/blob/master/resources)
 
 ## Acknowledgements
-Code snippets that have been sourced from elsewhere are documented in my project by comments and in the resources documentation [here](https://github.com/kmaaallen/bake_book/blob/master/resources.md)
+Code snippets that have been sourced from elsewhere are documented in my project by comments and in the resources documentation [here](https://github.com/kmaaallen/bake_book/blob/master/documentation/resources.md)
