@@ -18,6 +18,12 @@ mongo = PyMongo(app)
 def password_check(password, db_password):
     return bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8'))
 
+def check_saved_number(recipe_id):
+    mongo.db.users.find().forEach(function(recipe_id) {
+        for 
+        
+    } );
+
 """ Routes """
 
 @app.route('/')
@@ -104,6 +110,7 @@ def save_recipe(recipe_id):
         """Check recipe is not already saved"""
         if recipe not in saved:
             mongo.db.users.update_one({'user': session['username']}, {"$push": {"saved_recipes": recipe}})
+            mongo.db.recipes.update{ { '_id': recipe }, {$inc: { 'save_count': 1} }
             flash("Recipe has been saved")
         else:
             flash("You have already saved this recipe")
@@ -128,6 +135,7 @@ def unsave_recipe(recipe_id):
         user = mongo.db.users.find_one({'user': session['username']})
         """ Remove recipe from saved_recipes array in db """
         mongo.db.users.update_one({'user': session['username']}, {"$pull": {"saved_recipes": ObjectId(recipe_id)}})
+        mongo.db.recipes.update{ { '_id': ObjectId(recipe_id) }, {$inc: { 'save_count': -1} }
         return redirect(url_for('my_saved_recipes'))
     return render_template('404error.html')
 
@@ -156,7 +164,8 @@ def submit_recipe():
                 'ingredients': flat_form['ingredients'],
                 'method': flat_form['method'],
                 'created_by': session['username'],
-                'recipe_url': recipe_url
+                'recipe_url': recipe_url,
+                'save_count': 0
                 })
             return redirect(url_for('recipe_card',
                             recipe_id=new_recipe.inserted_id))
@@ -232,4 +241,4 @@ def search_results():
 
 
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=False)
+    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
