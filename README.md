@@ -118,8 +118,9 @@ All links in the navigation bars change colour from white to dark green (as per 
 
 - Full recipe view (presented when a user clicks on a ‘View Recipe’ button anywhere within the site)
     - Recipe image on left of screen at larger screen sizes and at top of screen at smaller screen sizes.
-    - The recipe image is displayed again in a card format for consistency but is styled to take up half of the screen width and will no border to give it a better look. This is responsive and will become narrower (without becoming skewed/squashed) when the screen is made smaller.
+    - The recipe image is displayed again in a card format for consistency but is styled to take up half of the screen width and with no border to give it a better look. This is responsive and will become narrower (without becoming skewed/squashed) when the screen is made smaller.
     - Underneath the recipe image is a caption showing the recipe creator’s username.
+    - Underneath that is a star icon with the number of users who have saved this particular recipe.
     - At smaller screen sizes the recipe image displays at the top of the screen so as to be eye catching and draw the user in to the recipe below.
     - Save Button
 
