@@ -264,14 +264,14 @@ MongoDB Atlas was used as the database for this project :[https://www.mongodb.co
 ## Testing
 For this project I opted to carry out detailed and thorough manual testing as the baseline. My reasoning behind this was that the success of this website would depend on a good user experience to keep users coming back. By documenting and carrying out extensive manual testing I can more easily replicate the user experience.    
 
-Please see full manual test script and connectivity test outline here : [Manual Testing Documentation](https://github.com/kmaaallen/bake_book/tree/master/Testing/manualTesting)
+Please see full manual test script and connectivity test outline here : [Manual Testing Documentation](https://github.com/kmaaallen/bake_book/tree/master/testing/manualTesting)
 
 ### Automated testing
 I used Jasmine to carry out automated testing on my Javascript functions.
 
-HTML index page to run tests from can be viewed here:[https://github.com/kmaaallen/bake_book/blob/master/Testing/jasmine/index.html](https://github.com/kmaaallen/bake_book/blob/master/Testing/jasmine/index.html)
+HTML index page to run tests from can be viewed here:[https://github.com/kmaaallen/bake_book/blob/master/testing/jasmine/index.html](https://github.com/kmaaallen/bake_book/blob/master/Testing/jasmine/index.html)
 
-The test specifications can be viewed here:[https://github.com/kmaaallen/bake_book/tree/master/Testing/jasmine/spec](https://github.com/kmaaallen/bake_book/tree/master/Testing/jasmine/spec)
+The test specifications can be viewed here:[https://github.com/kmaaallen/bake_book/tree/master/testing/jasmine/spec](https://github.com/kmaaallen/bake_book/tree/master/Testing/jasmine/spec)
 
 #### What was tested:
 - addIngredient() function that adds an extra ingredient input when plus button clicked
