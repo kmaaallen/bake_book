@@ -1,4 +1,4 @@
-//Helper functions 
+//Helper functions
 function clickFirstAddBtn(){
     document.getElementsByClassName('add-btn')[0].click();
 }
@@ -88,23 +88,4 @@ describe("should call show preview functions if preview fields present", functio
     });
 });
 
-describe("should call show preview functions when recipe_url field changes", function(){
-    beforeEach(function(){
-        window.document.getElementById('recipe_url').value = "test";
-    });
-    it("should call showEditPreview if recipe_url changes", function(){
-        spyOn(window, 'showEditPreview');
-        onReady();
-        window.document.getElementById('recipe_url').value = "testing";
-        expect(window.showEditPreview).toHaveBeenCalled();
-        expect(window.showEditPreview.calls.count()).toEqual(2);
-    });
-    it("should call showSubmitPreview if recipe_url changes", function(){
-        spyOn(window, 'showSubmitPreview');
-        onReadyReversed();
-        window.document.getElementById('recipe_url').value = "testing";
-        expect(window.showSubmitPreview).toHaveBeenCalled();
-        expect(window.showSubmitPreview.calls.count()).toEqual(2);
-    });
-});
 
