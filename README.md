@@ -125,9 +125,9 @@ All links in the navigation bars change colour from white to dark green (as per 
     - Save Button
 
 - The save button will only display if the user is logged in.
-- It is a contrasting dark green (from the colour scheme) for prominence and is as wide as the recipe card again for prominence. This will always be underneath the recipe credit (created by).
-- When a user saves a recipe a message will pop up at the top of the screen saying ‘Recipe has been saved’.
-- If the user has already saved this recipe a message will flash up on the screen saying ‘You have already saved this recipe’.
+    - It is a contrasting dark green (from the colour scheme) for prominence and is as wide as the recipe card again for prominence. This will always be underneath the recipe credit (created by).
+    - When a user saves a recipe a message will pop up at the top of the screen saying ‘Recipe has been saved’.
+    - If the user has already saved this recipe a message will flash up on the screen saying ‘You have already saved this recipe’.
 
 - Edit button
     - The edit button is styled to match the save button and is only visible if a user is logged in and the recipe they are viewing has been created by the logged in user.
@@ -147,7 +147,7 @@ All links in the navigation bars change colour from white to dark green (as per 
 ##### My Saved Recipes
 - If the user has not saved any recipes yet they see a message “You haven't saved any recipes yet. Browse the collection here.” Where ‘here’ is a link to the homepage.
 - If the user has saved recipes those recipes are displayed in the same format as on the homepage.
-- On each recipe card the user also has the option to ‘unsave’ the recipe using the unsave button. Clicking this refreshes the page and the unsaved recipe is removed.
+- On each recipe card the user also has the option to ‘unsave’ the recipe using the unsave button. Clicking this refreshes the page and the unsaved recipe is removed. This will also decrease that recipe's save count by one.
 
 ##### Login page
 - I created a login form with a basic username and password functionality.
