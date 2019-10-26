@@ -202,6 +202,10 @@ a:not([href]):not([tabindex]) {
     height: 60px;
 }
 
+.star{
+    color: gold;
+}
+
 /* Submit / Edit  recipe form styling */
 
 .helper-text{
