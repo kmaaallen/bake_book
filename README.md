@@ -296,7 +296,7 @@ I have included a test.py file available here which contains a few simple tests 
 
 ## Deployment
 ### How to deploy this project to Heroku
-1. Go to the Heroku website (https://id.heroku.com/login)and login to your account.
+1. Go to the Heroku website (https://id.heroku.com/login) and login to your account.
 2. Create a new application by clicking “New” in your dashboard. Name this app and set the region to Europe.
 3. Configure the deployment option for your app to be direct from GitHub and link to your repository containing the project code.
 4. Set configuration variables in Heroku by going to the ‘settings’ section of your application. Set them as follows:
@@ -318,16 +318,18 @@ I have included a test.py file available here which contains a few simple tests 
 - Add, commit and push those additions to your GitHub repo
 
 ### How to run this project locally
-- To run this project locally you will need the following installed on your machine:
+- To run this project locally you will need the following installed:
     - Python
     - Git
     - Pip
 - As well as an account for MongoDB Atlas (you can set one of these up at: https://www.mongodb.com/cloud/atlas) which is running locally
-- Open the command prompt on your computer
+- You will need to create your own database to link to. Call it 'bakingBookRecipes' and create two collections, one called 'recipes' and one called 'users' in order to use the functionality in this project.
+- Open the command prompt / terminal on your computer
 - Go to https://github.com/kmaaallen/bake_book and download the repository and unzip the file.
 - Navigate to the working directory where the downloaded code is stored using the ‘cd’ command in command prompt or by opening the command prompt directly from the downloaded file in finder (mac) or windows explorer.
 - Ensure all modules are imported from requirements.txt file using the following command:
-> pip install -r requirements.txt (Python 2), or pip3 install -r requirements.txt
+> pip install -r requirements.txt (Python 2), or pip3 install -r requirements.txt (Python3)
+- Create an environment variable for your SECRET_KEY and connect to your database using a MONGO_URI.
 - To run the project use the following command:
 > Python app.py
 
