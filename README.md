@@ -271,9 +271,9 @@ Please see full manual test script and connectivity test outline here : [Manual 
 ### Automated testing
 I used Jasmine to carry out automated testing on my Javascript functions.
 
-HTML index page to run tests from can be viewed here:[https://github.com/kmaaallen/bake_book/blob/master/testing/jasmine/index.html](https://github.com/kmaaallen/bake_book/blob/master/Testing/jasmine/index.html)
+HTML index page to run tests from can be viewed here:[https://github.com/kmaaallen/bake_book/blob/master/testing/jasmine/index.html](https://github.com/kmaaallen/bake_book/blob/master/testing/jasmine/index.html)
 
-The test specifications can be viewed here:[https://github.com/kmaaallen/bake_book/tree/master/testing/jasmine/spec](https://github.com/kmaaallen/bake_book/tree/master/Testing/jasmine/spec)
+The test specifications can be viewed here:[https://github.com/kmaaallen/bake_book/tree/master/testing/jasmine/spec](https://github.com/kmaaallen/bake_book/tree/master/testing/jasmine/spec)
 
 #### What was tested:
 - addIngredient() function that adds an extra ingredient input when plus button clicked
