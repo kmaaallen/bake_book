@@ -182,6 +182,7 @@ a:not([href]):not([tabindex]) {
     color:#ffffff;
     margin-top:30px;
 }
+
 .btn:focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem #cccccc;
@@ -317,9 +318,9 @@ textarea {
     .main-nav{
         display:none;
     }
-    .recipecard-text {
-    margin-bottom: 30px;
-}
+    .btn.save-btn{
+    margin-top:60px;
+    }
 }
 @media (min-width:992px) {
     .extra-input {
