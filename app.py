@@ -149,13 +149,14 @@ def submit_recipe():
             default_img_url = '/static/images/default.png'
             input_img_url = request.form['recipe_url']
 
-            image_formats = ("image/png", "image/jpeg", "image/jpg")
-            url = input_img_url
-            site = urlopen(url)
-            meta = site.info()  # get header of the http request
-            if meta["content-type"] in image_formats:  # check if the content-type is a image
-                recipe_url = input_img_url
+            try:
+                f = urllib2.urlopen(urllib2.Request(url))
+                deadLinkFound = False
+            except:
+                deadLinkFound = True
 
+            if deadLinkFound:
+                recipe_url = input_img_url
 
             #if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
              #   recipe_url = input_img_url
