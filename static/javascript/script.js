@@ -34,10 +34,12 @@
    document.getElementById("recipe_url").value.toLowerCase().endsWith('.jpeg') ||
    document.getElementById("recipe_url").value.toLowerCase().endsWith('.png')
   ) {
-   document.getElementById('submit-preview').src = new_url;
+    document.getElementById("invalid-message").innerHTML = '';
+    document.getElementById('submit-preview').src = new_url;
   }
   else {
-   document.getElementById('submit-preview').src = "/static/images/default.png";
+    document.getElementById("invalid-message").innerHTML = '';
+    document.getElementById('submit-preview').src = "/static/images/default.png";
   }
  }
 
@@ -57,8 +59,9 @@
 
  // if recipe url invalid
  function invalidUrl(){
-  var str = "That URL is invalid. Please submit a valid image URL or leave field blank to use default image";
-  var result = str.blink();
-  document.getElementById("invalid-message").innerHTML = result;
+    this.src = "static/images/default/png";
+    var str = "That URL is invalid. Please submit a valid image URL or leave field blank to use default image";
+    var result = str.blink();
+    document.getElementById("invalid-message").innerHTML = result;
 }
 
