@@ -5,7 +5,7 @@ from flask import Flask, flash, render_template, redirect, request, url_for, \
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from urllib.request import urlopen
+import urllib2
 
 
 app = Flask(__name__)
@@ -19,6 +19,15 @@ mongo = PyMongo(app)
 """ Helper Functions """
 def password_check(password, db_password):
     return bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8'))
+
+def file_exists(url):
+    request = urllib2.Request(url)
+    request.get_method = lambda : 'HEAD'
+    try:
+        response = urllib2.urlopen(request)
+        return True
+    except:
+        return False
 
 """ Routes """
 
@@ -149,10 +158,8 @@ def submit_recipe():
             default_img_url = '/static/images/default.png'
             input_img_url = request.form['recipe_url']
             if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
-                if urllib.urlopen(input_img_url).code == 200:
+                if file_exists(input_img_url):
                     recipe_url = input_img_url
-                else:
-                    recipe_url = default_img_url
             #if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
              #   recipe_url = input_img_url
             else:
