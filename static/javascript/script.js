@@ -58,8 +58,8 @@
  }
 
  // if recipe url invalid
- function invalidUrl(this){
-    this.src = "static/images/default/png";
+ function invalidUrl(preview){
+    document.getElementById(preview).src = "static/images/default/png";
     var str = "That URL is invalid. Please submit a valid image URL or leave field blank to use default image";
     document.getElementById("invalid-message").innerHTML = str;
 }
