@@ -275,12 +275,14 @@ Please see full manual test script and connectivity test outline here : [Manual 
 When a user submits or edits a recipe, there is an image preview.
 When a user enters an invalid url that ends with .png, .jpeg or .jpg it is still treated as a valid URL by the preview functions and accordingly the image preview itself changes to the 'image not found' standard icon.
 A 404 error is also raised in the console.
-After trying for several days to remove this bug I have not yet hit upon a solution.
+However, when the user goes to edit or submit the recipe this invalid url is captured by the form validator and the user cannot submit the form with it.
+After trying for several days to remove this bug I have not yet hit upon a solution to prevent errors being thrown.
 
 In the interests of time, I decided to do the following to mitigate its impact on the user experience:
 - Add an 'onerror' attribute to the image tags in submit and edit templates so invalid urls raising a 404 change the image source to the default image.
     - This prevents the user seeing the bag image icon
 - Customise the invalid url message thrown when a user tries to submit/edit a recipe with an invalid url in the recipe url input.
+    - This tells the user their image url is invalid and what to do to fix it.
 
 ### Automated testing
 I used Jasmine to carry out automated testing on my Javascript functions.
