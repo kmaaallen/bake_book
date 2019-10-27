@@ -156,12 +156,12 @@ def submit_recipe():
                 deadLinkFound = True
 
             if deadLinkFound:
-                recipe_url = input_img_url
+                recipe_url = default_img_url
 
             #if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
              #   recipe_url = input_img_url
             else:
-                recipe_url = default_img_url
+                recipe_url = input_img_url
             new_recipe = recipes.insert_one({
                 'recipe_title': form_normal['recipe_title'],
                 'sub_title': form_normal['sub_title'],
