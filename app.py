@@ -150,7 +150,7 @@ def submit_recipe():
             input_img_url = request.form['recipe_url']
 
             try:
-                f = urllib.urlopen(urllib.Request(url))
+                f = urllib.urlopen(urllib.Request(input_img_url))
                 deadLinkFound = False
             except:
                 deadLinkFound = True
