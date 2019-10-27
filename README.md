@@ -281,8 +281,9 @@ After trying for several days to remove this bug I have not yet hit upon a solut
 In the interests of time, I decided to do the following to mitigate its impact on the user experience:
 - Add an 'onerror' attribute to the image tags in submit and edit templates so invalid urls raising a 404 change the image source to the default image.
     - This prevents the user seeing the bag image icon
-- Customise the invalid url message thrown when a user tries to submit/edit a recipe with an invalid url in the recipe url input.
+- Add a custom message that shows when a user tries to submit/edit a recipe with an invalid url in the recipe url input.
     - This tells the user their image url is invalid and what to do to fix it.
+    - This message will disappear when the user removes the invalid url or updates it with a valid one.
 
 ### Automated testing
 I used Jasmine to carry out automated testing on my Javascript functions.
