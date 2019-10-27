@@ -5,7 +5,6 @@ from flask import Flask, flash, render_template, redirect, request, url_for, \
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-import urllib2
 from urllib.request import urlopen
 
 
@@ -151,7 +150,7 @@ def submit_recipe():
             input_img_url = request.form['recipe_url']
 
             try:
-                f = urllib2.urlopen(urllib2.Request(url))
+                f = urllib.urlopen(urllib.Request(url))
                 deadLinkFound = False
             except:
                 deadLinkFound = True
