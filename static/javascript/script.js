@@ -61,7 +61,6 @@
  function invalidUrl(){
     this.src = "static/images/default/png";
     var str = "That URL is invalid. Please submit a valid image URL or leave field blank to use default image";
-    var result = str.blink();
-    document.getElementById("invalid-message").innerHTML = result;
+    document.getElementById("invalid-message").innerHTML = str;
 }
 
