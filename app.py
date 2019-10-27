@@ -21,13 +21,8 @@ def password_check(password, db_password):
     return bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8'))
 
 def file_exists(url):
-    request = urllib.request.Request(url)
-    request.get_method = lambda : 'HEAD'
-    try:
-        response = urllib.request.urlopen(request)
+    if urllib.urlopen(url).code == 200:
         return True
-    except:
-        return False
 
 """ Routes """
 
