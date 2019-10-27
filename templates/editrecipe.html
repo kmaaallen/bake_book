@@ -18,12 +18,12 @@
         </div>
         <div>
         {{ form.recipe_url.label }}
-        <p class="helper-text">Please make sure the URL ends with 'png', 'jpg' or 'jpeg' or it will be replaced with the default image.</p>
+        <p class="helper-text">Please make sure the URL is valid and ends with 'png', 'jpg' or 'jpeg' or it will be replaced with the default image.</p>
         </div>
         <div class="input-div-width">
         {{ form.recipe_url}}
         </div>
-        <img class="preview-image" id="edit-preview" alt="Recipe Image Preview" src="">
+        <img class="preview-image" id="edit-preview" alt="Recipe Image Preview" src="" onerror="this.onerror=null; invalidUrl(this);">
         <div>
        {{ form.makes.label }}
         </div>
