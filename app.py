@@ -5,7 +5,7 @@ from flask import Flask, flash, render_template, redirect, request, url_for, \
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-import urllib2
+from urllib.request import urlopen
 
 
 app = Flask(__name__)
@@ -21,10 +21,10 @@ def password_check(password, db_password):
     return bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8'))
 
 def file_exists(url):
-    request = urllib2.Request(url)
+    request = urllib.request.Request(url)
     request.get_method = lambda : 'HEAD'
     try:
-        response = urllib2.urlopen(request)
+        response = urllib.request.urlopen(request)
         return True
     except:
         return False
