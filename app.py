@@ -5,6 +5,7 @@ from flask import Flask, flash, render_template, redirect, request, url_for, \
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import urllib
 from urllib.request import urlopen
 
 
@@ -21,7 +22,7 @@ def password_check(password, db_password):
     return bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8'))
 
 def file_exists(url):
-    if urllib.urlopen(url).code == 200:
+    if urlopen(url).code == 200:
         return True
 
 """ Routes """
