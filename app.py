@@ -19,6 +19,9 @@ mongo = PyMongo(app)
 def password_check(password, db_password):
     return bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8'))
 
+def invalid_url():
+    flash('That URL is invalid. Please submit a valid image URL or leave field blank to use default image')
+
 """ Routes """
 
 @app.route('/')

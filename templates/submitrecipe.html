@@ -18,13 +18,13 @@
         </div>
          <div>
         {{ form.recipe_url.label }}
-        <p class="helper-text">Please make sure the URL ends with 'png', 'jpg' or 'jpeg' or it will be replaced with the default image.</p>
+        <p class="helper-text">Please make sure the URL is valid and ends with 'png', 'jpg' or 'jpeg' or it will be replaced with the default image.</p>
         </div>
         <div class="input-div-width">
         {{ form.recipe_url(placeholder = "Please paste in the URL of the image")}}
         </div>
          <div>
-        <img class="submit-preview-image" id="submit-preview" src="/static/images/default.png" alt="Recipe Image"/>
+        <img class="submit-preview-image" id="submit-preview" src="/static/images/default.png" alt="Recipe Image" onerror="this.src='static/images/default.png';invalid_url();"/>
         </div>
         <div>
         {{ form.makes.label }}
