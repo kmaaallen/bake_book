@@ -154,7 +154,7 @@ def submit_recipe():
             site = urlopen(url)
             meta = site.info()  # get header of the http request
             if meta["content-type"] in image_formats:  # check if the content-type is a image
-            recipe_url = input_img_url
+                recipe_url = input_img_url
 
 
             #if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
