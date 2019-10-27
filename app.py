@@ -157,7 +157,7 @@ def submit_recipe():
             default_img_url = '/static/images/default.png'
             input_img_url = request.form['recipe_url']
             if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
-                if file_exists(input_img_url):
+                if (urlopen(input_img_url).code == 200):
                     recipe_url = input_img_url
             #if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
              #   recipe_url = input_img_url
