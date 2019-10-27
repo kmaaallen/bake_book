@@ -158,10 +158,15 @@ def submit_recipe():
             input_img_url = request.form['recipe_url']
             if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
                 if (urlopen(input_img_url).code == 200):
+                    flash('made it to code is 200')
                     recipe_url = input_img_url
             #if input_img_url != '' and input_img_url.lower().endswith(('.png', '.jpg', '.jpeg')):
              #   recipe_url = input_img_url
+                else:
+                    flash('made it to code is NOT 200')
+                    recipe_url = default_img_url
             else:
+                flash('no jpge')
                 recipe_url = default_img_url
             new_recipe = recipes.insert_one({
                 'recipe_title': form_normal['recipe_title'],
