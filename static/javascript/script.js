@@ -57,5 +57,8 @@
 
  // if recipe url invalid
  function invalidUrl(){
-    alert("That URL is invalid. Please submit a valid image URL or leave field blank to use default image");
+  var str = "That URL is invalid. Please submit a valid image URL or leave field blank to use default image";
+  var result = str.blink();
+  document.getElementById("invalid-message").innerHTML = result;
 }
+
