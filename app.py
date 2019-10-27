@@ -5,6 +5,7 @@ from flask import Flask, flash, render_template, redirect, request, url_for, \
 from forms.forms import AddRecipeForm, LoginForm, SignupForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import urllib2
 from urllib.request import urlopen
 
 
