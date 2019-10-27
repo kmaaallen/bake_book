@@ -22,8 +22,11 @@ def password_check(password, db_password):
     return bcrypt.checkpw(password.encode('utf-8'), db_password.encode('utf-8'))
 
 def file_exists(url):
+    flash('reaching function')
     if urlopen(url).code == 200:
+        flash('reaching function 2')
         return True
+
 
 """ Routes """
 
