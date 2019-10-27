@@ -20,10 +20,12 @@
    document.getElementById("recipe_url").value.toLowerCase().endsWith('.jpg') ||
    document.getElementById("recipe_url").value.toLowerCase().endsWith('.jpeg') ||
    document.getElementById("recipe_url").value.toLowerCase().endsWith('.png')) {
-   document.getElementById('edit-preview').src = new_url;
+    document.getElementById("invalid-message").innerHTML = '';
+    document.getElementById('edit-preview').src = new_url;
   }
   else {
-   document.getElementById('edit-preview').src = '/static/images/default.png';
+    document.getElementById("invalid-message").innerHTML = '';
+    document.getElementById('edit-preview').src = '/static/images/default.png';
   }
  }
 
