@@ -54,3 +54,8 @@
    document.getElementById('recipe_url').addEventListener('change', showSubmitPreview);
   }
  }
+
+ // if recipe url invalid
+ function invalidUrl(){
+    alert("That URL is invalid. Please submit a valid image URL or leave field blank to use default image");
+}
