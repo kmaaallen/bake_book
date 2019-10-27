@@ -271,6 +271,17 @@ I completed manual testing for site responsiveness on mobile and laptop using my
 The majority of my testing was carried out on Google Chrome (my main web browser), however website appearance and functionality was then checked in other browsers (Internet explorer, safari and edge, and utilising the mobile responsiveness testing in chromes inspector tools).
 Please see full manual test script and connectivity test outline here : [Manual Testing Documentation](https://github.com/kmaaallen/bake_book/tree/master/testing/manualTesting)
 
+#### Interesting bugs / bugs not fixed
+When a user submits or edits a recipe, there is an image preview.
+When a user enters an invalid url that ends with .png, .jpeg or .jpg it is still treated as a valid URL by the preview functions and accordingly the image preview itself changes to the 'image not found' standard icon.
+A 404 error is also raised in the console.
+After trying for several days to remove this bug I have not yet hit upon a solution.
+
+In the interests of time, I decided to do the following to mitigate its impact on the user experience:
+- Add an 'onerror' attribute to the image tags in submit and edit templates so invalid urls raising a 404 change the image source to the default image.
+    - This prevents the user seeing the bag image icon
+- Customise the invalid url message thrown when a user tries to submit/edit a recipe with an invalid url in the recipe url input.
+
 ### Automated testing
 I used Jasmine to carry out automated testing on my Javascript functions.
 
