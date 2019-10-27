@@ -25,7 +25,7 @@
         <p class="helper-text" id="invalid-message"></p>
         </div>
          <div>
-        <img class="submit-preview-image" id="submit-preview" src="/static/images/default.png" alt="Recipe Image" onerror="this.onerror=null; invalidUrl('submit-preview');"/>
+        <img class="submit-preview-image" id="submit-preview" src="/static/images/default.png" alt="Recipe Image" onerror="invalidUrl('submit-preview');"/>
         </div>
         <div>
         {{ form.makes.label }}
