@@ -1,5 +1,5 @@
 astroid==1.6.6
-awscli==1.16.206
+awscli==1.44.38
 bcrypt==3.1.7
 boto3==1.9.228
 botocore==1.12.228
